@@ -39,7 +39,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         className={cn(
           buttonVariants({ variant, size, className }),
-          'hover:opacity-50 duration-700' // Adicionando o efeito de hover padrão
+          'hover:opacity-50 duration-700'
         )}
         ref={ref}
         {...props}
