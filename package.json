@@ -1,5 +1,5 @@
 {
-  "name": "@zt/zt-ui",
+  "name": "@v0up3r/zt-ui",
   "private": false,
   "version": "0.0.0",
   "type": "module",
@@ -69,6 +69,7 @@
     ]
   },
   "dependencies": {
+    "@v0up3r/zt-ui": "file:",
     "@zt/zt-ui": "file:",
     "concurrently": "^9.0.1"
   }
