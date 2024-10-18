@@ -1,6 +1,6 @@
 {
   "name": "@v0up3r/zt-ui",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "private": false,
   "scripts": {
     "dev": "next dev",
@@ -57,7 +57,6 @@
   "files": [
     "app/globals.css",
     "app/components/*",
-    "setup.js",
     "tailwind.config.js"
   ]
 }
