@@ -1,9 +1,18 @@
+Aqui está uma versão multilíngue do seu `README` em **Português**, **Inglês**, e **Espanhol**, utilizando seções dobráveis com `<details>` para alternância clara entre idiomas:
+
+```markdown
+- [English](#english)  
+- [Português](#português)  
+- [Español](#español)  
+
+---
+
+<details>
+<summary>🇺🇸 English</summary>
 
 # ZT-UI Library - Next.js Component Library
 
 This project is a **Next.js library** providing a set of reusable UI components designed to enhance your application with minimal setup. To get started, follow the instructions below.
-
----
 
 ## Getting Started
 
@@ -11,7 +20,7 @@ This project is a **Next.js library** providing a set of reusable UI components 
 
 Make sure you have the following installed:
 
-- **Node.js** >= 16
+- **Node.js** >= 16  
 - **npm**, **yarn**, **pnpm**, or **bun**
 
 ### Installation
@@ -26,13 +35,11 @@ yarn add @v0up3r/zt-ui
 
 ### Configuration
 
-To integrate the library properly, you'll need to modify two configuration files:  
+Modify the following configuration files:  
 - **`tailwind.config.ts`**  
 - **`next.config.mjs`**
 
-#### 1. Tailwind Configuration (`tailwind.config.ts`)
-
-Add the following content to your `tailwind.config.ts` file to ensure that the library components are included in the build.
+#### Tailwind Configuration
 
 ```ts
 import type { Config } from "tailwindcss";
@@ -42,76 +49,29 @@ const config: Config = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@v0up3r/zt-ui/app/components/**/*.{js,ts,jsx,tsx,mdx}" // Include the library components
+    "./node_modules/@v0up3r/zt-ui/app/components/**/*.{js,ts,jsx,tsx,mdx}"
   ],
-  theme: {
-    extend: {},
-    },
-  },
+  theme: { extend: {} },
   plugins: [],
 };
 export default config;
 ```
 
-#### 2. Next.js Configuration (`next.config.mjs`)
-
-Make sure the library is transpiled by adding it to the `next.config.mjs` file:
+#### Next.js Configuration
 
 ```js
-/** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ['@v0up3r/zt-ui'], // Include the library here
+  transpilePackages: ['@v0up3r/zt-ui'],
 };
 
 export default nextConfig;
 ```
 
----
-
 ## Available Components
 
-Here is a list of the available components in the `@v0up3r/zt-ui` library:
-
-- **Divider**  
-  Used to separate sections or content visually.
-  
-- **Button**  
-  A versatile button with various styling options.
-
-- **Input**  
-  A customizable input field for user data.
-
-- **Table**  
-  Display tabular data with built-in styling.
-
-- **NavBar**  
-  Navigation bar for header menus and links.
-
-- **Avatar**  
-  A component to display user avatars or profile pictures.
-
-- **Switcher**  
-  Toggle switch component for dark/light mode or other on/off states.
-
-- **Checkbox**  
-  Customizable checkbox for forms and selections.
-
-- **Autocomplete**  
-  Input with autocomplete functionality for better user experience.
-
-- **Select**  
-  Dropdown component for selecting from multiple options.
-
-- **Card**  
-  A card layout component to display grouped content elegantly.
-
----
+- **Divider**, **Button**, **Input**, **Table**, **NavBar**, **Avatar**, **Switcher**, **Checkbox**, **Autocomplete**, **Select**, **Card**
 
 ## Usage Example
-
-Below is a basic example of how to import and use components from the library.
-
-### Button Component Example
 
 ```tsx
 import { Button } from '@v0up3r/zt-ui';
@@ -127,61 +87,220 @@ export default function HomePage() {
 }
 ```
 
-### NavBar Component Example
-
-```tsx
-import { NavBar } from '@v0up3r/zt-ui';
-
-const links = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
-];
-
-export default function Header() {
-  return <NavBar links={links} />;
-}
-```
-
 ---
 
 ## Development
 
-To run the development server:
-
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) to view the app in your browser. The page will automatically update as you edit the code.
-
----
-
-## Learn More
-
-- [Next.js Documentation](https://nextjs.org/docs) - Learn about Next.js features and API.
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs) - Learn how to style your project with Tailwind CSS.
-
----
-
-## Deploy on Vercel
-
-Deploy your app with the [Vercel Platform](https://vercel.com) in a few clicks. Refer to the [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
----
-
-## Contributing
-
-Contributions are welcome! If you encounter any bugs or have feature requests, please open an issue or submit a pull request on the [GitHub repository](https://github.com/v0up3r/zt-ui).
 
 ---
 
 ## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for more information.
+This project is licensed under the MIT License.
+</details>
+
+---
+
+<details>
+<summary>🇧🇷 Português</summary>
+
+# ZT-UI Library - Biblioteca de Componentes Next.js
+
+Este projeto é uma **biblioteca Next.js** com componentes reutilizáveis para melhorar sua aplicação com configuração mínima. Siga as instruções abaixo para começar.
+
+## Começando
+
+### Pré-requisitos
+
+Instale as seguintes dependências:
+
+- **Node.js** >= 16  
+- **npm**, **yarn**, **pnpm**, ou **bun**
+
+### Instalação
+
+Adicione a biblioteca ao seu projeto Next.js:
+
+```bash
+npm install @v0up3r/zt-ui
+# ou
+yarn add @v0up3r/zt-ui
+```
+
+### Configuração
+
+Modifique os seguintes arquivos:  
+- **`tailwind.config.ts`**  
+- **`next.config.mjs`**
+
+#### Configuração do Tailwind
+
+```ts
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@v0up3r/zt-ui/app/components/**/*.{js,ts,jsx,tsx,mdx}"
+  ],
+  theme: { extend: {} },
+  plugins: [],
+};
+export default config;
+```
+
+#### Configuração do Next.js
+
+```js
+const nextConfig = {
+  transpilePackages: ['@v0up3r/zt-ui'],
+};
+
+export default nextConfig;
+```
+
+## Componentes Disponíveis
+
+- **Divisor**, **Botão**, **Input**, **Tabela**, **NavBar**, **Avatar**, **Switcher**, **Checkbox**, **Autocomplete**, **Select**, **Card**
+
+## Exemplo de Uso
+
+```tsx
+import { Button } from '@v0up3r/zt-ui';
+
+export default function HomePage() {
+  return (
+    <div className="p-4">
+      <Button variant="primary" onClick={() => alert('Botão Clicado!')}>
+        Clique Aqui
+      </Button>
+    </div>
+  );
+}
+```
+
+---
+
+## Desenvolvimento
+
+```bash
+npm run dev
+```
+
+---
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT.
+</details>
+
+---
+
+<details>
+<summary>🇪🇸 Español</summary>
+
+# ZT-UI Library - Biblioteca de Componentes Next.js
+
+Este proyecto es una **biblioteca de Next.js** con componentes reutilizables que mejoran tu aplicación con una configuración mínima. Sigue las instrucciones a continuación.
+
+## Comenzando
+
+### Prerrequisitos
+
+Asegúrate de tener instaladas las siguientes dependencias:
+
+- **Node.js** >= 16  
+- **npm**, **yarn**, **pnpm**, o **bun**
+
+### Instalación
+
+Agrega la biblioteca a tu proyecto Next.js:
+
+```bash
+npm install @v0up3r/zt-ui
+# o
+yarn add @v0up3r/zt-ui
+```
+
+### Configuración
+
+Modifica los siguientes archivos:  
+- **`tailwind.config.ts`**  
+- **`next.config.mjs`**
+
+#### Configuración de Tailwind
+
+```ts
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@v0up3r/zt-ui/app/components/**/*.{js,ts,jsx,tsx,mdx}"
+  ],
+  theme: { extend: {} },
+  plugins: [],
+};
+export default config;
+```
+
+#### Configuración de Next.js
+
+```js
+const nextConfig = {
+  transpilePackages: ['@v0up3r/zt-ui'],
+};
+
+export default nextConfig;
+```
+
+## Componentes Disponibles
+
+- **Divisor**, **Botón**, **Input**, **Tabla**, **NavBar**, **Avatar**, **Switcher**, **Checkbox**, **Autocomplete**, **Select**, **Card**
+
+## Ejemplo de Uso
+
+```tsx
+import { Button } from '@v0up3r/zt-ui';
+
+export default function HomePage() {
+  return (
+    <div className="p-4">
+      <Button variant="primary" onClick={() => alert('¡Botón Pulsado!')}>
+        Pulsa Aquí
+      </Button>
+    </div>
+  );
+}
+```
+
+---
+
+## Desarrollo
+
+```bash
+npm run dev
+```
+
+---
+
+## Licencia
+
+Este proyecto está bajo la Licencia MIT.
+</details>
+```
+
+---
+
+### Como funciona este `README`
+
+- **Troca de Idiomas:** Cada idioma está dentro de uma seção `<details>` expansível.
+- **Facilidade de Leitura:** O usuário pode clicar no idioma desejado e expandir apenas o necessário.
+- **Markdown Puro:** Compatível com GitHub e sem necessidade de scripts extras.
