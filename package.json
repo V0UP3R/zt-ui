@@ -1,76 +1,60 @@
 {
-  "name": "@v0up3r/zt-ui",
-  "private": false,
-  "version": "0.0.1",
-  "type": "module",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "exports": {
-    ".": {
-      "import": "./dist/ui.es.js",
-      "require": "./dist/ui.umd.js"
-    },
-    "./styles.css": {
-      "require": "./dist/styles.css",
-      "default": "./dist/styles.css"
-    }
-  },
+  "name": "zt-ui",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build && npm run build:css",
-    "build:css": "tailwindcss -m -i ./src/tailwind-entry.css -o ./dist/styles.css",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "storybook": "concurrently \"npm run storybook:css\" \"storybook dev -p 6006\"",
-    "storybook:css": "tailwindcss -w -i ./src/tailwind-entry.css -o ./src/index.css",
-    "build-storybook": "concurrently \"npm run build-storybook:css\" \"storybook build\"",
-    "build-storybook:css": "tailwindcss -m -i ./src/tailwind-entry.css -o ./src/index.css",
-    "prepublishOnly": "npm run build"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
-  "peerDependencies": {
+  "dependencies": {
     "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "tailwind-merge": "^2.5.4",
+    "next": "14.2.15",
+    "react": "^18",
+    "react-dom": "^18",
     "zt-ui": "file:"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.9.0",
-    "@eslint/js": "^9.11.1",
     "@storybook/addon-essentials": "^8.3.5",
     "@storybook/addon-interactions": "^8.3.5",
     "@storybook/addon-links": "^8.3.5",
     "@storybook/addon-onboarding": "^8.3.5",
     "@storybook/blocks": "^8.3.5",
+    "@storybook/manager-api": "^8.3.6",
+    "@storybook/nextjs": "^8.3.5",
     "@storybook/react": "^8.3.5",
-    "@storybook/react-vite": "^8.3.5",
     "@storybook/test": "^8.3.5",
-    "@types/react": "^18.3.10",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.2",
-    "eslint": "^9.11.1",
-    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
-    "eslint-plugin-react-refresh": "^0.4.12",
+    "@storybook/theming": "^8.3.6",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.15",
     "eslint-plugin-storybook": "^0.9.0",
-    "globals": "^15.9.0",
+    "postcss": "^8",
     "storybook": "^8.3.5",
-    "tailwindcss": "^3.4.14",
-    "typescript": "^5.5.3",
-    "typescript-eslint": "^8.7.0",
-    "vite": "^5.4.8",
-    "vite-plugin-dts": "^4.2.4"
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
   },
-  "eslintConfig": {
-    "extends": [
-      "plugin:storybook/recommended"
-    ]
+  "description": "lib UI for developers of ZT",
+  "main": "app/components/index.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/V0UP3R/zt-ui.git"
   },
-  "dependencies": {
-    "@v0up3r/zt-ui": "file:",
-    "@zt/zt-ui": "file:",
-    "concurrently": "^9.0.1"
-  }
+  "author": "Thiago Miranda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/V0UP3R/zt-ui/issues"
+  },
+  "homepage": "https://github.com/V0UP3R/zt-ui#readme",
+  "files": [
+    "app/globals.css",
+    "app/components/*",
+    "tailwind.config.js"
+  ]
 }
