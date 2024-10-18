@@ -1,6 +1,4 @@
-Aqui está uma versão multilíngue do seu `README` em **Português**, **Inglês**, e **Espanhol**, utilizando seções dobráveis com `<details>` para alternância clara entre idiomas:
 
-```markdown
 - [English](#english)  
 - [Português](#português)  
 - [Español](#español)  
@@ -295,12 +293,3 @@ npm run dev
 
 Este proyecto está bajo la Licencia MIT.
 </details>
-```
-
----
-
-### Como funciona este `README`
-
-- **Troca de Idiomas:** Cada idioma está dentro de uma seção `<details>` expansível.
-- **Facilidade de Leitura:** O usuário pode clicar no idioma desejado e expandir apenas o necessário.
-- **Markdown Puro:** Compatível com GitHub e sem necessidade de scripts extras.
