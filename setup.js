@@ -1,5 +1,5 @@
-import { existsSync, readFileSync, writeFileSync } from 'fs';
-import { resolve } from 'path';
+const { existsSync, readFileSync, writeFileSync } = require('fs');
+const { resolve } = require('path');
 
 const tailwindConfigPath = resolve(process.cwd(), 'tailwind.config.js');
 const nextConfigPath = resolve(process.cwd(), 'next.config.js');
