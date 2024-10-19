@@ -1,6 +1,6 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs'
-import Button from './Button'
-import * as ButtonStories from './Button.stories'
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import Button from './Button';
+import * as ButtonStories from './Button.stories';
 
 // Define o metadata do componente e associa a história
 <Meta title="Button" of={ButtonStories} />
@@ -11,12 +11,32 @@ Este é o componente `Button`, que pode ser usado para criar botões reutilizáv
 
 ## Exemplo de uso
 
-Aqui está um exemplo de como utilizar o componente `Button` com suas props padrão.
+Aqui estão alguns exemplos de como utilizar o componente `Button` com suas props padrão.
 
 <Canvas>
   <Story name="Primary">
     <ButtonStories.Primary />
-    <ButtonStories.Secundary />
+  </Story>
+  <Story name="Faded">
+    <ButtonStories.Faded />
+  </Story>
+  <Story name="Ghost">
+    <ButtonStories.Ghost />
+  </Story>
+  <Story name="Light">
+    <ButtonStories.Light />
+  </Story>
+  <Story name="Bordered">
+    <ButtonStories.Bordered />
+  </Story>
+  <Story name="Flat">
+    <ButtonStories.Flat />
+  </Story>
+  <Story name="Shadow">
+    <ButtonStories.Shadow />
+  </Story>
+  <Story name="Custom Color">
+    <ButtonStories.CustomColor />
   </Story>
 </Canvas>
 
@@ -25,4 +45,17 @@ Aqui está um exemplo de como utilizar o componente `Button` com suas props padr
 O componente `Button` aceita as seguintes props:
 
 - `children` (ReactNode): O conteúdo do botão, normalmente texto.
-- Outras props que podem ser passadas diretamente para o botão.
+- `className` (string): Classes adicionais do Tailwind CSS para estilização personalizada.
+- `variant` (string): A variante do botão que altera seu estilo. Pode ser um dos seguintes:
+  - `faded`
+  - `ghost`
+  - `light`
+  - `bordered`
+  - `flat`
+  - `shadow`
+- Outras props que podem ser passadas diretamente para o botão (como `onClick`, `disabled`, etc.).
+
+## Acessibilidade
+
+Certifique-se de que os botões tenham texto descritivo ou elementos acessíveis para melhorar a usabilidade e a acessibilidade do seu aplicativo.
+

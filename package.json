@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "postinstall": "node setup.js"
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@v0up3r/zt-ui": "file:",
