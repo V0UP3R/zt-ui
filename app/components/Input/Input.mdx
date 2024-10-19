@@ -1,0 +1,61 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs';
+import Input from './Input';
+
+<Meta title="Components/Input" component={Input} />
+
+# Input Component
+
+O componente `Input` é um campo de entrada personalizável que suporta várias variantes e estilos. Ele é projetado para ser utilizado em formulários e pode incluir rótulos que se movem quando o campo é focado ou preenchido.
+
+## Props
+
+| Nome                | Tipo                                    | Padrão     | Descrição                                                                                          |
+|---------------------|-----------------------------------------|------------|----------------------------------------------------------------------------------------------------|
+| `label`             | `string`                                | `undefined`| O texto do rótulo a ser exibido acima do campo de entrada.                                        |
+| `containerClassName`| `string`                                | `undefined`| Classes CSS adicionais para o contêiner do componente.                                            |
+| `labelClassName`    | `string`                                | `undefined`| Classes CSS adicionais para o rótulo.                                                              |
+| `inputClassName`    | `string`                                | `undefined`| Classes CSS adicionais para o campo de entrada.                                                    |
+| `variant`           | `"default" \| "outline" \| "filled" \| "line" \| "floating"` | `"default"` | A variante do campo de entrada que define seu estilo visual.                                       |
+| `...props`          | `InputHTMLAttributes<HTMLInputElement>`| `undefined`| Qualquer outra propriedade válida para um elemento `<input>`.                                       |
+
+## Variantes
+
+O componente `Input` suporta as seguintes variantes:
+
+- **default**: Um campo de entrada padrão com bordas arredondadas.
+- **outline**: Um campo de entrada com bordas transparentes e contorno.
+- **filled**: Um campo de entrada preenchido com uma cor de fundo.
+- **line**: Um campo de entrada com uma linha inferior.
+- **floating**: Um campo de entrada com um rótulo flutuante que se move quando o campo é focado ou preenchido.
+
+## Exemplos
+
+<Preview>
+  <Story name="Default">
+    <Input label="Nome" placeholder="Digite seu nome" />
+  </Story>
+
+  <Story name="Outline">
+    <Input label="Email" variant="outline" placeholder="Digite seu email" />
+  </Story>
+
+  <Story name="Filled">
+    <Input label="Senha" type="password" variant="filled" placeholder="Digite sua senha" />
+  </Story>
+
+  <Story name="Floating">
+    <Input label="Nome" variant="floating" placeholder="Digite seu nome" />
+  </Story>
+</Preview>
+
+## Estilos
+
+O componente utiliza a função `cn` para aplicar classes CSS condicionalmente. As classes padrão são definidas em cada variante, mas você pode sobrescrevê-las usando as props `inputClassName`, `labelClassName` e `containerClassName`.
+
+## Acessibilidade
+
+O componente `Input` utiliza referências para o rótulo e o campo de entrada, garantindo que o rótulo esteja associado corretamente ao campo de entrada, melhorando a acessibilidade.
+
+## Conclusão
+
+O componente `Input` é flexível e adaptável a diferentes necessidades de design, tornando-o ideal para formulários modernos. Sinta-se à vontade para personalizá-lo conforme necessário.

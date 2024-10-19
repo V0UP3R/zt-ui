@@ -9,7 +9,17 @@ export default {
     variant: {
       control: {
         type: "select",
-        options: ["fill", "faded", "ghost", "light", "bordered", "flat", "shadow"],
+        options: [
+          "fill",
+          "faded",
+          "ghost",
+          "light",
+          "bordered",
+          "flat",
+          "shadow",
+          "animated",
+          "carousel",
+        ],
       },
     },
     color: {
@@ -19,6 +29,24 @@ export default {
       control: {
         type: "select",
         options: ["sm", "md", "lg", "xl"],
+      },
+    },
+    rounded: {
+      control: {
+        type: "select",
+        options: [
+          "none",
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+          "2xl",
+          "3xl",
+          "4xl",
+          "5xl",
+          "full",
+        ],
       },
     },
   },
@@ -54,6 +82,18 @@ export const Sizes = () => (
   </div>
 );
 
+export const RoundedVariants = () => (
+  <div className="flex flex-col gap-4">
+    <Button size="md" variant="fill" rounded="none">No Rounded</Button>
+    <Button size="md" variant="fill" rounded="sm">Small Rounded</Button>
+    <Button size="md" variant="fill" rounded="md">Medium Rounded</Button>
+    <Button size="md" variant="fill" rounded="lg">Large Rounded</Button>
+    <Button size="md" variant="fill" rounded="xl">Extra Large Rounded</Button>
+    <Button size="md" variant="fill" rounded="2xl">2X Large Rounded</Button>
+    <Button size="md" variant="fill" rounded="full">Fully Rounded</Button>
+  </div>
+);
+
 export const Variants = () => (
   <div className="flex flex-col gap-4">
     <Button variant="fill">Fill Button</Button>
@@ -64,7 +104,7 @@ export const Variants = () => (
     <Button variant="flat">Flat Button</Button>
     <Button variant="shadow">Shadow Button</Button>
     <Button variant="animated">Animated Button</Button>
-    <Button variant="carousel">Animated Button</Button>
+    <Button variant="carousel">Carousel Button</Button>
   </div>
 );
 
@@ -78,5 +118,44 @@ export const Colors = () => (
     <Button variant="fill" color="success">Success Color Button</Button>
     <Button variant="fill" color="danger">Danger Color Button</Button>
     <Button variant="fill" color="#FF5733">Custom Color Button</Button>
+  </div>
+);
+
+export const DisabledButton = () => (
+  <div className="flex flex-col gap-4">
+    <Button color="primary" rounded="md" disabled>
+      Disabled Button
+    </Button>
+    <Button color="secondary" rounded="md" disabled>
+      Disabled Faded Button
+    </Button>
+  </div>
+);
+
+export const CustomButtonWithAllProps = () => (
+  <div className="flex flex-col gap-4">
+    <Button
+      variant="shadow"
+      color="warning"
+      size="lg"
+      rounded="3xl"
+    >
+      Custom Shadow Button
+    </Button>
+    <Button
+      variant="ghost"
+      color="danger"
+      size="md"
+      rounded="full"
+    >
+      Custom Ghost Button
+    </Button>
+
+    <Button isIconOnly>
+      <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+      </svg>
+    </Button>
+
   </div>
 );

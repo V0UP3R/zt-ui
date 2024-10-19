@@ -1,61 +1,81 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { Meta, Story, Preview } from '@storybook/addon-docs';
 import Button from './Button';
-import * as ButtonStories from './Button.stories';
 
-// Define o metadata do componente e associa a história
-<Meta title="Button" of={ButtonStories} />
+<Meta title="Components/Button" component={Button} />
 
-# Button
+# Button Component
 
-Este é o componente `Button`, que pode ser usado para criar botões reutilizáveis em sua aplicação.
-
-## Exemplo de uso
-
-Aqui estão alguns exemplos de como utilizar o componente `Button` com suas props padrão.
-
-<Canvas>
-  <Story name="Primary">
-    <ButtonStories.Primary />
-  </Story>
-  <Story name="Faded">
-    <ButtonStories.Faded />
-  </Story>
-  <Story name="Ghost">
-    <ButtonStories.Ghost />
-  </Story>
-  <Story name="Light">
-    <ButtonStories.Light />
-  </Story>
-  <Story name="Bordered">
-    <ButtonStories.Bordered />
-  </Story>
-  <Story name="Flat">
-    <ButtonStories.Flat />
-  </Story>
-  <Story name="Shadow">
-    <ButtonStories.Shadow />
-  </Story>
-  <Story name="Custom Color">
-    <ButtonStories.CustomColor />
-  </Story>
-</Canvas>
+O componente `Button` é um botão altamente personalizável que suporta várias variantes, tamanhos e estilos. Ele pode ser utilizado em diferentes contextos, como formulários, ações de interface ou botões de navegação.
 
 ## Props
 
-O componente `Button` aceita as seguintes props:
+| Nome                | Tipo                                                   | Padrão       | Descrição                                                                                           |
+|---------------------|--------------------------------------------------------|--------------|-----------------------------------------------------------------------------------------------------|
+| `children`          | `React.ReactNode`                                     | `undefined`  | O conteúdo do botão, que pode incluir texto ou ícones.                                             |
+| `variant`           | `"fill" \| "faded" \| "ghost" \| "light" \| "bordered" \| "flat" \| "shadow" \| "outline" \| "link" \| "animated" \| "carousel"` | `"faded"`    | A variante do botão que define seu estilo visual.                                                  |
+| `color`             | `"default" \| "primary" \| "secondary" \| "tertiary" \| "warning" \| "success" \| "danger" \| string` | `"default"`  | A cor do botão.                                                                                   |
+| `size`              | `"sm" \| "md" \| "lg" \| "xl"`                       | `"md"`       | O tamanho do botão.                                                                                |
+| `rounded`           | `"none" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl" \| "3xl" \| "4xl" \| "5xl" \| "full"` | `"md"`       | O nível de arredondamento das bordas do botão.                                                    |
+| `disabled`          | `boolean`                                             | `false`      | Indica se o botão está desabilitado.                                                               |
+| `isIconOnly`       | `boolean`                                             | `false`      | Se verdadeiro, o botão exibirá apenas o ícone, sem texto.                                         |
+| `...props`          | `React.ButtonHTMLAttributes<HTMLButtonElement>`      | `undefined`  | Qualquer outra propriedade válida para um elemento `<button>`.                                     |
 
-- `children` (ReactNode): O conteúdo do botão, normalmente texto.
-- `className` (string): Classes adicionais do Tailwind CSS para estilização personalizada.
-- `variant` (string): A variante do botão que altera seu estilo. Pode ser um dos seguintes:
-  - `faded`
-  - `ghost`
-  - `light`
-  - `bordered`
-  - `flat`
-  - `shadow`
-- Outras props que podem ser passadas diretamente para o botão (como `onClick`, `disabled`, etc.).
+## Variantes
+
+O componente `Button` suporta as seguintes variantes:
+
+- **fill**: Um botão preenchido com sombra.
+- **faded**: Um botão com fundo opaco.
+- **ghost**: Um botão transparente com bordas.
+- **light**: Um botão leve com fundo branco.
+- **bordered**: Um botão com bordas sólidas.
+- **flat**: Um botão com um estilo plano.
+- **shadow**: Um botão com efeito de sombra.
+- **outline**: Um botão com bordas e texto.
+- **link**: Um botão que se assemelha a um link.
+- **animated**: Um botão com animações ao passar o mouse.
+- **carousel**: Um botão com animação de carrossel.
+
+## Exemplos
+
+<Preview>
+  <Story name="Default">
+    <Button>Default Button</Button>
+  </Story>
+
+  <Story name="Primary">
+    <Button variant="fill" color="primary">Primary Button</Button>
+  </Story>
+
+  <Story name="Secondary">
+    <Button variant="outline" color="secondary">Secondary Button</Button>
+  </Story>
+
+  <Story name="Animated">
+    <Button variant="animated">Animated Button</Button>
+  </Story>
+
+  <Story name="Icon Only">
+    <Button isIconOnly>
+      <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+      </svg>
+    </Button>
+  </Story>
+
+  <Story name="Disabled">
+    <Button disabled>Disabled Button</Button>
+  </Story>
+</Preview>
+
+## Estilos
+
+O componente utiliza a função `cva` para definir variantes e tamanhos de botões. As classes de cor são determinadas com base nas props passadas, permitindo uma personalização fácil e eficiente.
 
 ## Acessibilidade
 
-Certifique-se de que os botões tenham texto descritivo ou elementos acessíveis para melhorar a usabilidade e a acessibilidade do seu aplicativo.
+O botão utiliza propriedades padrão de acessibilidade para garantir que ele funcione bem em todos os navegadores e dispositivos. A propriedade `disabled` é suportada para indicar que o botão não pode ser interagido.
 
+## Conclusão
+
+O componente `Button` é versátil e adaptável a diferentes necessidades de design, tornando-o ideal para aplicações modernas. Sinta-se à vontade para personalizá-lo conforme necessário.
