@@ -4,7 +4,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import Input, { InputProps } from "./Input";
 
 export default {
-  title: "Components/Input",
+  title: "Components/Input/Input",
   component: Input,
   argTypes: {
     variant: {
@@ -64,7 +64,6 @@ export const Floating = Template.bind({});
 Floating.args = {
   label: "Floating Input",
   variant: "floating",
-  placeholder: "Type something...",
 };
 
 export const Disabled = Template.bind({});
@@ -94,5 +93,4 @@ export const FloatingEffect = Template.bind({});
 FloatingEffect.args = {
   label: "Floating Label Input",
   variant: "floating",
-  placeholder: "This input shows the floating label effect.",
 };

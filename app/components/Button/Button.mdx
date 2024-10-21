@@ -1,81 +1,66 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs';
-import Button from './Button';
+import { Meta, Controls, Primary, Canvas, Stories, Subtitle } from "@storybook/blocks";
+import * as Story from "./Button.stories.tsx";
 
-<Meta title="Components/Button" component={Button} />
+<Meta of={Story} />
 
-# Button Component
+# Botão
 
-O componente `Button` é um botão altamente personalizável que suporta várias variantes, tamanhos e estilos. Ele pode ser utilizado em diferentes contextos, como formulários, ações de interface ou botões de navegação.
+Este é um componente de botão altamente flexível, utilizado para disparar ações ou navegar entre seções. Ele oferece múltiplos **estilos**, **tamanhos** e pode ser configurado para diferentes contextos de uso, como botões com ícones, animações e mais.
 
-## Props
+<Subtitle>Explore abaixo as diferentes variantes e propriedades.</Subtitle>
 
-| Nome                | Tipo                                                   | Padrão       | Descrição                                                                                           |
-|---------------------|--------------------------------------------------------|--------------|-----------------------------------------------------------------------------------------------------|
-| `children`          | `React.ReactNode`                                     | `undefined`  | O conteúdo do botão, que pode incluir texto ou ícones.                                             |
-| `variant`           | `"fill" \| "faded" \| "ghost" \| "light" \| "bordered" \| "flat" \| "shadow" \| "outline" \| "link" \| "animated" \| "carousel"` | `"faded"`    | A variante do botão que define seu estilo visual.                                                  |
-| `color`             | `"default" \| "primary" \| "secondary" \| "tertiary" \| "warning" \| "success" \| "danger" \| string` | `"default"`  | A cor do botão.                                                                                   |
-| `size`              | `"sm" \| "md" \| "lg" \| "xl"`                       | `"md"`       | O tamanho do botão.                                                                                |
-| `rounded`           | `"none" \| "sm" \| "md" \| "lg" \| "xl" \| "2xl" \| "3xl" \| "4xl" \| "5xl" \| "full"` | `"md"`       | O nível de arredondamento das bordas do botão.                                                    |
-| `disabled`          | `boolean`                                             | `false`      | Indica se o botão está desabilitado.                                                               |
-| `isIconOnly`       | `boolean`                                             | `false`      | Se verdadeiro, o botão exibirá apenas o ícone, sem texto.                                         |
-| `...props`          | `React.ButtonHTMLAttributes<HTMLButtonElement>`      | `undefined`  | Qualquer outra propriedade válida para um elemento `<button>`.                                     |
+## Variantes Principais
 
-## Variantes
+O componente suporta uma variedade de estilos, como `fill`, `ghost`, `animated` e até um estilo de **carousel** para botões mais complexos. Veja o exemplo padrão abaixo:
 
-O componente `Button` suporta as seguintes variantes:
+### Exemplo Padrão
+<Canvas of={Story.Primary} />
 
-- **fill**: Um botão preenchido com sombra.
-- **faded**: Um botão com fundo opaco.
-- **ghost**: Um botão transparente com bordas.
-- **light**: Um botão leve com fundo branco.
-- **bordered**: Um botão com bordas sólidas.
-- **flat**: Um botão com um estilo plano.
-- **shadow**: Um botão com efeito de sombra.
-- **outline**: Um botão com bordas e texto.
-- **link**: Um botão que se assemelha a um link.
-- **animated**: Um botão com animações ao passar o mouse.
-- **carousel**: Um botão com animação de carrossel.
+## Botão Desativado
+Use a propriedade `disabled` para criar botões desativados que não respondem a cliques.
+<Canvas of={Story.Disabled} />
 
-## Exemplos
+## Botão com Ícone
+<Canvas of={Story.IconButton} />
 
-<Preview>
-  <Story name="Default">
-    <Button>Default Button</Button>
-  </Story>
+Botões com ícones são úteis quando você precisa de uma ação compacta, como um botão de "+" para adicionar itens.
 
-  <Story name="Primary">
-    <Button variant="fill" color="primary">Primary Button</Button>
-  </Story>
+## Botão com Animação
+Explore animações suaves que melhoram a experiência do usuário:
+<Canvas of={Story.Animated} />
 
-  <Story name="Secondary">
-    <Button variant="outline" color="secondary">Secondary Button</Button>
-  </Story>
+---
 
-  <Story name="Animated">
-    <Button variant="animated">Animated Button</Button>
-  </Story>
+## Documentação Interativa
 
-  <Story name="Icon Only">
-    <Button isIconOnly>
-      <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-      </svg>
+Com os controles abaixo, você pode modificar **dinamicamente** as propriedades e ver os efeitos em tempo real.
+
+<Primary />
+<Controls />
+
+---
+
+## Mais Exemplos
+
+### Diferentes Tamanhos
+<Canvas of={Story.DifferentSizes} />
+
+### Botão Estilo Carousel
+<Canvas of={Story.Carousel} />
+
+---
+
+## Como Usar
+
+Este componente pode ser facilmente integrado ao seu projeto React. Aqui está um exemplo básico:
+
+```tsx
+import Button from "./Button";
+
+export default function App() {
+  return (
+    <Button variant="fill" color="primary" size="md">
+      Clique Aqui
     </Button>
-  </Story>
-
-  <Story name="Disabled">
-    <Button disabled>Disabled Button</Button>
-  </Story>
-</Preview>
-
-## Estilos
-
-O componente utiliza a função `cva` para definir variantes e tamanhos de botões. As classes de cor são determinadas com base nas props passadas, permitindo uma personalização fácil e eficiente.
-
-## Acessibilidade
-
-O botão utiliza propriedades padrão de acessibilidade para garantir que ele funcione bem em todos os navegadores e dispositivos. A propriedade `disabled` é suportada para indicar que o botão não pode ser interagido.
-
-## Conclusão
-
-O componente `Button` é versátil e adaptável a diferentes necessidades de design, tornando-o ideal para aplicações modernas. Sinta-se à vontade para personalizá-lo conforme necessário.
+  );
+}

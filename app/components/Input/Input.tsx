@@ -39,13 +39,13 @@ export default function Input({
 
   const variantClasses = {
     default:
-      "border border-light-secondary dark:border-dark-secondary rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-light-accent dark:focus:ring-dark-accent",
+      "border bg-primary border-light-secondary dark:border-dark-secondary rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-light-accent dark:focus:ring-dark-accent",
     outline:
       "border border-light-primary dark:border-dark-primary bg-transparent rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-light-accent dark:focus:ring-dark-accent",
     filled:
       "bg-light-primary dark:bg-dark-primary border border-light-secondary dark:border-dark-secondary rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-light-accent dark:focus:ring-dark-accent",
     line:
-      "border-b border-light-secondary bg-transparent dark:border-dark-secondary w-full p-2 focus:outline-none focus:ring-2 focus:ring-light-accent dark:focus:ring-dark-primary",
+      "border-b border-light-secondary bg-transparent dark:border-dark-secondary w-full p-2 focus:outline-none focus:border-b-2 dark:focus:ring-dark-primary",
     floating:
       "relative z-30 w-full bg-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-light-accent dark:focus:ring-dark-accent",
   };

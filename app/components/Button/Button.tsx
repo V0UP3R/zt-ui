@@ -25,7 +25,7 @@ export type ButtonProps = {
     | "success"
     | "danger"
     | string;
-  size?: "sm" | "md" | "lg" | "xl"; // Tipo de tamanho
+  size?: "sm" | "md" | "lg" | "xl";
   rounded?:
     | "none"
     | "sm"
@@ -38,26 +38,29 @@ export type ButtonProps = {
     | "5xl"
     | "full";
   disabled?: boolean;
-  isIconOnly?: boolean; // Adicionando a propriedade isIconOnly
+  isIconOnly?: boolean; 
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
+// Classes de cores
 const colors = {
-  default: "bg-gray-500 text-white",
-  primary: "bg-blue-700 text-white",
-  secondary: "bg-gray-700 text-white",
-  tertiary: "bg-purple-800 text-white",
-  warning: "bg-yellow-600 text-gray-50",
-  success: "bg-green-700 text-white",
-  danger: "bg-red-700 text-white",
+  default: "bg-default-blue text-default-white",
+  primary: "bg-default-blue text-default-white",
+  secondary: "bg-purple-800 text-white",
+  tertiary: "bg-tertiary text-white",
+  warning: "bg-yellow-400 text-gray-500 font-bold",
+  success: "bg-green-800 text-gray-100",
+  danger: "bg-red-700 text-gray-100",
 };
 
+// Classes de tamanhos de botão
 const buttonSizes = {
-  sm: "px-3 py-1 text-sm min-w-[80px] min-h-8 max-w-[8rem]",
-  md: "px-4 py-2 text-base min-w-[100px] min-h-10 max-w-[11rem]",
-  lg: "px-5 py-3 text-lg min-w-[120px] min-h-12 max-w-[14rem]",
-  xl: "px-6 py-4 text-xl min-w-[140px] min-h-14 max-w-[16rem]",
+  sm: "w-[6rem] h-[2rem] min-w-[4rem] min-h-[2rem] max-w-[8rem] max-h-[2.5rem] text-xs",
+  md: "w-[8rem] h-[2.5rem] min-w-[6rem] min-h-[2rem] max-w-[10rem] max-h-[3rem] text-sm",
+  lg: "w-[10rem] h-[3rem] min-w-[8rem] min-h-[2.5rem] max-w-[12rem] max-h-[3.5rem] text-base",
+  xl: "w-[12rem] h-[3.5rem] min-w-[10rem] min-h-[3rem] max-w-[14rem] max-h-[4rem] text-lg",
 };
 
+// Classes de arredondamento
 const roundedSizes = {
   none: "rounded-none",
   sm: "rounded-sm",
@@ -71,17 +74,18 @@ const roundedSizes = {
   full: "rounded-full",
 };
 
+// Variantes de botão
 const buttonVariants = cva(
-  "duration-500 transition-transform whitespace-nowrap overflow-hidden text-ellipsis",
+  "duration-500 transition-transform whitespace-nowrap overflow-hidden text-ellipsis flex items-center justify-center",
   {
     variants: {
       variant: {
-        fill: "bg-opacity-90 hover:bg-opacity-100 text-white bg-blue-600 shadow-md border border-solid border-gray-200",
-        faded: "bg-gray-500 text-gray-50 border-2 border-solid border-gray-300 hover:bg-opacity-70",
-        ghost: "bg-transparent border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-gray-50 transition-colors",
+        fill: "hover:bg-opacity-90 bg-opacity-100 shadow-md border border-solid border-default-white font-semibold",
+        faded: "bg-light-accent text-default-blue border-2 border-solid border-gray-300 hover:bg-opacity-70 font-semibold shadow",
+        ghost: "bg-transparent border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-gray-50 transition-colors font-semibold",
         light: "bg-white text-blue-600 hover:bg-blue-200 duration-700",
         bordered: "border-2 border-gray-500 text-gray-600 hover:bg-gray-300 transition-colors",
-        flat: "bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors",
+        flat: "bg-blue-200 text-blue-600 hover:bg-opacity-60 transition-colors font-semibold",
         shadow: "bg-gray-500 text-white shadow-lg hover:shadow-xl transform transition-all",
         outline: "border-2 border-gray-500 text-gray-600 hover:bg-gray-300 transition-colors",
         link: "text-blue-500 underline hover:text-blue-700",
@@ -92,7 +96,7 @@ const buttonVariants = cva(
       rounded: roundedSizes,
     },
     defaultVariants: {
-      variant: "faded",
+      variant: "fill",
       size: "md",
       rounded: "md",
     },
@@ -111,31 +115,31 @@ const Button = ({
   isIconOnly = false,
   ...props
 }: ButtonProps) => {
-  const colorClass = color && colors[color as keyof typeof colors]
-    ? colors[color as keyof typeof colors]
-    : "";
+  // Obtém a classe de cor
+  const colorClass = color && colors[color as keyof typeof colors] ? colors[color as keyof typeof colors] : "";
 
-  // Define a classe de tamanho com base no valor de isIconOnly
+  // Obtém a classe de tamanho
   const sizeClass = isIconOnly ? "w-10 h-10" : buttonSizes[size as keyof typeof buttonSizes];
 
   return (
     <button
       type="button"
       className={cn(
-        buttonVariants({ variant, size: isIconOnly ? undefined : size, rounded }), // Desabilitando size se isIconOnly for true
+        // Prioridade à variant, depois à color
+        buttonVariants({ variant, size: isIconOnly ? undefined : size, rounded }),
         colorClass,
         className,
-        { 
-          "cursor-not-allowed bg-opacity-40 hover:bg-opacity-40": disabled, 
-          "active:scale-90": !disabled, 
-          "min-w-none max-w-fit": isIconOnly 
+        {
+          "cursor-not-allowed bg-opacity-40 hover:bg-opacity-40": disabled,
+          "active:scale-90": !disabled,
+          "min-w-none max-w-fit": isIconOnly
         }
       )}
-      style={{ ...style, ...{ width: isIconOnly ? '40px' : undefined, height: isIconOnly ? '40px' : undefined } }} // Ajustando o estilo para largura e altura fixas se isIconOnly for true
+      style={{ ...style, ...{ width: isIconOnly ? '40px' : undefined, height: isIconOnly ? '40px' : undefined } }} 
       disabled={disabled}
       {...props}
     >
-      {isIconOnly ? ( // Condicional para exibir apenas o ícone
+      {isIconOnly ? ( 
         <span className="flex items-center justify-center h-full w-full">{children}</span>
       ) : variant === "animated" ? (
         <div className="group">
