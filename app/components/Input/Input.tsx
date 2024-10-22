@@ -7,7 +7,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   containerClassName?: string;
   labelClassName?: string;
   inputClassName?: string;
-  variant?: "default" | "outline" | "filled" | "line" | "floating"; 
+  variant?: "default" | "outline" | "filled" | "line" | "floating";
 }
 
 export default function Input({
@@ -15,8 +15,9 @@ export default function Input({
   containerClassName,
   labelClassName,
   inputClassName,
-  variant = "default", 
+  variant = "default",
   id,
+  disabled = false, // Adicionando a prop disabled
   ...props
 }: InputProps) {
   const [isFocused, setIsFocused] = useState(false);
@@ -24,9 +25,11 @@ export default function Input({
   const labelRef = useRef<HTMLLabelElement | null>(null);
   const [labelWidth, setLabelWidth] = useState(0);
 
-  const handleFocus = () => setIsFocused(true);
+  const handleFocus = () => {
+    if (!disabled) setIsFocused(true);
+  };
   const handleBlur = () => {
-    if (inputRef.current && inputRef.current.value === "") {
+    if (!disabled && inputRef.current && inputRef.current.value === "") {
       setIsFocused(false);
     }
   };
@@ -39,31 +42,39 @@ export default function Input({
 
   const variantClasses = {
     default:
-      "border bg-primary border-light-secondary dark:border-dark-secondary rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-light-accent dark:focus:ring-dark-accent",
+      "border bg-primary border-light-secondary dark:border-dark-secondary rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-accent",
     outline:
       "border border-light-primary dark:border-dark-primary bg-transparent rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-light-accent dark:focus:ring-dark-accent",
     filled:
       "bg-light-primary dark:bg-dark-primary border border-light-secondary dark:border-dark-secondary rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-light-accent dark:focus:ring-dark-accent",
     line:
-      "border-b border-light-secondary bg-transparent dark:border-dark-secondary w-full p-2 focus:outline-none focus:border-b-2 dark:focus:ring-dark-primary",
+      "border-b border-light-secondary bg-transparent dark:border-dark-secondary w-full p-2 focus:outline-none focus:border-b focus:border-black dark:focus:ring-dark-primary",
     floating:
       "relative z-30 w-full bg-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-light-accent dark:focus:ring-dark-accent",
   };
 
   return (
-    <div className={cn("grid w-full max-w-sm items-center gap-1.5", containerClassName)}>
+    <div
+      className={cn(
+        "grid w-full max-w-sm items-center gap-1.5",
+        containerClassName,
+        { "opacity-50 cursor-not-allowed": disabled }
+      )}
+    >
       {variant === "floating" && (
         <div className={variantClasses.floating}>
           <div className="relative">
             <input
               ref={inputRef}
               id={id}
+              disabled={disabled}
               className={cn(
-                "peer border border-light-secondary dark:border-dark-secondary bg-transparent focus:outline-none focus:ring-0 w-full p-2", 
+                "peer border border-light-secondary dark:border-dark-secondary bg-transparent focus:outline-none focus:ring-0 w-full p-2",
                 inputClassName,
                 {
-                  "border-t-light-secondary dark:border-t-dark-secondary": !(isFocused || (inputRef.current && inputRef.current.value !== "")),
-                  "border-b-light-secondary dark:border-b-dark-secondary": true 
+                  "border-t-light-secondary dark:border-t-dark-secondary":
+                    !(isFocused || (inputRef.current && inputRef.current.value !== "")),
+                  "border-b-light-secondary dark:border-b-dark-secondary": true,
                 }
               )}
               onFocus={handleFocus}
@@ -119,7 +130,12 @@ export default function Input({
           <input
             id={id}
             ref={inputRef}
-            className={cn(variantClasses[variant], inputClassName)}
+            disabled={disabled}
+            className={cn(
+              variantClasses[variant],
+              inputClassName,
+              { "cursor-not-allowed opacity-50": disabled }
+            )}
             onFocus={handleFocus}
             onBlur={handleBlur}
             {...props}
