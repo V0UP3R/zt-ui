@@ -1,0 +1,62 @@
+import { Meta, Controls, Primary, Canvas, Stories, Subtitle } from "@storybook/blocks";
+import * as Story from "./CheckBox.stories.tsx";
+
+<Meta of={Story} />
+
+# CheckBox
+
+O componente **CheckBox** é utilizado para permitir que os usuários façam seleções em formulários ou interfaces. Ele pode ser personalizado com diferentes cores, tamanhos e ícones, e é útil em diversos contextos, como formulários de contato, preferências do usuário e muito mais.
+
+<Subtitle>Explore abaixo as diferentes variantes e propriedades.</Subtitle>
+
+## Exemplo Padrão
+
+Aqui está um exemplo básico de um checkbox. O checkbox será marcado ou desmarcado ao ser clicado:
+
+<Canvas of={Story.Default} />
+
+## CheckBox com Cores Personalizadas
+
+Você pode personalizar as cores do checkbox quando ele está marcado e quando não está. Veja o exemplo abaixo:
+
+<Canvas of={Story.CustomColors} />
+
+## CheckBox Desabilitado
+
+O checkbox pode ser desabilitado, tornando-o não interativo. Aqui está um exemplo:
+
+<Canvas of={Story.Disabled} />
+
+## Documentação Interativa
+
+Experimente alterar as propriedades do componente abaixo e veja os resultados em tempo real.
+
+<Primary />
+<Controls />
+
+---
+
+## Tamanhos Diferentes
+
+O checkbox pode ser exibido em três tamanhos diferentes: **pequeno (sm)**, **médio (md)** e **grande (lg)**.
+
+<Canvas of={Story.DifferentSizes} />
+
+---
+
+## Como Usar
+
+Aqui está um exemplo de como utilizar o componente em um projeto React:
+
+```tsx
+import { CheckBox } from "./CheckBox";
+
+export default function App() {
+  return (
+    <div className="flex space-x-4">
+      <CheckBox label="Opção 1" size="md" />
+      <CheckBox label="Opção 2" checkedColor="bg-blue-500" uncheckedColor="border-red-400" size="lg" />
+      <CheckBox label="Desabilitado" disabled />
+    </div>
+  );
+}
