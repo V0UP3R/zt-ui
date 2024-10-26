@@ -13,6 +13,7 @@
   "dependencies": {
     "@v0up3r/zt-ui": "file:",
     "class-variance-authority": "^0.7.0",
+    "framer-motion": "^11.11.10",
     "next": "14.2.15",
     "react": "^18",
     "react-dom": "^18",
