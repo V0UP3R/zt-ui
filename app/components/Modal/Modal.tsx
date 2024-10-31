@@ -90,7 +90,7 @@ export default function Modal({
                   <IoMdClose className="w-6 h-6" />
                 </button>
               </div>
-              <div className={`relative p-6 flex-auto ${overflow === 'inside' ? 'overflow-y-auto' : ''} ${overflow === 'outside' ? 'overflow-hidden' : ''}`}>
+              <div className={`relative p-6 flex-auto ${overflow === 'inside' ? 'overflow-y-auto max-h-[60vh]' : ''} ${overflow === 'outside' ? 'overflow-hidden' : ''}`}>
                 {children}
               </div>
               {footerContent && (
