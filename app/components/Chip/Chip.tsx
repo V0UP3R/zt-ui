@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface ChipProps {
+export type ChipProps = {
   text: string;
   color: string;
 }

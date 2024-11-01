@@ -18,7 +18,7 @@ const sizes = {
   lg: 'w-16 h-16 text-lg',
 }
 
-export const Avatar: React.FC<AvatarProps> = ({
+const Avatar: React.FC<AvatarProps> = ({
   src,
   name,
   rounded = true,
@@ -58,3 +58,5 @@ export const Avatar: React.FC<AvatarProps> = ({
     </div>
   )
 }
+
+export default Avatar

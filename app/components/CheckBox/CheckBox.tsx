@@ -2,7 +2,7 @@ import { useState } from "react";
 import { MdCheck } from "react-icons/md";
 import { cn } from "../utils/cn";
 
-export interface CheckBoxProps {
+export interface CheckboxProps {
   label?: string;
   checkedColor?: string;
   uncheckedColor?: string;
@@ -18,7 +18,7 @@ const sizeClasses = {
   lg: "w-8 h-8 text-xl",
 };
 
-export const CheckBox: React.FC<CheckBoxProps> = ({
+const Checkbox: React.FC<CheckboxProps> = ({
   label,
   checkedColor = "bg-green-500",
   uncheckedColor = "border-gray-400",
@@ -56,3 +56,5 @@ export const CheckBox: React.FC<CheckBoxProps> = ({
     </label>
   );
 };
+
+export default Checkbox

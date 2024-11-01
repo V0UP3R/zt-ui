@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface DividerProps {
+export type DividerProps = {
   text?: string;
   textColor?: string;
   borderColor?: string;

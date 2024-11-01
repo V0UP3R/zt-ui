@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { CheckBox, CheckBoxProps } from "./CheckBox"; // Import your CheckBox component
+import Checkbox, { CheckboxProps } from "./Checkbox"; // Import your CheckBox component
 import { MdCheck, MdFavorite } from "react-icons/md";
 
 export default {
-  title: "Components/CheckBox/CheckBox",
-  component: CheckBox,
+  title: "Components/Checkbox/Checkbox",
+  component: Checkbox,
   argTypes: {
     label: {
       control: "text",
@@ -30,7 +30,7 @@ export default {
   },
 } as Meta;
 
-export const Default: StoryObj<CheckBoxProps> = {
+export const Default: StoryObj<CheckboxProps> = {
   args: {
     label: "Check me",
     size: "md",
@@ -40,7 +40,7 @@ export const Default: StoryObj<CheckBoxProps> = {
   },
 };
 
-export const CustomColors: StoryObj<CheckBoxProps> = {
+export const CustomColors: StoryObj<CheckboxProps> = {
   args: {
     label: "Custom Colors",
     checkedColor: "bg-blue-500", // Cor de fundo quando marcado
@@ -49,7 +49,7 @@ export const CustomColors: StoryObj<CheckBoxProps> = {
   },
 };
 
-export const Disabled: StoryObj<CheckBoxProps> = {
+export const Disabled: StoryObj<CheckboxProps> = {
   args: {
     label: "Disabled CheckBox",
     size: "md",
@@ -57,12 +57,12 @@ export const Disabled: StoryObj<CheckBoxProps> = {
   },
 };
 
-export const DifferentSizes: StoryObj<CheckBoxProps> = {
+export const DifferentSizes: StoryObj<CheckboxProps> = {
   render: (args) => (
     <div className="flex flex-col gap-4">
-      <CheckBox {...args} size="sm" label="Small CheckBox" />
-      <CheckBox {...args} size="md" label="Medium CheckBox" />
-      <CheckBox {...args} size="lg" label="Large CheckBox" />
+      <Checkbox {...args} size="sm" label="Small CheckBox" />
+      <Checkbox {...args} size="md" label="Medium CheckBox" />
+      <Checkbox {...args} size="lg" label="Large CheckBox" />
     </div>
   ),
   args: {
@@ -71,7 +71,7 @@ export const DifferentSizes: StoryObj<CheckBoxProps> = {
   },
 };
 
-export const WithCustomIcon: StoryObj<CheckBoxProps> = {
+export const WithCustomIcon: StoryObj<CheckboxProps> = {
   args: {
     label: "With Custom Icon",
     checkedIcon: <MdFavorite />,
@@ -80,7 +80,7 @@ export const WithCustomIcon: StoryObj<CheckBoxProps> = {
   },
 };
 
-export const WithoutLabel: StoryObj<CheckBoxProps> = {
+export const WithoutLabel: StoryObj<CheckboxProps> = {
   args: {
     checkedColor: "bg-green-500",
     uncheckedColor: "border-gray-400",

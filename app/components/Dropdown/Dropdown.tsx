@@ -3,18 +3,18 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { FiChevronDown, FiCheck } from 'react-icons/fi'
 
-export interface DropdownOption {
+export type DropdownOption = {
   value: string
   label: string
 }
 
-interface DropdownProps {
+export type DropdownProps = {
   options: DropdownOption[]
   onSelect: (option: DropdownOption) => void
   placeholder?: string
 }
 
-export default function Dropdown({ options, onSelect, placeholder = 'Selecione uma opção' }: DropdownProps) {
+const Dropdown:React.FC<DropdownProps> = ({ options, onSelect, placeholder = 'Selecione uma opção' }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [selectedOption, setSelectedOption] = useState<DropdownOption | null>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
@@ -83,3 +83,5 @@ export default function Dropdown({ options, onSelect, placeholder = 'Selecione u
     </div>
   )
 }
+
+export default Dropdown;

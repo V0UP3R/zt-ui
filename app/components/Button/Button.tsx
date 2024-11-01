@@ -103,7 +103,7 @@ const buttonVariants = cva(
   }
 );
 
-const Button = ({
+const Button:React.FC<ButtonProps> = ({
   children,
   variant,
   color,
@@ -114,7 +114,7 @@ const Button = ({
   disabled = false,
   isIconOnly = false,
   ...props
-}: ButtonProps) => {
+}) => {
   // Obtém a classe de cor
   const colorClass = color && colors[color as keyof typeof colors] ? colors[color as keyof typeof colors] : "";
 

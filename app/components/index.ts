@@ -1,2 +1,13 @@
 export {default as Button} from "./Button/Button"
 export {type ButtonProps} from "./Button/Button"
+export {default as Avatar} from "./Avatar/Avatar"
+export {type AvatarProps} from "./Avatar/Avatar"
+export {default as Checkbox} from "./Checkbox/Checkbox"
+export {type CheckboxProps} from "./Checkbox/Checkbox"
+export {default as Chip} from "./Chip/Chip"
+export {type ChipProps} from "./Chip/Chip"	
+export {default as Divider} from "./Divider/Divider"
+export {type DividerProps} from "./Divider/Divider"	
+export {default as Dropdown} from "./Dropdown/Dropdown"
+export {type DropdownProps} from "./Dropdown/Dropdown"	
+
