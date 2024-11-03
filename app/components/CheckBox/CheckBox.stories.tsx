@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import Checkbox, { CheckboxProps } from "./Checkbox"; // Import your CheckBox component
+import Checkbox, { CheckboxProps } from "./CheckBox"; // Import your CheckBox component
 import { MdCheck, MdFavorite } from "react-icons/md";
 
 export default {

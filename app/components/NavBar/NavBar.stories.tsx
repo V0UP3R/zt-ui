@@ -1,7 +1,7 @@
 // NavBar.stories.tsx
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
-import NavBar from "./Navbar";
+import NavBar from "./NavBar";
 
 export default {
   title: "Components/NavBar/NavBar",
