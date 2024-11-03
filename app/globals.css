@@ -2,20 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-::-webkit-scrollbar {
-  width: 10px; /* Largura da barra de rolagem */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Cor do fundo da barra de rolagem */
-  margin-bottom: 4px;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
 }
 
-::-webkit-scrollbar-thumb {
-  background: #888; /* Cor do "polegar" da barra de rolagem */
-  border-radius: 6px; /* Arredondamento */
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Cor do "polegar" quando está em hover */
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
 }
