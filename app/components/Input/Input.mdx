@@ -1,0 +1,61 @@
+import { Meta, Controls, Primary, Canvas, Stories, Subtitle } from "@storybook/blocks";
+import * as Story from "./Input.stories.tsx";
+
+<Meta of={Story} />
+
+# Componente de Entrada (Input)
+
+O componente **Input** é um campo de entrada flexível e altamente configurável, ideal para coletar dados do usuário. Ele suporta vários **estilos** e **variantes**, tornando-o adaptável a diferentes contextos e designs.
+
+<Subtitle>Explore abaixo as diferentes variantes e propriedades.</Subtitle>
+
+## Exemplo Padrão
+Aqui está um exemplo padrão do campo de entrada:
+<Canvas of={Story.Default} />
+
+## Campo de Entrada Desativado
+Utilize a propriedade `disabled` para criar campos de entrada que não respondem a cliques:
+<Canvas of={Story.Disabled} />
+
+## Campo de Entrada com Rótulo Flutuante
+Os rótulos flutuantes são úteis para economizar espaço e proporcionar uma experiência de usuário intuitiva:
+<Canvas of={Story.FloatingEffect} />
+
+## Campo de Entrada com Estilo de Contorno
+Veja como o campo de entrada se comporta com o estilo de contorno:
+<Canvas of={Story.Outline} />
+
+## Campo de Entrada Preenchido
+Aqui está um campo de entrada com um estilo preenchido:
+<Canvas of={Story.Filled} />
+
+## Campo de Entrada em Linha
+Este estilo de entrada é ideal para formulários compactos:
+<Canvas of={Story.Line} />
+
+## Documentação Interativa
+Com os controles abaixo, você pode modificar **dinamicamente** as propriedades e ver os efeitos em tempo real.
+
+<Primary />
+<Controls />
+
+---
+
+## Como Usar
+
+Este componente pode ser facilmente integrado ao seu projeto React. Aqui está um exemplo básico:
+
+```tsx
+import Input from "./Input";
+
+export default function App() {
+  return (
+    <div className="p-4">
+      <Input
+        label="Nome"
+        placeholder="Digite seu nome"
+        variant="default"
+      />
+    </div>
+  );
+}

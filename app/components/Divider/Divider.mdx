@@ -1,0 +1,66 @@
+import { Meta, Controls, Primary, Canvas, Stories, Subtitle } from "@storybook/blocks";
+import * as Story from "./Divider.stories.tsx";
+
+<Meta of={Story} />
+
+# Divisor
+
+O componente **Divider** é uma ferramenta versátil utilizada para separar visualmente seções de conteúdo. Ele é altamente configurável e pode ser personalizado com diferentes estilos, cores e margens.
+
+<Subtitle>Explore abaixo as diferentes variantes e propriedades.</Subtitle>
+
+## Exemplo Padrão
+Aqui está um exemplo padrão do divisor:
+<Canvas of={Story.Default} />
+
+## Divisor com Texto Personalizado
+Você pode adicionar texto ao divisor para fornecer contexto ou dividir seções relacionadas:
+<Canvas of={Story.CustomTextColor} />
+
+## Divisor com Cor de Borda Personalizada
+Utilize cores personalizadas para a borda do divisor:
+<Canvas of={Story.CustomBorderColor} />
+
+## Divisor com Espessura Ajustada
+Ajuste a espessura do divisor conforme necessário para enfatizar a separação entre seções:
+<Canvas of={Story.ThickDivider} />
+
+## Divisor com Margem Ampla
+Altere a margem vertical do divisor para ajustar o espaçamento ao redor:
+<Canvas of={Story.WideMargin} />
+
+## Divisor Sem Texto
+Você também pode utilizar o divisor sem texto:
+<Canvas of={Story.NoText} />
+
+---
+
+## Documentação Interativa
+
+Com os controles abaixo, você pode modificar **dinamicamente** as propriedades e ver os efeitos em tempo real.
+
+<Primary />
+<Controls />
+
+---
+
+## Como Usar
+
+Este componente pode ser facilmente integrado ao seu projeto React. Aqui está um exemplo básico:
+
+```tsx
+import Divider from "./Divider";
+
+export default function App() {
+  return (
+    <div className="p-4">
+      <h1 className="text-2xl font-bold">Seção 1</h1>
+      <p>Conteúdo da seção 1...</p>
+
+      <Divider text="Ou" />
+
+      <h1 className="text-2xl font-bold">Seção 2</h1>
+      <p>Conteúdo da seção 2...</p>
+    </div>
+  );
+}

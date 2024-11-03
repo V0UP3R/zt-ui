@@ -1,0 +1,66 @@
+import { Meta, Controls, Primary, Canvas, Stories, Subtitle } from "@storybook/blocks";
+import * as Story from "./Button.stories.tsx";
+
+<Meta of={Story} />
+
+# Botão
+
+Este é um componente de botão altamente flexível, utilizado para disparar ações ou navegar entre seções. Ele oferece múltiplos **estilos**, **tamanhos** e pode ser configurado para diferentes contextos de uso, como botões com ícones, animações e mais.
+
+<Subtitle>Explore abaixo as diferentes variantes e propriedades.</Subtitle>
+
+## Variantes Principais
+
+O componente suporta uma variedade de estilos, como `fill`, `ghost`, `animated` e até um estilo de **carousel** para botões mais complexos. Veja o exemplo padrão abaixo:
+
+### Exemplo Padrão
+<Canvas of={Story.Primary} />
+
+## Botão Desativado
+Use a propriedade `disabled` para criar botões desativados que não respondem a cliques.
+<Canvas of={Story.Disabled} />
+
+## Botão com Ícone
+<Canvas of={Story.IconButton} />
+
+Botões com ícones são úteis quando você precisa de uma ação compacta, como um botão de "+" para adicionar itens.
+
+## Botão com Animação
+Explore animações suaves que melhoram a experiência do usuário:
+<Canvas of={Story.Animated} />
+
+---
+
+## Documentação Interativa
+
+Com os controles abaixo, você pode modificar **dinamicamente** as propriedades e ver os efeitos em tempo real.
+
+<Primary />
+<Controls />
+
+---
+
+## Mais Exemplos
+
+### Diferentes Tamanhos
+<Canvas of={Story.DifferentSizes} />
+
+### Botão Estilo Carousel
+<Canvas of={Story.Carousel} />
+
+---
+
+## Como Usar
+
+Este componente pode ser facilmente integrado ao seu projeto React. Aqui está um exemplo básico:
+
+```tsx
+import Button from "./Button";
+
+export default function App() {
+  return (
+    <Button variant="fill" color="primary" size="md">
+      Clique Aqui
+    </Button>
+  );
+}
