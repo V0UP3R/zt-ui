@@ -3,18 +3,16 @@
 import * as React from "react"
 import { motion } from "framer-motion"
 import { IconType } from "react-icons"
-import { FiHome, FiFileText, FiMail, FiSettings, FiMoon, FiSun, FiLogIn, FiLogOut } from "react-icons/fi"
+import { FiHome, FiFileText, FiMail, FiSettings, FiMoon, FiSun, FiLogIn } from "react-icons/fi"
 import { cn } from "../utils/cn"
 import Button from "../Button/Button"
-import { Avatar } from "../Avatar/Avatar"
-
 interface NavItem {
   id: string
   label: string
   icon: IconType
 }
 
-interface FlexibleNavbarProps {
+export interface NavbarProps {
   items?: NavItem[]
   initialActiveItem?: string
   variant?: "bottom" | "top" | "aside"
@@ -41,7 +39,7 @@ const defaultItems: NavItem[] = [
   { id: "settings", label: "Configurações", icon: FiSettings },
 ]
 
-export default function FlexibleNavbar({
+const Navbar:React.FC<NavbarProps> = ({
   items = defaultItems,
   initialActiveItem = "home",
   variant = "bottom",
@@ -55,7 +53,7 @@ export default function FlexibleNavbar({
   onLogout,
   className,
   user,
-}: FlexibleNavbarProps) {
+}) => {
   const [activeItem, setActiveItem] = React.useState(initialActiveItem)
   const [isDarkMode, setIsDarkMode] = React.useState(false)
 
@@ -131,3 +129,5 @@ export default function FlexibleNavbar({
     </nav>
   )
 }
+
+export default Navbar;

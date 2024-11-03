@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import Spinner from '../Spinner/Spinner';
 
-interface TableProps<T extends { id: number }> { // Garantindo que T tenha a propriedade id
+export interface TableProps<T extends { id: number }> { // Garantindo que T tenha a propriedade id
   data: T[];
   columns: { key: keyof T; header: string }[];
   fetchData: (page: number, limit: number) => Promise<T[]>;
@@ -12,7 +12,7 @@ interface TableProps<T extends { id: number }> { // Garantindo que T tenha a pro
   onSelectRows?: (selected: T[]) => void; 
 }
 
-export function Table<T extends { id: number }>({ 
+function Table<T extends { id: number }>({ 
   data,
   columns,
   fetchData,
@@ -153,3 +153,5 @@ export function Table<T extends { id: number }>({
     </div>
   );
 }
+
+export default Table;

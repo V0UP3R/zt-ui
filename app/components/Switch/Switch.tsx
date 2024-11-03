@@ -39,7 +39,7 @@ const knobVariants = cva(
   }
 );
 
-interface SwitchProps extends VariantProps<typeof switchVariants> {
+export interface SwitchProps extends VariantProps<typeof switchVariants> {
   checked?: boolean;
   onChange?: (checked: boolean) => void;
   onColor?: string;

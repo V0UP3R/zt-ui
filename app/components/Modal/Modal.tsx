@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { IoMdClose } from "react-icons/io";
 
-export interface ModalProps {
+export type ModalProps = {
   isOpen: boolean;
   onClose: () => void;
   children: React.ReactNode;
@@ -22,7 +22,7 @@ const sizeClasses = {
   full: "w-full h-screen",
 };
 
-export default function Modal({
+const Modal: React.FC<ModalProps> = ({
   isOpen,
   onClose,
   children,
@@ -31,7 +31,7 @@ export default function Modal({
   footerContent,
   size = "md",
   overflow = "inside", // Valor padrão para o overflow
-}: ModalProps) {
+}) => {
   const [isBrowser, setIsBrowser] = useState(false);
 
   useEffect(() => {
@@ -111,3 +111,5 @@ export default function Modal({
     return null;
   }
 }
+
+export default Modal;

@@ -2,7 +2,7 @@ import React from 'react';
 
 type SpinnerSize = 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 
-type SpinnerProps = {
+export type SpinnerProps = {
   size?: SpinnerSize; 
   color?: string; 
 };

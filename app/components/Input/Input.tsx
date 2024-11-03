@@ -10,7 +10,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   variant?: 'default' | 'outline' | 'filled' | 'line' | 'floating';
 }
 
-export default function Input({
+const Input: React.FC<InputProps> = ({
   label,
   containerClassName,
   labelClassName,
@@ -19,7 +19,7 @@ export default function Input({
   id,
   disabled = false,
   ...props
-}: InputProps) {
+}) => {
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const labelRef = useRef<HTMLLabelElement | null>(null);
@@ -161,3 +161,5 @@ export default function Input({
     </div>
   );
 }
+
+export default Input;
