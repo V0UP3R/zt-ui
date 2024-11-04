@@ -11,7 +11,7 @@ import Image from "next/image"
 export interface NavItem {
   id: string
   label: string
-  icon: IconType
+  icon?: IconType
   subItems?: NavItem[] // Adiciona a propriedade para subitens
 }
 
@@ -146,7 +146,7 @@ const Navbar = ({
                   whileTap={{ scale: 0.95 }}
                 >
                   <div className="flex items-center">
-                    <item.icon className="w-6 h-6" />
+                    {item.icon && <item.icon className="w-6 h-6" />}
                     {(showLabels || variant === "aside") && (
                       <span className="ml-2 text-sm font-medium">{item.label}</span>
                     )}
@@ -173,7 +173,7 @@ const Navbar = ({
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        <subItem.icon className="w-5 h-5" />
+                        {subItem.icon && <subItem.icon className="w-5 h-5" />}
                         {(showLabels || variant === "aside") && (
                           <span className="ml-2 text-sm font-medium">{subItem.label}</span>
                         )}
@@ -198,10 +198,10 @@ const Navbar = ({
                 {variant === "aside" && <span className="text-sm font-medium">Alternar Tema</span>}
               </motion.button>
             )}
-            <Button variant="light" isIconOnly onClick={onLogin} className={cn(itemClasses, "w-full justify-start")}>
+            {/* <Button variant="light" isIconOnly onClick={onLogin} className={cn(itemClasses, "w-full justify-start")}>
               <FiLogIn className="w-6 h-6 text-dark-text dark:text-light-accent" />
               {variant === "aside" && <span className="ml-2 text-sm font-medium text-dark-text dark:text-light-accent">Entrar</span>}
-            </Button>
+            </Button> */}
           </div>
         </>
       )}
@@ -218,7 +218,7 @@ const Navbar = ({
             whileTap={{ scale: 0.95 }}
           >
             <div className="flex items-center">
-              <item.icon className="w-6 h-6" />
+              {item.icon && <item.icon className="w-6 h-6" />}
               {(showLabels) && (
                 <span className="ml-2 text-sm font-medium">{item.label}</span>
               )}
@@ -244,7 +244,7 @@ const Navbar = ({
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <subItem.icon className="w-5 h-5" />
+                  {subItem.icon && <subItem.icon className="w-5 h-5" />}
                   {(showLabels) && (
                     <span className="ml-2 text-sm font-medium">{subItem.label}</span>
                   )}

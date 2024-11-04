@@ -17,6 +17,7 @@ import {
 import { useEffect, useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { componentMetadata } from './metadata';
 
 const componentMap: { [key: string]: React.ComponentType<any> } = {
   Button,
@@ -35,7 +36,6 @@ const componentMap: { [key: string]: React.ComponentType<any> } = {
 
 export default function Page({ params }: { params: { id: string } }) {
   const [componentName, setComponentName] = useState<string | null>(null);
-  const [componentCode, setComponentCode] = useState<string>('');
 
   useEffect(() => {
     const name = params.id.charAt(0).toUpperCase() + params.id.slice(1);
@@ -43,6 +43,7 @@ export default function Page({ params }: { params: { id: string } }) {
   }, [params.id]);
 
   const ComponentToRender = componentMap[componentName as keyof typeof componentMap];
+  const metadata = componentMetadata[componentName as keyof typeof componentMetadata];
 
   if (!ComponentToRender) {
     return <div className="text-light-text dark:text-dark-text">Componente não encontrado.</div>;
@@ -55,34 +56,39 @@ export default function Page({ params }: { params: { id: string } }) {
       <div className="mb-8">
         <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary">Visualização</h2>
         <div className="p-4 border rounded bg-light-accent dark:bg-dark-accent">
-          <ComponentToRender color="primary"/>
+          <ComponentToRender color={'primary'}>{metadata.children}</ComponentToRender>
         </div>
       </div>
 
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary">Documentação</h2>
-        <p className="mt-2 text-light-text dark:text-dark-secondary">
-          Aqui você encontrará detalhes sobre como utilizar o componente <strong>{componentName}</strong>.
-        </p>
-        <ul className="list-disc list-inside">
-          <li><strong>Propriedade 1:</strong> Descrição da propriedade 1.</li>
-          <li><strong>Propriedade 2:</strong> Descrição da propriedade 2.</li>
-        </ul>
-      </div>
+      {metadata && (
+        <>
+          <div className="mb-8">
+            <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary">Documentação</h2>
+            <p className="mt-2 text-light-text dark:text-dark-secondary">{metadata.documentation}</p>
+            <ul className="list-disc list-inside">
+              {metadata.properties.map((prop) => (
+                <li key={prop.name}>
+                  <strong>{prop.name}:</strong> {prop.description}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary">Exemplo de Uso</h2>
-        <SyntaxHighlighter language="javascript" style={vscDarkPlus}>
-{`<${componentName} prop1="value1" prop2="value2" />`}
-        </SyntaxHighlighter>
-      </div>
+          <div className="mb-8">
+            <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary">Exemplo de Uso</h2>
+            <SyntaxHighlighter customStyle={{borderRadius:8}} language="javascript" style={vscDarkPlus}>
+              {metadata.usageExample}
+            </SyntaxHighlighter>
+          </div>
 
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary">Código do Componente</h2>
-        <SyntaxHighlighter language="javascript" style={vscDarkPlus}>
-          {componentCode}
-        </SyntaxHighlighter>
-      </div>
+          <div className="mb-8">
+            <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary">Código do Componente</h2>
+            <SyntaxHighlighter customStyle={{borderRadius:8}} language="javascript" style={vscDarkPlus}>
+              {metadata.codeSnippet}
+            </SyntaxHighlighter>
+          </div>
+        </>
+      )}
     </div>
   );
 }

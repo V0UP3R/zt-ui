@@ -4,6 +4,10 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button, Modal, NavItem } from "../components";
 import Navbar from "../components/NavBar/NavBar";
+import { BiSolidComponent } from "react-icons/bi";
+import { IoMdInformationCircle } from "react-icons/io";
+import { FaProductHunt } from "react-icons/fa";
+import { GrContact } from "react-icons/gr";
 
 const components = [
   { ...Modal, name: "Modal", description: "A modal dialog component" },
@@ -16,19 +20,19 @@ const components = [
 // ];
 
 const customItems: NavItem[] = [
-  { id: "home", label: "Início", icon: FiHome },
+  { id: "intro", label: "Introdução", icon: IoMdInformationCircle  },
   {
     id: "components/button",
     label: "Componentes",
-    icon: FiFileText,
+    icon: BiSolidComponent,
     subItems: [
-      { id: "components/button", label: "Button", icon: FiFileText },
-      { id: "components/input", label: "Input", icon: FiFileText },
-      { id: "components/modal", label: "Modal", icon: FiFileText },
+      { id: "components/button", label: "- Button"},
+      { id: "components/input", label: "- Input"},
+      { id: "components/modal", label: "- Modal"},
     ],
   },
-  { id: "pro", label: "Pro", icon: FiSettings },
-  { id: "contact", label: "Contato", icon: FiMail },
+  { id: "pro", label: "Pro", icon: FaProductHunt  },
+  { id: "contact", label: "Contato", icon: GrContact  },
 ];
 
 export default function DocLayout({
