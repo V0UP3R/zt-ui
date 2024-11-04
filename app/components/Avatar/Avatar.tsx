@@ -18,14 +18,14 @@ const sizes = {
   lg: 'w-16 h-16 text-lg',
 }
 
-const Avatar: React.FC<AvatarProps> = ({
+const Avatar = ({
   src,
   name,
   rounded = true,
   size = 'md',
   objectFit = 'cover',
   objectPosition = 'center',
-}) => {
+}: AvatarProps) => {
   const getInitials = (name?: string) =>
     name ? name.split(' ').map(n => n[0]).slice(0, 2).join('') : ''
 

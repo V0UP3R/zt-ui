@@ -14,7 +14,7 @@ export type DropdownProps = {
   placeholder?: string
 }
 
-const Dropdown:React.FC<DropdownProps> = ({ options, onSelect, placeholder = 'Selecione uma opção' }) => {
+const Dropdown = ({ options, onSelect, placeholder = 'Selecione uma opção' }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const [selectedOption, setSelectedOption] = useState<DropdownOption | null>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)

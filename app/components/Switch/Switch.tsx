@@ -49,7 +49,7 @@ export interface SwitchProps extends VariantProps<typeof switchVariants> {
   labels?: { on: string; off: string };
 }
 
-const Switch: React.FC<SwitchProps> = ({
+const Switch = ({
   checked = false,
   onChange,
   size,
@@ -58,7 +58,7 @@ const Switch: React.FC<SwitchProps> = ({
   className,
   knobClassName,
   labels,
-}) => {
+}: SwitchProps) => {
   const [isOn, setIsOn] = useState(checked);
 
   const toggleSwitch = () => {

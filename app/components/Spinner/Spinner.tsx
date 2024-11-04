@@ -15,7 +15,7 @@ const sizeMap: Record<SpinnerSize, string> = {
   '2xl': 'w-20 h-20' 
 };
 
-const Spinner: React.FC<SpinnerProps> = ({ size = 'md', color = 'border-blue-500' }) => {
+const Spinner = ({ size = 'md', color = 'border-blue-500' }: SpinnerProps) => {
   return (
     <div
       className={`inline-block animate-spin rounded-full border-4 border-solid border-t-transparent ${sizeMap[size]} ${color}`}

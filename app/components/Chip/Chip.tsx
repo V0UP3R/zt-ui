@@ -5,7 +5,7 @@ export type ChipProps = {
   color: string;
 }
 
-const Chip: React.FC<ChipProps> = ({ text, color }) => {
+const Chip = ({ text, color } : ChipProps) => {
   return (
     <span
       className={`px-3 py-1 rounded-full text-green-950 text-sm font-normal ${color}`}

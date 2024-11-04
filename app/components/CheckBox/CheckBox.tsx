@@ -18,7 +18,7 @@ const sizeClasses = {
   lg: "w-8 h-8 text-xl",
 };
 
-const Checkbox: React.FC<CheckboxProps> = ({
+const Checkbox = ({
   label,
   checkedColor = "bg-green-500",
   uncheckedColor = "border-gray-400",
@@ -26,7 +26,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   checkedIcon = <MdCheck />,
   checkedIconColor = "text-white",
   disabled = false, // Valor padrão
-}) => {
+}: CheckboxProps) => {
   const [checked, setChecked] = useState(false);
 
   const toggleChecked = () => {

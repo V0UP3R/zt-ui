@@ -8,13 +8,13 @@ export type DividerProps = {
   marginY?: string;
 }
 
-const Divider: React.FC<DividerProps> = ({
+const Divider = ({
   text,
   textColor = 'text-gray-500',
   borderColor = 'border-gray-300',
   thickness = 'border-t-2',
   marginY = 'my-4',
-}) => {
+}:DividerProps) => {
   return (
     <div className={`flex items-center ${marginY}`}>
       <div className={`flex-grow ${thickness} ${borderColor}`}></div>

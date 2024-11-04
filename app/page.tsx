@@ -1,9 +1,19 @@
-import Button from "./components/Button/Button";
+"use client"
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Button, Input, Modal, Switch } from "./components";
+import { MdOutlineMenu } from "react-icons/md";
+import { FaSearch } from "react-icons/fa";
+import { Playground } from "./components/Playground/Playground";
+import Navbar, { NavItem } from "./components/NavBar/NavBar";
+import { FiCpu, FiDatabase } from "react-icons/fi";
+import { useRouter } from "next/navigation";
 
-export default function Home() {
+
+
+export default function Component() {
+
   return (
-    <div className="flex items-center justify-center h-screen w-screen">
-      <Button>Teste</Button>
-    </div>
+    <></>
   );
 }

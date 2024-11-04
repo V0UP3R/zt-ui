@@ -22,7 +22,7 @@ const sizeClasses = {
   full: "w-full h-screen",
 };
 
-const Modal: React.FC<ModalProps> = ({
+const Modal = ({
   isOpen,
   onClose,
   children,
@@ -31,7 +31,7 @@ const Modal: React.FC<ModalProps> = ({
   footerContent,
   size = "md",
   overflow = "inside", // Valor padrão para o overflow
-}) => {
+}: ModalProps) => {
   const [isBrowser, setIsBrowser] = useState(false);
 
   useEffect(() => {
