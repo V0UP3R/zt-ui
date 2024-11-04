@@ -86,7 +86,7 @@ export default function DocLayout({
           />
           {/* Main content */}
           <div className="flex-1 max-h-screen overflow-y-auto">
-            <div className="min-h-screen flex py-4">
+            <div className="min-h-screen flex">
               {children}
             </div>
           </div>

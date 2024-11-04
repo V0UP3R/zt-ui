@@ -7,6 +7,7 @@ import { FiHome, FiFileText, FiMail, FiSettings, FiMoon, FiSun, FiLogIn } from "
 import { cn } from "../utils/cn"
 import Button from "../Button/Button"
 import Image from "next/image"
+import Divider from "../Divider/Divider"
 
 export interface NavItem {
   id: string
@@ -112,7 +113,7 @@ const Navbar = ({
   )
 
   const subItemClasses = cn(
-    "relative px-5 py-2 flex items-center gap-2 rounded-full text-gray-500 dark:text-gray-400",
+    "relative px-4 py-2 flex items-center gap-2 rounded-full text-gray-500 dark:text-gray-400",
     "hover:text-gray-900 dark:hover:text-white transition-colors"
   )
 
@@ -127,10 +128,12 @@ const Navbar = ({
       {variant === "aside" && (
         <>
           {/* Topo: Logo ou título */}
-          <div className="p-4 flex items-center justify-start">
+          <div className="p-4 flex items-center justify-center">
             {/* <h1 className="text-4xl font-extralight text-light-accent dark:text-dark-text">ZT</h1> */}
             <Image src={isDarkMode ? "/logo-dark.svg" : "/logo-light.svg"} alt="logo" width={90} height={90}/>
           </div>
+
+          <Divider borderColor={isDarkMode ? 'bg-gray-500' : 'bg-gray-300'}/>
 
           {/* Meio: Itens de navegação */}
           <div className="flex-grow overflow-y-auto">
@@ -139,7 +142,7 @@ const Navbar = ({
                 <motion.button
                   className={cn(
                     itemClasses,
-                    activeItem === item.id && "text-gray-900 dark:text-white"
+                    activeItem === item.id && "text-light-primary dark:text-dark-secondary bg-light-accent dark:bg-dark-accent"
                   )}
                   onClick={() => handleItemClick(item.id, Boolean(item.subItems))}
                   whileHover={{ scale: 1.05 }}
@@ -175,7 +178,7 @@ const Navbar = ({
                       >
                         {subItem.icon && <subItem.icon className="w-5 h-5" />}
                         {(showLabels || variant === "aside") && (
-                          <span className="ml-2 text-sm font-medium">{subItem.label}</span>
+                          <span className="text-sm font-medium">{subItem.label}</span>
                         )}
                       </motion.button>
                     ))}

@@ -12,7 +12,7 @@ const Divider = ({
   text,
   textColor = 'text-gray-500',
   borderColor = 'border-gray-300',
-  thickness = 'border-t-2',
+  thickness = 'border-t',
   marginY = 'my-4',
 }:DividerProps) => {
   return (
