@@ -75,14 +75,14 @@ export default function DocLayout({
           {/* Sidebar */}
           <Navbar
             items={customItems}
-            variant="bottom"
+            variant="aside"
             showLabels
             onThemeToggle={() => setIsDarkMode(!isDarkMode)}
             onItemClick={handleItemClick}
           />
           {/* Main content */}
-          <div className="flex-1 p-4">
-            <div className="min-h-screen flex items-center justify-center">
+          <div className="flex-1 max-h-screen overflow-y-auto">
+            <div className="min-h-screen flex py-4">
               {children}
             </div>
           </div>

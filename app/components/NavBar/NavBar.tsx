@@ -6,6 +6,7 @@ import { IconType } from "react-icons"
 import { FiHome, FiFileText, FiMail, FiSettings, FiMoon, FiSun, FiLogIn } from "react-icons/fi"
 import { cn } from "../utils/cn"
 import Button from "../Button/Button"
+import Image from "next/image"
 
 export interface NavItem {
   id: string
@@ -127,7 +128,8 @@ const Navbar = ({
         <>
           {/* Topo: Logo ou título */}
           <div className="p-4 flex items-center justify-start">
-            <h1 className="text-4xl font-extralight text-light-accent dark:text-dark-text">ZT</h1>
+            {/* <h1 className="text-4xl font-extralight text-light-accent dark:text-dark-text">ZT</h1> */}
+            <Image src={isDarkMode ? "/logo-dark.svg" : "/logo-light.svg"} alt="logo" width={90} height={90}/>
           </div>
 
           {/* Meio: Itens de navegação */}
