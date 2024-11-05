@@ -136,7 +136,7 @@ const Navbar = ({
           <Divider borderColor={isDarkMode ? 'bg-gray-500' : 'bg-gray-300'}/>
 
           {/* Meio: Itens de navegação */}
-          <div className="flex-grow overflow-y-auto">
+          <div className="flex-grow overflow-y-auto overflow-x-hidden">
             {items.map((item) => (
               <div key={item.id}>
                 <motion.button

@@ -1,3 +1,4 @@
+'use client'
 import { useState } from "react";
 import { MdCheck } from "react-icons/md";
 import { cn } from "../utils/cn";

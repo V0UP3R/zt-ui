@@ -1,67 +1,239 @@
-export default function HomePage() {
+import { Button, Input } from "@/app/components"
+import { Card, CardContent, CardHeader, CardTitle } from "@/app/components/Card/Card"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/app/components/Tabs/Tabs"
+import { FaChevronDown, FaTerminal } from "react-icons/fa";
+
+export default function Component() {
   return (
-    <div className="min-h-screen min-w-full bg-light-background text-light-text dark:bg-dark-background dark:text-dark-text p-8">
-      <main className="mx-auto bg-light-primary dark:bg-dark-secondary shadow-lg rounded-lg p-6">
-        <h1 className="text-3xl font-bold mb-4">ZT-UI Library - Biblioteca de Componentes Next.js</h1>
-        <p className="mb-6">
-          Este projeto é uma biblioteca Next.js com componentes reutilizáveis para melhorar sua aplicação com configuração mínima. Siga as instruções abaixo para começar.
-        </p>
+    <div className="flex flex-col min-h-screen min-w-full">
+      <main className="flex-1">
+        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-blue-800">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h1 className="text-3xl font-bold tracking-tighter text-light-text dark:text-dark-text sm:text-4xl md:text-5xl lg:text-6xl/none">
+                  Bem-vindo à Nossa Biblioteca Next.js
+                </h1>
+                <p className="mx-auto max-w-[700px] text-light-text md:text-xl dark:text-dark-text">
+                  Acelere seu desenvolvimento com nossa biblioteca moderna e eficiente para Next.js.
+                </p>
+              </div>
+              <div className="space-x-4 flex">
+                <Button className="bg-transparent hover:bg-transparent text-light-text text-opacity-60 duration-500 dark:text-dark-text dark:hover:text-opacity-60 dark:duration-500" variant="light">
+                  <FaChevronDown  className="h-8 w-8" />
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <h2 className="text-2xl font-semibold mb-3 text-light-secondary dark:text-dark-secondary">Começando</h2>
-        <h3 className="text-xl font-semibold mb-2">Pré-requisitos</h3>
-        <p className="mb-4">Instale as seguintes dependências:</p>
-        <ul className="list-disc list-inside mb-6">
-          <li>Node.js &gt;= 16</li>
-          <li>npm, yarn, pnpm, ou bun</li>
-        </ul>
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
+              Instalação
+            </h2>
+            <div className="max-w-[700px] mx-auto">
+              <p className="mb-4">Para instalar nossa biblioteca, execute o seguinte comando no diretório do seu projeto:</p>
+              <pre className="bg-gray-200 p-4 rounded-md overflow-x-auto">
+                <code>npm install minha-biblioteca-nextjs</code>
+              </pre>
+              <p className="mt-4">Ou, se você preferir usar Yarn:</p>
+              <pre className="bg-gray-200 p-4 rounded-md overflow-x-auto">
+                <code>yarn add minha-biblioteca-nextjs</code>
+              </pre>
+            </div>
+          </div>
+        </section>
 
-        <h3 className="text-xl font-semibold mb-2">Instalação</h3>
-        <p className="mb-4">Adicione a biblioteca ao seu projeto Next.js:</p>
-        <pre className="bg-light-accent dark:bg-dark-accent p-4 rounded mb-6">
-          <code>npm install @v0up3r/zt-ui</code>
-          <br />
-          <code># ou</code>
-          <br />
-          <code>yarn add @v0up3r/zt-ui</code>
-        </pre>
+        <section className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
+              Exemplos de Uso
+            </h2>
+            <Tabs defaultValue="button" className="max-w-[700px] mx-auto">
+              <TabsList>
+                <TabsTrigger value="button">Botão</TabsTrigger>
+                <TabsTrigger value="card">Card</TabsTrigger>
+                <TabsTrigger value="form">Formulário</TabsTrigger>
+              </TabsList>
+              <TabsContent value="button">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Exemplo de Botão</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <pre className="bg-gray-200 p-4 rounded-md overflow-x-auto">
+                      <code>{`import { Button } from 'minha-biblioteca-nextjs'
 
-        <h3 className="text-xl font-semibold mb-2">Configuração</h3>
-        <p className="mb-4">Modifique os seguintes arquivos:</p>
+export default function MinhaPage() {
+  return (
+    <Button>Clique Aqui</Button>
+  )
+}`}</code>
+                    </pre>
+                    <div className="mt-4">
+                      <Button>Clique Aqui</Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+              <TabsContent value="card">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Exemplo de Card</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <pre className="bg-gray-200 p-4 rounded-md overflow-x-auto">
+                      <code>{`import { Card, CardHeader, CardTitle, CardContent } from 'minha-biblioteca-nextjs'
 
-        <h4 className="text-lg font-semibold mb-2">Configuração do Tailwind</h4>
-        <pre className="bg-light-accent dark:bg-dark-accent p-4 rounded mb-6">
-          <code>
-            {`import type { Config } from "tailwindcss";\n\n`}
-            {`const config: Config = {\n  darkMode: 'class',\n  content: [\n    "./pages/**/*.{js,ts,jsx,tsx,mdx}",\n    "./components/**/*.{js,ts,jsx,tsx,mdx}",\n    "./app/**/*.{js,ts,jsx,tsx,mdx}"\n  ],\n  theme: {\n    extend: {\n      colors: {\n        // Cores customizadas\n      }\n    }\n  },\n  plugins: []\n};\nexport default config;`}
-          </code>
-        </pre>
+export default function MinhaPage() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Título do Card</CardTitle>
+      </CardHeader>
+      <CardContent>
+        Conteúdo do card aqui...
+      </CardContent>
+    </Card>
+  )
+}`}</code>
+                    </pre>
+                    <div className="mt-4">
+                      <Card>
+                        <CardHeader>
+                          <CardTitle>Título do Card</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          Conteúdo do card aqui...
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+              <TabsContent value="form">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Exemplo de Formulário</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <pre className="bg-gray-200 p-4 rounded-md overflow-x-auto">
+                      <code>{`import { Button, Input, Label } from 'minha-biblioteca-nextjs'
 
-        <h4 className="text-lg font-semibold mb-2">Configuração do Next.js</h4>
-        <pre className="bg-light-accent dark:bg-dark-accent p-4 rounded mb-6">
-          <code>
-            {`const nextConfig = {\n  transpilePackages: ['@v0up3r/zt-ui'],\n};\n\nexport default nextConfig;`}
-          </code>
-        </pre>
+export default function MinhaPage() {
+  return (
+    <form>
+      <Label htmlFor="email">Email</Label>
+      <Input type="email" id="email" placeholder="seu@email.com" />
+      <Button type="submit">Enviar</Button>
+    </form>
+  )
+}`}</code>
+                    </pre>
+                    <div className="mt-4">
+                      <form className="space-y-4">
+                        <div>
+                          <Input title="E-mail" type="email" id="email" placeholder="seu@email.com" />
+                        </div>
+                        <Button type="submit">Enviar</Button>
+                      </form>
+                    </div>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+            </Tabs>
+          </div>
+        </section>
 
-        <h3 className="text-xl font-semibold mb-2">Componentes Disponíveis</h3>
-        <p className="mb-6">Divisor, Botão, Input, Tabela, NavBar, Avatar, Switcher, Checkbox, Autocomplete, Select, Card</p>
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+          <div className="container px-4 md:px-6">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
+              Componentes Disponíveis
+            </h2>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Button</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>Botão personalizável com variantes.</p>
+                  <Button className="mt-2">Exemplo</Button>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Card</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>Componente de card flexível para exibir conteúdo.</p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Input</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>Campo de entrada estilizado.</p>
+                  <Input className="mt-2" placeholder="Digite aqui" />
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Tabs</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>Componente de abas para organizar conteúdo.</p>
+                </CardContent>
+              </Card>
+              <Card>
+                <CardHeader>
+                  <CardTitle>E muito mais!</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>Explore nossa documentação para ver todos os componentes disponíveis.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
 
-        <h3 className="text-xl font-semibold mb-2">Exemplo de Uso</h3>
-        <pre className="bg-light-accent dark:bg-dark-accent p-4 rounded mb-6">
-          <code>
-            {`import { Button } from '@v0up3r/zt-ui';\n\n`}
-            {`export default function HomePage() {\n  return (\n    <div className="p-4">\n      <Button variant="primary" onClick={() => alert('Botão Clicado!')}>\n        Clique Aqui\n      </Button>\n    </div>\n  );\n}`}
-          </code>
-        </pre>
-
-        <h3 className="text-xl font-semibold mb-2">Desenvolvimento</h3>
-        <pre className="bg-light-accent dark:bg-dark-accent p-4 rounded mb-6">
-          <code>npm run dev</code>
-        </pre>
-
-        <h3 className="text-xl font-semibold mb-2">Licença</h3>
-        <p className="mb-6">Este projeto está licenciado sob a Licença MIT.</p>
+        <section className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                  Pronto para Começar?
+                </h2>
+                <p className="mx-auto max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
+                  Junte-se a milhares de desenvolvedores que já estão criando aplicativos incríveis com nossa biblioteca.
+                </p>
+              </div>
+              <div className="space-x-4">
+                <Button>
+                  Instalar Agora
+                  <FaTerminal  className="ml-2 h-4 w-4" />
+                </Button>
+                <Button variant="outline">Ver Documentação</Button>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
+
+      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
+        <p className="text-xs text-gray-500 dark:text-gray-400">
+          © 2024 Minha Biblioteca Next.js. Todos os direitos reservados.
+        </p>
+        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
+          <a className="text-xs hover:underline underline-offset-4" href="#">
+            Termos de Serviço
+          </a>
+          <a className="text-xs hover:underline underline-offset-4" href="#">
+            Privacidade
+          </a>
+        </nav>
+      </footer>
     </div>
-  );
+  )
 }

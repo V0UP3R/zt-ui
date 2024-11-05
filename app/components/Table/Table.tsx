@@ -1,3 +1,4 @@
+'use client'
 import { useState, useEffect } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import Spinner from '../Spinner/Spinner';
