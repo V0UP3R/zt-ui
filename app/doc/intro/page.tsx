@@ -1,45 +1,78 @@
-import { Button, Input } from "@/app/components"
-import { Card, CardContent, CardHeader, CardTitle } from "@/app/components/Card/Card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/app/components/Tabs/Tabs"
+"use client";
+import { Button, Input } from "@/app/components";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/app/components/Card/Card";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/app/components/Tabs/Tabs";
 import { FaChevronDown, FaTerminal } from "react-icons/fa";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export default function Component() {
+  function scrollToSection(id: string) {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      console.warn(`Element with id "${id}" not found.`);
+    }
+  }
+
   return (
     <div className="flex flex-col min-h-screen min-w-full">
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-blue-800">
+        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 introbg bg-cover bg-no-repeat">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter text-light-text dark:text-dark-text sm:text-4xl md:text-5xl lg:text-6xl/none">
+                <h1 className="text-3xl shadow-md font-bold tracking-tighter text-default-white dark:text-default-white sm:text-4xl md:text-5xl lg:text-6xl/none">
                   Bem-vindo à Nossa Biblioteca Next.js
                 </h1>
-                <p className="mx-auto max-w-[700px] text-light-text md:text-xl dark:text-dark-text">
-                  Acelere seu desenvolvimento com nossa biblioteca moderna e eficiente para Next.js.
+                <p className="mx-auto max-w-[700px] shadow-md text-default-white md:text-xl dark:text-dark-accent">
+                  Acelere seu desenvolvimento com nossa biblioteca moderna e
+                  eficiente para Next.js.
                 </p>
               </div>
               <div className="space-x-4 flex">
-                <Button className="bg-transparent hover:bg-transparent text-light-text text-opacity-60 duration-500 dark:text-dark-text dark:hover:text-opacity-60 dark:duration-500" variant="light">
-                  <FaChevronDown  className="h-8 w-8" />
+                <Button
+                  onClick={() => scrollToSection("install-section")}
+                  className="bg-transparent hover:bg-transparent text-default-white duration-500 dark:text-default-white dark:hover:text-opacity-80 dark:duration-500"
+                  variant="light"
+                >
+                  <FaChevronDown className="h-8 w-8 animate-pulse" />
                 </Button>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+        <section
+          id="install-section"
+          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-900"
+        >
           <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
+            <h2 className="text-3xl text-light-text dark:text-dark-text font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
               Instalação
             </h2>
             <div className="max-w-[700px] mx-auto">
-              <p className="mb-4">Para instalar nossa biblioteca, execute o seguinte comando no diretório do seu projeto:</p>
+              <p className="mb-4 text-light-text dark:text-dark-text">
+                Para instalar nossa biblioteca, execute o seguinte comando no
+                diretório do seu projeto:
+              </p>
               <pre className="bg-gray-200 p-4 rounded-md overflow-x-auto">
-                <code>npm install minha-biblioteca-nextjs</code>
+                <code>npm install @v0up3r/zt-ui</code>
               </pre>
-              <p className="mt-4">Ou, se você preferir usar Yarn:</p>
+              <p className="mt-4 text-light-text dark:text-dark-text">Ou, se você preferir usar Yarn:</p>
               <pre className="bg-gray-200 p-4 rounded-md overflow-x-auto">
-                <code>yarn add minha-biblioteca-nextjs</code>
+                <code>yarn add @v0up3r/zt-ui</code>
               </pre>
             </div>
           </div>
@@ -62,15 +95,19 @@ export default function Component() {
                     <CardTitle>Exemplo de Botão</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <pre className="bg-gray-200 p-4 rounded-md overflow-x-auto">
-                      <code>{`import { Button } from 'minha-biblioteca-nextjs'
+                    <SyntaxHighlighter
+                      customStyle={{ borderRadius: 8 }}
+                      language="javascript"
+                      style={vscDarkPlus}
+                    >
+                      {`import { Button } from '@v0up3r/zt-ui'
 
 export default function MinhaPage() {
   return (
     <Button>Clique Aqui</Button>
   )
-}`}</code>
-                    </pre>
+}`}
+                    </SyntaxHighlighter>
                     <div className="mt-4">
                       <Button>Clique Aqui</Button>
                     </div>
@@ -83,8 +120,12 @@ export default function MinhaPage() {
                     <CardTitle>Exemplo de Card</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <pre className="bg-gray-200 p-4 rounded-md overflow-x-auto">
-                      <code>{`import { Card, CardHeader, CardTitle, CardContent } from 'minha-biblioteca-nextjs'
+                    <SyntaxHighlighter
+                      customStyle={{ borderRadius: 8 }}
+                      language="javascript"
+                      style={vscDarkPlus}
+                    >
+                      {`import { Card, CardHeader, CardTitle, CardContent } from '@v0up3r/zt-ui'
 
 export default function MinhaPage() {
   return (
@@ -97,45 +138,47 @@ export default function MinhaPage() {
       </CardContent>
     </Card>
   )
-}`}</code>
-                    </pre>
+}`}
+                    </SyntaxHighlighter>
                     <div className="mt-4">
                       <Card>
                         <CardHeader>
                           <CardTitle>Título do Card</CardTitle>
                         </CardHeader>
-                        <CardContent>
-                          Conteúdo do card aqui...
-                        </CardContent>
+                        <CardContent>Conteúdo do card aqui...</CardContent>
                       </Card>
                     </div>
                   </CardContent>
                 </Card>
               </TabsContent>
+
               <TabsContent value="form">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Exemplo de Formulário</CardTitle>
+                    <CardTitle>Exemplo de Input</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <pre className="bg-gray-200 p-4 rounded-md overflow-x-auto">
-                      <code>{`import { Button, Input, Label } from 'minha-biblioteca-nextjs'
+                    <SyntaxHighlighter
+                      customStyle={{ borderRadius: 8 }}
+                      language="javascript"
+                      style={vscDarkPlus}
+                    >
+                      {`import { Input, Button } from '@v0up3r/zt-ui'
 
 export default function MinhaPage() {
   return (
     <form>
-      <Label htmlFor="email">Email</Label>
-      <Input type="email" id="email" placeholder="seu@email.com" />
+      <Input type="email" placeholder="seu@email.com" />
+      <Input type="password" placeholder="*********" />
       <Button type="submit">Enviar</Button>
     </form>
   )
-}`}</code>
-                    </pre>
+}`}
+                    </SyntaxHighlighter>
                     <div className="mt-4">
                       <form className="space-y-4">
-                        <div>
-                          <Input title="E-mail" type="email" id="email" placeholder="seu@email.com" />
-                        </div>
+                        <Input type="email" placeholder="seu@email.com" />
+                        <Input type="password" placeholder="*********" />
                         <Button type="submit">Enviar</Button>
                       </form>
                     </div>
@@ -191,7 +234,10 @@ export default function MinhaPage() {
                   <CardTitle>E muito mais!</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p>Explore nossa documentação para ver todos os componentes disponíveis.</p>
+                  <p>
+                    Explore nossa documentação para ver todos os componentes
+                    disponíveis.
+                  </p>
                 </CardContent>
               </Card>
             </div>
@@ -206,15 +252,16 @@ export default function MinhaPage() {
                   Pronto para Começar?
                 </h2>
                 <p className="mx-auto max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
-                  Junte-se a milhares de desenvolvedores que já estão criando aplicativos incríveis com nossa biblioteca.
+                  Junte-se a milhares de desenvolvedores que já estão criando
+                  aplicativos incríveis com nossa biblioteca.
                 </p>
               </div>
-              <div className="space-x-4">
-                <Button>
+              <div className="space-x-4 flex">
+                <Button className="bg-light-accent text-light-primary dark:bg-dark-accent dark:text-dark-accent">
                   Instalar Agora
-                  <FaTerminal  className="ml-2 h-4 w-4" />
+                  <FaTerminal className="ml-2 h-4 w-4" />
                 </Button>
-                <Button variant="outline">Ver Documentação</Button>
+                <Button variant="flat">Ver Componentes</Button>
               </div>
             </div>
           </div>
@@ -235,5 +282,5 @@ export default function MinhaPage() {
         </nav>
       </footer>
     </div>
-  )
+  );
 }

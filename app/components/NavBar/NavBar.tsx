@@ -89,7 +89,7 @@ const Navbar = ({
   const navbarClasses = cn(
     "bg-white dark:bg-gray-800 shadow-lg transition-colors duration-300",
     variant === "aside"
-      ? "relative h-screen w-64 flex flex-col" // Flex para coluna em modo "aside"
+      ? "relative h-screen w-72 flex flex-col" // Flex para coluna em modo "aside"
       : "fixed px-4 py-2 rounded-full flex",
     variant === "top"
       ? "top-4 left-1/2 -translate-x-1/2"
@@ -107,8 +107,8 @@ const Navbar = ({
   );
 
   const itemClasses = cn(
-    "relative px-3 py-2 flex items-center gap-2 rounded-full text-gray-600 dark:text-gray-300",
-    "hover:text-gray-900 dark:hover:text-white transition-colors",
+    "relative px-3 py-2 flex items-center gap-2 rounded-full text-gray-600 dark:text-gray-300 hover:scale-105 duration-700",
+    "transition-colors hover:scale-105 hover:bg-opacity-90",
     variant === "aside" && "w-full"
   )
 
@@ -136,7 +136,7 @@ const Navbar = ({
           <Divider borderColor={isDarkMode ? 'bg-gray-500' : 'bg-gray-300'}/>
 
           {/* Meio: Itens de navegação */}
-          <div className="flex-grow overflow-y-auto overflow-x-hidden">
+          <div className="flex-grow overflow-y-auto overflow-x-hidden px-2">
             {items.map((item) => (
               <div key={item.id}>
                 <motion.button
@@ -145,7 +145,6 @@ const Navbar = ({
                     activeItem === item.id && "text-light-primary dark:text-dark-secondary bg-light-accent dark:bg-dark-accent"
                   )}
                   onClick={() => handleItemClick(item.id, Boolean(item.subItems))}
-                  whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <div className="flex items-center">

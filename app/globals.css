@@ -19,3 +19,10 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555; /* Cor do "polegar" quando está em hover */
 }
+
+.introbg{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../public/intro-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
