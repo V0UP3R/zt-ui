@@ -10,47 +10,57 @@ export interface ComponentMetadata {
   };
   usageExample?: {
     component: React.ReactNode;
-    example: string;
+    codeSnippets: string;
     description: string;
   };
   disabledUsageExample?: {
-    example: string;
+    component: React.ReactNode;
+    codeSnippets: string;
     description: string;
   };
   availableSizes?: {
-    examples: string[];
+    component: React.ReactNode;
+    codeSnippets: string[];
     description: string;
   };
   borderRadiusOptions?: {
-    examples: string[];
+    component: React.ReactNode;
+    codeSnippets: string[];
     description: string;
   };
   colors?: {
-    examples: string[];
+    component: React.ReactNode;
+    codeSnippets: string[];
     description: string;
   };
   variants?: {
-    examples: string[];
+    component: React.ReactNode;
+    codeSnippets: string[];
     description: string;
   };
   loadingStateExample?: {
-    example: string;
+    component: React.ReactNode;
+    codeSnippets: string;
     description: string;
   };
   withIconsExample?: {
-    example: string;
+    component: React.ReactNode;
+    codeSnippets: string;
     description: string;
   };
   iconOnlyExample?: {
-    example: string;
+    component: React.ReactNode;
+    codeSnippets: string;
     description: string;
   };
   customStylesExample?: {
-    example: string;
+    component: React.ReactNode;
+    codeSnippets: string;
     description: string;
   };
   accessibilityExample?: {
-    example: string;
+    component: React.ReactNode;
+    codeSnippets: string;
     description: string;
   };
   properties?: Array<{

@@ -63,7 +63,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
       {metadata && (
         <>
-          <DisplayComponent codeSnippets={metadata.usageExample?.example!} component={metadata.usageExample?.component} description={metadata.usageExample?.description!} />
+          <DisplayComponent codeSnippets={metadata.usageExample?.codeSnippets!} component={metadata.usageExample?.component} description={metadata.usageExample?.description!} />
           {/* Descrição */}
           {metadata.componentDescription && (
             <div className="mb-8">
@@ -97,7 +97,7 @@ export default function Page({ params }: { params: { id: string } }) {
             <div className="mb-8">
               <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary">Uso do Componente</h2>
               <SyntaxHighlighter customStyle={{ borderRadius: 8 }} language="javascript" style={vscDarkPlus}>
-                {metadata.usageExample.example}
+                {metadata.usageExample.codeSnippets}
               </SyntaxHighlighter>
             </div>
           )}
@@ -107,7 +107,7 @@ export default function Page({ params }: { params: { id: string } }) {
             <div className="mb-8">
               <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary">Uso do Componente Desabilitado</h2>
               <SyntaxHighlighter customStyle={{ borderRadius: 8 }} language="javascript" style={vscDarkPlus}>
-                {metadata.disabledUsageExample.example}
+                {metadata.disabledUsageExample.codeSnippets}
               </SyntaxHighlighter>
             </div>
           )}
@@ -117,7 +117,7 @@ export default function Page({ params }: { params: { id: string } }) {
             <div className="mb-8">
               <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary">Tamanhos Disponíveis</h2>
               <SyntaxHighlighter customStyle={{ borderRadius: 8 }} language="javascript" style={vscDarkPlus}>
-                {metadata.availableSizes.examples}
+                {metadata.availableSizes.codeSnippets}
               </SyntaxHighlighter>
             </div>
           )}
@@ -127,7 +127,7 @@ export default function Page({ params }: { params: { id: string } }) {
             <div className="mb-8">
               <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary">Tamanhos de Arredondamento</h2>
               <SyntaxHighlighter customStyle={{ borderRadius: 8 }} language="javascript" style={vscDarkPlus}>
-                {metadata.borderRadiusOptions.examples}
+                {metadata.borderRadiusOptions.codeSnippets}
               </SyntaxHighlighter>
             </div>
           )}
@@ -137,7 +137,7 @@ export default function Page({ params }: { params: { id: string } }) {
             <div className="mb-8">
               <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary">Cores</h2>
               <SyntaxHighlighter customStyle={{ borderRadius: 8 }} language="javascript" style={vscDarkPlus}>
-                {metadata.colors.examples}
+                {metadata.colors.codeSnippets}
               </SyntaxHighlighter>
             </div>
           )}
@@ -147,7 +147,7 @@ export default function Page({ params }: { params: { id: string } }) {
             <div className="mb-8">
               <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary">Variantes</h2>
               <SyntaxHighlighter customStyle={{ borderRadius: 8 }} language="javascript" style={vscDarkPlus}>
-                {metadata.variants.examples}
+                {metadata.variants.codeSnippets}
               </SyntaxHighlighter>
             </div>
           )}
@@ -157,7 +157,7 @@ export default function Page({ params }: { params: { id: string } }) {
             <div className="mb-8">
               <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary">Carregamento</h2>
               <SyntaxHighlighter customStyle={{ borderRadius: 8 }} language="javascript" style={vscDarkPlus}>
-                {metadata.loadingStateExample.example}
+                {metadata.loadingStateExample.codeSnippets}
               </SyntaxHighlighter>
             </div>
           )}
@@ -167,7 +167,7 @@ export default function Page({ params }: { params: { id: string } }) {
             <div className="mb-8">
               <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary">Com Ícones</h2>
               <SyntaxHighlighter customStyle={{ borderRadius: 8 }} language="javascript" style={vscDarkPlus}>
-                {metadata.withIconsExample.example}
+                {metadata.withIconsExample.codeSnippets}
               </SyntaxHighlighter>
             </div>
           )}
@@ -177,7 +177,7 @@ export default function Page({ params }: { params: { id: string } }) {
             <div className="mb-8">
               <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary">Apenas com Ícone</h2>
               <SyntaxHighlighter customStyle={{ borderRadius: 8 }} language="javascript" style={vscDarkPlus}>
-                {metadata.iconOnlyExample.example}
+                {metadata.iconOnlyExample.codeSnippets}
               </SyntaxHighlighter>
             </div>
           )}
@@ -187,7 +187,7 @@ export default function Page({ params }: { params: { id: string } }) {
             <div className="mb-8">
               <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary">Estilos Customizados</h2>
               <SyntaxHighlighter customStyle={{ borderRadius: 8 }} language="javascript" style={vscDarkPlus}>
-                {metadata.customStylesExample.example}
+                {metadata.customStylesExample.codeSnippets}
               </SyntaxHighlighter>
             </div>
           )}
@@ -197,7 +197,7 @@ export default function Page({ params }: { params: { id: string } }) {
             <div className="mb-8">
               <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary">Acessibilidade</h2>
               <SyntaxHighlighter customStyle={{ borderRadius: 8 }} language="javascript" style={vscDarkPlus}>
-                {metadata.accessibilityExample.example}
+                {metadata.accessibilityExample.codeSnippets}
               </SyntaxHighlighter>
             </div>
           )}

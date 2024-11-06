@@ -18,18 +18,20 @@ export const ButtonMetadata: ComponentMetadata = {
   },
 
   usageExample: {
-    component: <Button color="primary">Teste</Button>,
-    example: `<Button color="primary" size="lg" onClick={handleClick}>Clique aqui</Button>`,
+    component: <Button color="primary">Button</Button>,
+    codeSnippets: `<Button color="primary" size="lg" onClick={handleClick}>Clique aqui</Button>`,
     description: "Exemplo de uso básico do botão com uma cor e tamanho definidos."
   },
 
   disabledUsageExample: {
-    example: `<Button color="primary" size="lg" disabled>Clique aqui</Button>`,
+    component: <Button color="primary">Button</Button>,
+    codeSnippets: `<Button color="primary" size="lg" disabled>Clique aqui</Button>`,
     description: "Exemplo de uso do botão desabilitado."
   },
 
   availableSizes: {
-    examples: [
+    component: <Button color="primary">Button</Button>,
+    codeSnippets: [
       `<Button size="sm">Pequeno</Button>`,
       `<Button size="md">Médio</Button>`,
       `<Button size="lg">Grande</Button>`,
@@ -39,7 +41,8 @@ export const ButtonMetadata: ComponentMetadata = {
   },
 
   borderRadiusOptions: {
-    examples: [
+    component: <Button color="primary">Button</Button>,
+    codeSnippets: [
       `<Button rounded="none">Sem arredondamento</Button>`,
       `<Button rounded="sm">Pequeno</Button>`,
       `<Button rounded="md">Médio</Button>`,
@@ -50,7 +53,8 @@ export const ButtonMetadata: ComponentMetadata = {
   },
 
   colors: {
-    examples: [
+    component: <Button color="primary">Button</Button>,
+    codeSnippets: [
       `<Button color="primary">Primária</Button>`,
       `<Button color="secondary">Secundária</Button>`,
       `<Button color="warning">Aviso</Button>`,
@@ -61,7 +65,8 @@ export const ButtonMetadata: ComponentMetadata = {
   },
 
   variants: {
-    examples: [
+    component: <Button color="primary">Button</Button>,
+    codeSnippets: [
       `<Button variant="fill">Preenchido</Button>`,
       `<Button variant="outline">Contornado</Button>`,
       `<Button variant="ghost">Transparente</Button>`,
@@ -72,27 +77,32 @@ export const ButtonMetadata: ComponentMetadata = {
   },
 
   loadingStateExample: {
-    example: `<Button loading>Carregando...</Button>`,
+    component: <Button color="primary">Button</Button>,
+    codeSnippets: `<Button loading>Carregando...</Button>`,
     description: "Exemplo do botão exibindo o estado de carregamento."
   },
 
   withIconsExample: {
-    example: `<Button icon={<Icon />} color="primary">Com Ícone</Button>`,
+    component: <Button color="primary">Button</Button>,
+    codeSnippets: `<Button icon={<Icon />} color="primary">Com Ícone</Button>`,
     description: "Exemplo do botão com ícones."
   },
 
   iconOnlyExample: {
-    example: `<Button icon={<Icon />} isIconOnly aria-label="Apenas Ícone" />`,
+    component: <Button color="primary">Button</Button>,
+    codeSnippets: `<Button icon={<Icon />} isIconOnly aria-label="Apenas Ícone" />`,
     description: "Exemplo de uso do botão somente com ícone."
   },
 
   customStylesExample: {
-    example: `<Button style={{ backgroundColor: 'purple', color: 'white' }}>Estilo Customizado</Button>`,
+    component: <Button color="primary">Button</Button>,
+    codeSnippets: `<Button style={{ backgroundColor: 'purple', color: 'white' }}>Estilo Customizado</Button>`,
     description: "Exemplo do botão com estilos personalizados aplicados."
   },
 
   accessibilityExample: {
-    example: `<Button aria-label="Botão acessível">Clique aqui</Button>`,
+    component: <Button color="primary">Button</Button>,
+    codeSnippets: `<Button aria-label="Botão acessível">Clique aqui</Button>`,
     description: "Exemplo de acessibilidade com aria-label."
   },
 

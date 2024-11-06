@@ -1,13 +1,12 @@
 'use client'
-import { FiCpu, FiDatabase, FiFileText, FiHome, FiMail, FiSettings } from "react-icons/fi";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Button, Modal, NavItem } from "../components";
-import Navbar from "../components/NavBar/NavBar";
 import { BiSolidComponent } from "react-icons/bi";
 import { IoMdInformationCircle } from "react-icons/io";
 import { FaProductHunt } from "react-icons/fa";
 import { GrContact } from "react-icons/gr";
+import { Modal, Button, NavItem } from "@/app/components";
+import Navbar from "@/app/components/NavBar/NavBar";
 
 const components = [
   { ...Modal, name: "Modal", description: "A modal dialog component" },

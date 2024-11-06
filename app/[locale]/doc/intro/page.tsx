@@ -12,11 +12,16 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/app/components/Tabs/Tabs";
+import { getDictionaryUseClient } from "@/dictionaries/default-dictionaries-use-client";
+import { Locale } from "@/i18n/config";
 import { FaChevronDown, FaTerminal } from "react-icons/fa";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-export default function Component() {
+export default function Intro({ params }: { params: { locale: Locale } }) {
+
+  const { dictionary } = getDictionaryUseClient(params.locale);
+
   function scrollToSection(id: string) {
     const element = document.getElementById(id);
     if (element) {
@@ -34,7 +39,7 @@ export default function Component() {
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
                 <h1 className="text-3xl shadow-md font-bold tracking-tighter text-default-white dark:text-default-white sm:text-4xl md:text-5xl lg:text-6xl/none">
-                  Bem-vindo à Nossa Biblioteca Next.js
+                  {dictionary.Intro.title}
                 </h1>
                 <p className="mx-auto max-w-[700px] shadow-md text-default-white md:text-xl dark:text-dark-accent">
                   Acelere seu desenvolvimento com nossa biblioteca moderna e
