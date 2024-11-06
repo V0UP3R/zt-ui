@@ -1,4 +1,7 @@
-export const ButtonMetadata = {
+import { Button } from "@/app/components";
+import { ComponentMetadata } from "./metadata";
+
+export const ButtonMetadata: ComponentMetadata = {
   componentDescription: "Um botão altamente personalizável que dispara ações ao ser clicado. Possui múltiplas variantes, cores, tamanhos e opções de arredondamento, além de funcionalidades como estado de carregamento e exibição de ícones.",
 
   installation: {
@@ -14,12 +17,13 @@ export const ButtonMetadata = {
     description: "Exemplos de como importar o componente Button."
   },
 
-  usage: {
+  usageExample: {
+    component: <Button color="primary">Teste</Button>,
     example: `<Button color="primary" size="lg" onClick={handleClick}>Clique aqui</Button>`,
     description: "Exemplo de uso básico do botão com uma cor e tamanho definidos."
   },
 
-  disabledUsage: {
+  disabledUsageExample: {
     example: `<Button color="primary" size="lg" disabled>Clique aqui</Button>`,
     description: "Exemplo de uso do botão desabilitado."
   },
@@ -67,27 +71,27 @@ export const ButtonMetadata = {
     description: "Variantes de estilo do botão."
   },
 
-  loadingState: {
+  loadingStateExample: {
     example: `<Button loading>Carregando...</Button>`,
     description: "Exemplo do botão exibindo o estado de carregamento."
   },
 
-  withIcons: {
+  withIconsExample: {
     example: `<Button icon={<Icon />} color="primary">Com Ícone</Button>`,
     description: "Exemplo do botão com ícones."
   },
 
-  iconOnly: {
+  iconOnlyExample: {
     example: `<Button icon={<Icon />} isIconOnly aria-label="Apenas Ícone" />`,
     description: "Exemplo de uso do botão somente com ícone."
   },
 
-  customStyles: {
+  customStylesExample: {
     example: `<Button style={{ backgroundColor: 'purple', color: 'white' }}>Estilo Customizado</Button>`,
     description: "Exemplo do botão com estilos personalizados aplicados."
   },
 
-  accessibility: {
+  accessibilityExample: {
     example: `<Button aria-label="Botão acessível">Clique aqui</Button>`,
     description: "Exemplo de acessibilidade com aria-label."
   },

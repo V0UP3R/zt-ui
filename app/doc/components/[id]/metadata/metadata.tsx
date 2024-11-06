@@ -1,4 +1,4 @@
-interface ComponentMetadata {
+export interface ComponentMetadata {
   componentDescription?: string;
   installation?: {
     codeSnippet: string;
@@ -9,6 +9,7 @@ interface ComponentMetadata {
     description: string;
   };
   usageExample?: {
+    component: React.ReactNode;
     example: string;
     description: string;
   };

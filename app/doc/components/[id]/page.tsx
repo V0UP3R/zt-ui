@@ -18,6 +18,7 @@ import { useEffect, useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { componentMetadata } from './metadata/metadata';
+import { DisplayComponent } from '@/app/components/DisplayComponent/DisplayComponent';
 
 const componentMap: { [key: string]: React.ComponentType<any> } = {
   Button,
@@ -62,6 +63,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
       {metadata && (
         <>
+          <DisplayComponent codeSnippets={metadata.usageExample?.example!} component={metadata.usageExample?.component} description={metadata.usageExample?.description!} />
           {/* Descrição */}
           {metadata.componentDescription && (
             <div className="mb-8">
