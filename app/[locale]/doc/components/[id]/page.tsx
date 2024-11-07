@@ -13,7 +13,7 @@ import {
   Spinner,
   Switch,
   Table,
-} from '../../../components'; // Ajuste o caminho conforme necessário
+} from '../../../../components'; // Ajuste o caminho conforme necessário
 import { useEffect, useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';

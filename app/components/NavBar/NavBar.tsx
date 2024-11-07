@@ -8,6 +8,7 @@ import { cn } from "../utils/cn"
 import Button from "../Button/Button"
 import Image from "next/image"
 import Divider from "../Divider/Divider"
+import Dropdown from "../Dropdown/Dropdown"
 
 export interface NavItem {
   id: string
@@ -34,6 +35,9 @@ export interface NavbarProps {
     email: string
     image?: string
   } | null
+  headerContent?: React.ReactNode,
+  bodyContent?: React.ReactNode,
+  footerContent?: React.ReactNode
 }
 
 const defaultItems: NavItem[] = [
@@ -65,6 +69,9 @@ const Navbar = ({
   onLogout,
   className,
   user,
+  headerContent,
+  bodyContent,
+  footerContent
 }: NavbarProps) => {
   const [activeItem, setActiveItem] = React.useState(initialActiveItem)
   const [isDarkMode, setIsDarkMode] = React.useState(false)
@@ -129,8 +136,7 @@ const Navbar = ({
         <>
           {/* Topo: Logo ou título */}
           <div className="p-4 flex items-center justify-center">
-            {/* <h1 className="text-4xl font-extralight text-light-accent dark:text-dark-text">ZT</h1> */}
-            <Image src={isDarkMode ? "/logo-dark.svg" : "/logo-light.svg"} alt="logo" width={90} height={90}/>
+            {headerContent}
           </div>
 
           <Divider borderColor={isDarkMode ? 'bg-gray-500' : 'bg-gray-300'}/>
@@ -188,22 +194,8 @@ const Navbar = ({
           </div>
 
           {/* Fundo: Botões de tema e login */}
-          <div className="p-4">
-            {showThemeToggle && (
-              <motion.button
-                className={itemClasses}
-                onClick={toggleDarkMode}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {isDarkMode ? <FiSun className="w-6 h-6" /> : <FiMoon className="w-6 h-6" />}
-                {variant === "aside" && <span className="text-sm font-medium">Alternar Tema</span>}
-              </motion.button>
-            )}
-            {/* <Button variant="light" isIconOnly onClick={onLogin} className={cn(itemClasses, "w-full justify-start")}>
-              <FiLogIn className="w-6 h-6 text-dark-text dark:text-light-accent" />
-              {variant === "aside" && <span className="ml-2 text-sm font-medium text-dark-text dark:text-light-accent">Entrar</span>}
-            </Button> */}
+          <div className="p-4 flex flex-col gap-4">
+            {footerContent}
           </div>
         </>
       )}

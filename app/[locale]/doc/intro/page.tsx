@@ -1,5 +1,5 @@
 "use client";
-import { Button, Input } from "@/app/components";
+import { Button, Dropdown, Input } from "@/app/components";
 import {
   Card,
   CardContent,
@@ -42,8 +42,7 @@ export default function Intro({ params }: { params: { locale: Locale } }) {
                   {dictionary.Intro.title}
                 </h1>
                 <p className="mx-auto max-w-[700px] shadow-md text-default-white md:text-xl dark:text-dark-accent">
-                  Acelere seu desenvolvimento com nossa biblioteca moderna e
-                  eficiente para Next.js.
+                  {dictionary.Intro.subtitle}
                 </p>
               </div>
               <div className="space-x-4 flex">
