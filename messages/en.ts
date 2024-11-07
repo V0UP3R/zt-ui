@@ -4,7 +4,8 @@ export const en = {
       intro: "Introduction",
       components: "Components",
       contact: "Contact", 
-    }
+    },
+    theme: "Toggle Theme"
   },
   Intro: {
     title: "Welcome to Our Next.js Library",

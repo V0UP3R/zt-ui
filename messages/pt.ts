@@ -4,7 +4,8 @@ export const pt = {
       intro: "Introdução",
       components: "Componentes",
       contact: "Contato", 
-    }
+    },
+    theme: "Alternar Tema"
   },
   Intro: {
     title: "Bem-vindo à Nossa Biblioteca Next.js",

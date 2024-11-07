@@ -5,6 +5,7 @@ export const es = {
       components: "Componentes",
       contact: "Contacto",
     },
+    theme: "Alternar Tema"
   },
   Intro: {
     title: "Bienvenido a Nuestra Biblioteca Next.js",

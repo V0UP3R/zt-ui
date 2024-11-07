@@ -112,7 +112,7 @@ export default function DocLayout({
         ) : (
           <FiMoon className="w-6 h-6" />
         )}
-        <span className="text-sm font-medium">Alternar Tema</span>
+        <span className="text-sm font-medium">{NavbarDictionary.theme}</span>
       </motion.button>
     </>
   );
