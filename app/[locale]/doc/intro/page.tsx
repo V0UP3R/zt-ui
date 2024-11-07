@@ -279,11 +279,11 @@ export default function MinhaPage() {
               </div>
               <div className="space-x-4 flex">
                 <Button className="bg-light-accent text-light-primary dark:bg-dark-accent dark:text-dark-accent">
-                  {dictionary.Install.commandYarn}
+                  {dictionary.ReadyToStart.install}
                   <FaTerminal className="ml-2 h-4 w-4" />
                 </Button>
                 <Button variant="flat">
-                  {dictionary.ComponentsAvailable.more.title}
+                  {dictionary.ReadyToStart.github}
                 </Button>
               </div>
             </div>

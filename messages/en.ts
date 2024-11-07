@@ -55,7 +55,9 @@ export const en = {
   },
   "ReadyToStart": {
     "title": "Ready to Get Started?",
-    "description": "Try our library today and accelerate your project development!"
+    "description": "Try our library today and accelerate your project development!",
+    "install": "Install Now",
+    "github": "View on GitHub"
   },
   "Footer": {
     "copyright": "© 2024 My Next.js Library. All rights reserved.",

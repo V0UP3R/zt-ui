@@ -55,7 +55,9 @@ export const es = {
   },
   "ReadyToStart": {
     "title": "¿Listo para Comenzar?",
-    "description": "¡Prueba nuestra biblioteca hoy y acelera el desarrollo de tu proyecto!"
+    "description": "¡Prueba nuestra biblioteca hoy y acelera el desarrollo de tu proyecto!",
+    "install": "Instalar Ahora",
+    "github": "Ver en GitHub"
   },
   "Footer": {
     "copyright": "© 2024 Mi Biblioteca Next.js. Todos los derechos reservados.",
