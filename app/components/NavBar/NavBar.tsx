@@ -23,18 +23,9 @@ export interface NavbarProps {
   variant?: "bottom" | "top" | "aside"
   align?: "start" | "center" | "end"
   showLabels?: boolean
-  showThemeToggle?: boolean
-  showLogin?: boolean
   onThemeToggle?: (isDark: boolean) => void
   onItemClick?: (id: string) => void
-  onLogin?: () => void
-  onLogout?: () => void
   className?: string
-  user?: {
-    name: string
-    email: string
-    image?: string
-  } | null
   headerContent?: React.ReactNode,
   bodyContent?: React.ReactNode,
   footerContent?: React.ReactNode
@@ -61,14 +52,9 @@ const Navbar = ({
   variant = "bottom",
   align = "center",
   showLabels = false,
-  showThemeToggle = true,
-  showLogin = false,
   onThemeToggle,
   onItemClick,
-  onLogin,
-  onLogout,
   className,
-  user,
   headerContent,
   bodyContent,
   footerContent

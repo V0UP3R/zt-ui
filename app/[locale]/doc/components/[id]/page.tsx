@@ -28,7 +28,6 @@ const componentMap: { [key: string]: React.ComponentType<any> } = {
   Divider,
   Dropdown,
   Input,
-  Modal,
   NavBar,
   Spinner,
   Switch,

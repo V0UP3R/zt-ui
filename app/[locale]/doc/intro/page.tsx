@@ -19,7 +19,6 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export default function Intro({ params }: { params: { locale: Locale } }) {
-
   const { dictionary } = getDictionaryUseClient(params.locale);
 
   function scrollToSection(id: string) {
@@ -64,17 +63,18 @@ export default function Intro({ params }: { params: { locale: Locale } }) {
         >
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl text-light-text dark:text-dark-text font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
-              Instalação
+              {dictionary.Install.title}
             </h2>
             <div className="max-w-[700px] mx-auto">
               <p className="mb-4 text-light-text dark:text-dark-text">
-                Para instalar nossa biblioteca, execute o seguinte comando no
-                diretório do seu projeto:
+                {dictionary.Install.description}
               </p>
               <pre className="bg-gray-200 p-4 rounded-md overflow-x-auto">
                 <code>npm install @v0up3r/zt-ui</code>
               </pre>
-              <p className="mt-4 text-light-text dark:text-dark-text">Ou, se você preferir usar Yarn:</p>
+              <p className="mt-4 text-light-text dark:text-dark-text">
+                {dictionary.Install.commandYarn}
+              </p>
               <pre className="bg-gray-200 p-4 rounded-md overflow-x-auto">
                 <code>yarn add @v0up3r/zt-ui</code>
               </pre>
@@ -85,18 +85,24 @@ export default function Intro({ params }: { params: { locale: Locale } }) {
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
-              Exemplos de Uso
+              {dictionary.Examples.title}
             </h2>
             <Tabs defaultValue="button" className="max-w-[700px] mx-auto">
               <TabsList>
-                <TabsTrigger value="button">Botão</TabsTrigger>
-                <TabsTrigger value="card">Card</TabsTrigger>
-                <TabsTrigger value="form">Formulário</TabsTrigger>
+                <TabsTrigger value="button">
+                  {dictionary.Examples.tabs.button}
+                </TabsTrigger>
+                <TabsTrigger value="card">
+                  {dictionary.Examples.tabs.card}
+                </TabsTrigger>
+                <TabsTrigger value="form">
+                  {dictionary.Examples.tabs.form}
+                </TabsTrigger>
               </TabsList>
               <TabsContent value="button">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Exemplo de Botão</CardTitle>
+                    <CardTitle>{dictionary.Examples.button.default}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <SyntaxHighlighter
@@ -113,7 +119,7 @@ export default function MinhaPage() {
 }`}
                     </SyntaxHighlighter>
                     <div className="mt-4">
-                      <Button>Clique Aqui</Button>
+                      <Button>{dictionary.Examples.button.default}</Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -121,7 +127,7 @@ export default function MinhaPage() {
               <TabsContent value="card">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Exemplo de Card</CardTitle>
+                    <CardTitle>{dictionary.Examples.card.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <SyntaxHighlighter
@@ -147,9 +153,13 @@ export default function MinhaPage() {
                     <div className="mt-4">
                       <Card>
                         <CardHeader>
-                          <CardTitle>Título do Card</CardTitle>
+                          <CardTitle>
+                            {dictionary.Examples.card.cardTitle}
+                          </CardTitle>
                         </CardHeader>
-                        <CardContent>Conteúdo do card aqui...</CardContent>
+                        <CardContent>
+                          {dictionary.Examples.card.description}
+                        </CardContent>
                       </Card>
                     </div>
                   </CardContent>
@@ -159,7 +169,7 @@ export default function MinhaPage() {
               <TabsContent value="form">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Exemplo de Input</CardTitle>
+                    <CardTitle>{dictionary.Examples.form.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <SyntaxHighlighter
@@ -180,11 +190,7 @@ export default function MinhaPage() {
 }`}
                     </SyntaxHighlighter>
                     <div className="mt-4">
-                      <form className="space-y-4">
-                        <Input type="email" placeholder="seu@email.com" />
-                        <Input type="password" placeholder="*********" />
-                        <Button type="submit">Enviar</Button>
-                      </form>
+                      <Input type="email" placeholder="xxxxxxx@email.com" />
                     </div>
                   </CardContent>
                 </Card>
@@ -196,52 +202,64 @@ export default function MinhaPage() {
         <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
-              Componentes Disponíveis
+              {dictionary.ComponentsAvailable.title}
             </h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               <Card>
                 <CardHeader>
-                  <CardTitle>Button</CardTitle>
+                  <CardTitle>
+                    {dictionary.ComponentsAvailable.button.title}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p>Botão personalizável com variantes.</p>
-                  <Button className="mt-2">Exemplo</Button>
+                  <p>{dictionary.ComponentsAvailable.button.description}</p>
+                  <Button className="mt-2">
+                    {dictionary.Examples.button.default}
+                  </Button>
                 </CardContent>
               </Card>
               <Card>
                 <CardHeader>
-                  <CardTitle>Card</CardTitle>
+                  <CardTitle>
+                    {dictionary.ComponentsAvailable.card.title}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p>Componente de card flexível para exibir conteúdo.</p>
+                  <p>{dictionary.ComponentsAvailable.card.description}</p>
                 </CardContent>
               </Card>
               <Card>
                 <CardHeader>
-                  <CardTitle>Input</CardTitle>
+                  <CardTitle>
+                    {dictionary.ComponentsAvailable.input.title}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p>Campo de entrada estilizado.</p>
-                  <Input className="mt-2" placeholder="Digite aqui" />
+                  <p>{dictionary.ComponentsAvailable.input.description}</p>
+                  <Input
+                    className="mt-2"
+                    placeholder={dictionary.Examples.form.placeholder}
+                  />
                 </CardContent>
               </Card>
               <Card>
                 <CardHeader>
-                  <CardTitle>Tabs</CardTitle>
+                  <CardTitle>
+                    {dictionary.ComponentsAvailable.tabs.title}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p>Componente de abas para organizar conteúdo.</p>
+                  <p>{dictionary.ComponentsAvailable.tabs.description}</p>
                 </CardContent>
               </Card>
               <Card>
                 <CardHeader>
-                  <CardTitle>E muito mais!</CardTitle>
+                  <CardTitle>
+                    {dictionary.ComponentsAvailable.more.title}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p>
-                    Explore nossa documentação para ver todos os componentes
-                    disponíveis.
-                  </p>
+                  <p>{dictionary.ComponentsAvailable.more.description}</p>
                 </CardContent>
               </Card>
             </div>
@@ -253,35 +271,35 @@ export default function MinhaPage() {
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  Pronto para Começar?
+                  {dictionary.ReadyToStart.title}
                 </h2>
                 <p className="mx-auto max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
-                  Junte-se a milhares de desenvolvedores que já estão criando
-                  aplicativos incríveis com nossa biblioteca.
+                  {dictionary.ReadyToStart.description}
                 </p>
               </div>
               <div className="space-x-4 flex">
                 <Button className="bg-light-accent text-light-primary dark:bg-dark-accent dark:text-dark-accent">
-                  Instalar Agora
+                  {dictionary.Install.commandYarn}
                   <FaTerminal className="ml-2 h-4 w-4" />
                 </Button>
-                <Button variant="flat">Ver Componentes</Button>
+                <Button variant="flat">
+                  {dictionary.ComponentsAvailable.more.title}
+                </Button>
               </div>
             </div>
           </div>
         </section>
       </main>
-
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
         <p className="text-xs text-gray-500 dark:text-gray-400">
-          © 2024 Minha Biblioteca Next.js. Todos os direitos reservados.
+          {dictionary.Footer.copyright}
         </p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
           <a className="text-xs hover:underline underline-offset-4" href="#">
-            Termos de Serviço
+            {dictionary.Footer.terms}
           </a>
           <a className="text-xs hover:underline underline-offset-4" href="#">
-            Privacidade
+            {dictionary.Footer.privacy}
           </a>
         </nav>
       </footer>
