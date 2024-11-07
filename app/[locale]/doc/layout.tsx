@@ -97,7 +97,7 @@ export default function DocLayout({
         size="sm"
         placeholder={params.locale}
         direction="up"
-        options={[{ label: "🇧🇷", value: "pt" }, { label: "en", value: "en" }, { label: "es", value: "es" }]}
+        options={[{ label: "🇧🇷", value: "pt" }, { label: "🇺🇸", value: "en" }, { label: "🇪🇸", value: "es" }]}
         onSelect={(option) => setLanguage(option.value)}
       />
 
