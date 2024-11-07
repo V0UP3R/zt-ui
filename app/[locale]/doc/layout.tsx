@@ -13,6 +13,7 @@ import { motion } from "framer-motion";
 import { FiMoon, FiSun } from "react-icons/fi";
 import { cn } from "@/app/components/utils/cn";
 import { Locale } from "@/i18n/config";
+import { getDictionaryUseClient } from "@/dictionaries/default-dictionaries-use-client";
 
 const components = [
   { ...Modal, name: "Modal", description: "A modal dialog component" },
@@ -23,22 +24,6 @@ const components = [
 //   { id: "", label: "Componentes", icon: FiCpu },
 //   { id: "apis", label: "APIs", icon: FiDatabase },
 // ];
-
-const customItems: NavItem[] = [
-  { id: "intro", label: "Introdução", icon: IoMdInformationCircle },
-  {
-    id: "components/button",
-    label: "Componentes",
-    icon: BiSolidComponent,
-    subItems: [
-      { id: "components/button", label: "- Button" },
-      { id: "components/input", label: "- Input" },
-      { id: "components/modal", label: "- Modal" },
-    ],
-  },
-  { id: "pro", label: "Pro", icon: FaProductHunt },
-  { id: "contact", label: "Contato", icon: GrContact },
-];
 
 export default function DocLayout({
   children,
@@ -54,6 +39,9 @@ export default function DocLayout({
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
+  const { dictionary } = getDictionaryUseClient(params.locale);
+  const NavbarDictionary = dictionary.NavBar;
+
   const itemClasses = cn(
     "relative px-3 py-2 flex items-center gap-2 rounded-full text-gray-600 dark:text-gray-300 hover:scale-105 duration-700",
     "transition-colors hover:scale-105 hover:bg-opacity-90"
@@ -61,6 +49,22 @@ export default function DocLayout({
   
   const router = useRouter();
   const pathname = usePathname();
+
+  const customItems: NavItem[] = [
+    { id: "intro", label: NavbarDictionary.items.intro, icon: IoMdInformationCircle },
+    {
+      id: "components/button",
+      label: NavbarDictionary.items.components,
+      icon: BiSolidComponent,
+      subItems: [
+        { id: "components/button", label: "- Button" },
+        { id: "components/input", label: "- Input" },
+        { id: "components/modal", label: "- Modal" },
+      ],
+    },
+    { id: "pro", label: "Pro", icon: FaProductHunt },
+    { id: "contact", label: NavbarDictionary.items.contact, icon: GrContact },
+  ];
 
   const handleItemClick = (id: string) => {
     const item = customItems.find((item) => item.id === id);

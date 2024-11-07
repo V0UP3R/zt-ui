@@ -21,6 +21,8 @@ import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 export default function Intro({ params }: { params: { locale: Locale } }) {
   const { dictionary } = getDictionaryUseClient(params.locale);
 
+  const Intro = dictionary.Intro;
+
   function scrollToSection(id: string) {
     const element = document.getElementById(id);
     if (element) {
@@ -38,10 +40,10 @@ export default function Intro({ params }: { params: { locale: Locale } }) {
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
                 <h1 className="text-3xl shadow-md font-bold tracking-tighter text-default-white dark:text-default-white sm:text-4xl md:text-5xl lg:text-6xl/none">
-                  {dictionary.Intro.title}
+                  {Intro.title}
                 </h1>
                 <p className="mx-auto max-w-[700px] shadow-md text-default-white md:text-xl dark:text-dark-accent">
-                  {dictionary.Intro.subtitle}
+                  {Intro.subtitle}
                 </p>
               </div>
               <div className="space-x-4 flex">
@@ -63,17 +65,17 @@ export default function Intro({ params }: { params: { locale: Locale } }) {
         >
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl text-light-text dark:text-dark-text font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
-              {dictionary.Install.title}
+              {Intro.Install.title}
             </h2>
             <div className="max-w-[700px] mx-auto">
               <p className="mb-4 text-light-text dark:text-dark-text">
-                {dictionary.Install.description}
+                {Intro.Install.description}
               </p>
               <pre className="bg-gray-200 p-4 rounded-md overflow-x-auto">
                 <code>npm install @v0up3r/zt-ui</code>
               </pre>
               <p className="mt-4 text-light-text dark:text-dark-text">
-                {dictionary.Install.commandYarn}
+                {Intro.Install.commandYarn}
               </p>
               <pre className="bg-gray-200 p-4 rounded-md overflow-x-auto">
                 <code>yarn add @v0up3r/zt-ui</code>
@@ -85,24 +87,24 @@ export default function Intro({ params }: { params: { locale: Locale } }) {
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
-              {dictionary.Examples.title}
+              {Intro.Examples.title}
             </h2>
             <Tabs defaultValue="button" className="max-w-[700px] mx-auto">
               <TabsList>
                 <TabsTrigger value="button">
-                  {dictionary.Examples.tabs.button}
+                  {Intro.Examples.tabs.button}
                 </TabsTrigger>
                 <TabsTrigger value="card">
-                  {dictionary.Examples.tabs.card}
+                  {Intro.Examples.tabs.card}
                 </TabsTrigger>
                 <TabsTrigger value="form">
-                  {dictionary.Examples.tabs.form}
+                  {Intro.Examples.tabs.form}
                 </TabsTrigger>
               </TabsList>
               <TabsContent value="button">
                 <Card>
                   <CardHeader>
-                    <CardTitle>{dictionary.Examples.button.default}</CardTitle>
+                    <CardTitle>{Intro.Examples.button.default}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <SyntaxHighlighter
@@ -119,7 +121,7 @@ export default function MinhaPage() {
 }`}
                     </SyntaxHighlighter>
                     <div className="mt-4">
-                      <Button>{dictionary.Examples.button.default}</Button>
+                      <Button>{Intro.Examples.button.default}</Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -127,7 +129,7 @@ export default function MinhaPage() {
               <TabsContent value="card">
                 <Card>
                   <CardHeader>
-                    <CardTitle>{dictionary.Examples.card.title}</CardTitle>
+                    <CardTitle>{Intro.Examples.card.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <SyntaxHighlighter
@@ -153,12 +155,10 @@ export default function MinhaPage() {
                     <div className="mt-4">
                       <Card>
                         <CardHeader>
-                          <CardTitle>
-                            {dictionary.Examples.card.cardTitle}
-                          </CardTitle>
+                          <CardTitle>{Intro.Examples.card.cardTitle}</CardTitle>
                         </CardHeader>
                         <CardContent>
-                          {dictionary.Examples.card.description}
+                          {Intro.Examples.card.description}
                         </CardContent>
                       </Card>
                     </div>
@@ -169,7 +169,7 @@ export default function MinhaPage() {
               <TabsContent value="form">
                 <Card>
                   <CardHeader>
-                    <CardTitle>{dictionary.Examples.form.title}</CardTitle>
+                    <CardTitle>{Intro.Examples.form.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <SyntaxHighlighter
@@ -202,64 +202,56 @@ export default function MinhaPage() {
         <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
-              {dictionary.ComponentsAvailable.title}
+              {Intro.ComponentsAvailable.title}
             </h2>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               <Card>
                 <CardHeader>
                   <CardTitle>
-                    {dictionary.ComponentsAvailable.button.title}
+                    {Intro.ComponentsAvailable.button.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p>{dictionary.ComponentsAvailable.button.description}</p>
+                  <p>{Intro.ComponentsAvailable.button.description}</p>
                   <Button className="mt-2">
-                    {dictionary.Examples.button.default}
+                    {Intro.Examples.button.default}
                   </Button>
                 </CardContent>
               </Card>
               <Card>
                 <CardHeader>
-                  <CardTitle>
-                    {dictionary.ComponentsAvailable.card.title}
-                  </CardTitle>
+                  <CardTitle>{Intro.ComponentsAvailable.card.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p>{dictionary.ComponentsAvailable.card.description}</p>
+                  <p>{Intro.ComponentsAvailable.card.description}</p>
                 </CardContent>
               </Card>
               <Card>
                 <CardHeader>
-                  <CardTitle>
-                    {dictionary.ComponentsAvailable.input.title}
-                  </CardTitle>
+                  <CardTitle>{Intro.ComponentsAvailable.input.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p>{dictionary.ComponentsAvailable.input.description}</p>
+                  <p>{Intro.ComponentsAvailable.input.description}</p>
                   <Input
                     className="mt-2"
-                    placeholder={dictionary.Examples.form.placeholder}
+                    placeholder={Intro.Examples.form.placeholder}
                   />
                 </CardContent>
               </Card>
               <Card>
                 <CardHeader>
-                  <CardTitle>
-                    {dictionary.ComponentsAvailable.tabs.title}
-                  </CardTitle>
+                  <CardTitle>{Intro.ComponentsAvailable.tabs.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p>{dictionary.ComponentsAvailable.tabs.description}</p>
+                  <p>{Intro.ComponentsAvailable.tabs.description}</p>
                 </CardContent>
               </Card>
               <Card>
                 <CardHeader>
-                  <CardTitle>
-                    {dictionary.ComponentsAvailable.more.title}
-                  </CardTitle>
+                  <CardTitle>{Intro.ComponentsAvailable.more.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p>{dictionary.ComponentsAvailable.more.description}</p>
+                  <p>{Intro.ComponentsAvailable.more.description}</p>
                 </CardContent>
               </Card>
             </div>
@@ -271,20 +263,18 @@ export default function MinhaPage() {
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  {dictionary.ReadyToStart.title}
+                  {Intro.ReadyToStart.title}
                 </h2>
                 <p className="mx-auto max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
-                  {dictionary.ReadyToStart.description}
+                  {Intro.ReadyToStart.description}
                 </p>
               </div>
               <div className="space-x-4 flex">
                 <Button className="bg-light-accent text-light-primary dark:bg-dark-accent dark:text-dark-accent">
-                  {dictionary.ReadyToStart.install}
+                  {Intro.ReadyToStart.install}
                   <FaTerminal className="ml-2 h-4 w-4" />
                 </Button>
-                <Button variant="flat">
-                  {dictionary.ReadyToStart.github}
-                </Button>
+                <Button variant="flat">{Intro.ReadyToStart.github}</Button>
               </div>
             </div>
           </div>
@@ -292,14 +282,14 @@ export default function MinhaPage() {
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
         <p className="text-xs text-gray-500 dark:text-gray-400">
-          {dictionary.Footer.copyright}
+          {Intro.Footer.copyright}
         </p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
           <a className="text-xs hover:underline underline-offset-4" href="#">
-            {dictionary.Footer.terms}
+            {Intro.Footer.terms}
           </a>
           <a className="text-xs hover:underline underline-offset-4" href="#">
-            {dictionary.Footer.privacy}
+            {Intro.Footer.privacy}
           </a>
         </nav>
       </footer>
