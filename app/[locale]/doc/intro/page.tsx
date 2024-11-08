@@ -274,7 +274,7 @@ export default function MinhaPage() {
                   {Intro.ReadyToStart.install}
                   <FaTerminal className="ml-2 h-4 w-4" />
                 </Button>
-                <Button className="flex gap-1" variant="flat">{Intro.ReadyToStart.github} <FaGithub /></Button>
+                <Button onClick={() => window.open("https://github.com/V0UP3R/zt-ui", "_blank")} className="flex gap-1" variant="flat">{Intro.ReadyToStart.github} <FaGithub /></Button>
               </div>
             </div>
           </div>
