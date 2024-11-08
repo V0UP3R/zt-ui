@@ -14,7 +14,7 @@ import {
 } from "@/app/components/Tabs/Tabs";
 import { getDictionaryUseClient } from "@/dictionaries/default-dictionaries-use-client";
 import { Locale } from "@/i18n/config";
-import { FaChevronDown, FaTerminal } from "react-icons/fa";
+import { FaChevronDown, FaGithub, FaTerminal } from "react-icons/fa";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
@@ -274,7 +274,7 @@ export default function MinhaPage() {
                   {Intro.ReadyToStart.install}
                   <FaTerminal className="ml-2 h-4 w-4" />
                 </Button>
-                <Button variant="flat">{Intro.ReadyToStart.github}</Button>
+                <Button className="flex gap-1" variant="flat">{Intro.ReadyToStart.github} <FaGithub /></Button>
               </div>
             </div>
           </div>

@@ -3,18 +3,15 @@
 import * as React from "react"
 import { motion } from "framer-motion"
 import { IconType } from "react-icons"
-import { FiHome, FiFileText, FiMail, FiSettings, FiMoon, FiSun, FiLogIn } from "react-icons/fi"
+import { FiHome, FiFileText, FiMail, FiSettings } from "react-icons/fi"
 import { cn } from "../utils/cn"
-import Button from "../Button/Button"
-import Image from "next/image"
 import Divider from "../Divider/Divider"
-import Dropdown from "../Dropdown/Dropdown"
 
 export interface NavItem {
   id: string
   label: string
   icon?: IconType
-  subItems?: NavItem[] // Adiciona a propriedade para subitens
+  subItems?: NavItem[]
 }
 
 export interface NavbarProps {

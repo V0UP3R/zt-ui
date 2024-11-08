@@ -1,7 +1,6 @@
 'use client'
 import { motion, useAnimation } from 'framer-motion';
 import { useEffect } from 'react';
-import { useInView } from 'react-intersection-observer';
 
 type FeatureItemProps = {
   title: string;
@@ -28,16 +27,14 @@ type ComparisonFeatureProps = {
 
 export default function EnhancedPricingPage(): JSX.Element {
   const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.2 });
 
   useEffect(() => {
-    if (inView) {
-      controls.start('visible');
-    }
-  }, [controls, inView]);
+    // Inicia a animação ao carregar a página
+    controls.start('visible');
+  }, [controls]);
 
   const variants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 1 } },
   };
 
@@ -63,7 +60,6 @@ export default function EnhancedPricingPage(): JSX.Element {
 
       <main className="max-w-7xl mx-auto px-4">
         <motion.section
-          ref={ref}
           variants={variants}
           initial="hidden"
           animate={controls}
@@ -79,7 +75,6 @@ export default function EnhancedPricingPage(): JSX.Element {
         </motion.section>
 
         <motion.section
-          ref={ref}
           variants={variants}
           initial="hidden"
           animate={controls}
@@ -94,7 +89,6 @@ export default function EnhancedPricingPage(): JSX.Element {
         </motion.section>
 
         <motion.section
-          ref={ref}
           variants={variants}
           initial="hidden"
           animate={controls}
@@ -108,7 +102,6 @@ export default function EnhancedPricingPage(): JSX.Element {
         </motion.section>
 
         <motion.section
-          ref={ref}
           variants={variants}
           initial="hidden"
           animate={controls}
