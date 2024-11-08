@@ -49,13 +49,13 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
     useEffect(() => {
       if (isOpen) {
         document.addEventListener("keydown", handleEscape);
-        document.body.style.overflow = "hidden"; // Impede rolagem no body
+        document.body.style.overflow = "hidden";
       } else {
         document.removeEventListener("keydown", handleEscape);
       }
       return () => {
         document.removeEventListener("keydown", handleEscape);
-        document.body.style.overflow = "unset"; // Restaura rolagem no body
+        document.body.style.overflow = "unset";
       };
     }, [isOpen, handleEscape]);
 
