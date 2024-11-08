@@ -6,7 +6,7 @@ import { IoMdClose } from "react-icons/io";
 
 const ModalContext = React.createContext<
   | {
-      setIsOpen: Dispatch<SetStateAction<boolean>>
+      toggleModalOpen: Dispatch<SetStateAction<boolean>>;
       overflow?: "inside" | "outside";
     }
   | undefined
@@ -15,7 +15,7 @@ const ModalContext = React.createContext<
 export type ModalProps = {
   isOpen: boolean;
   onClose: () => void;
-  setIsOpen: Dispatch<SetStateAction<boolean>>
+  toggleModalOpen: Dispatch<SetStateAction<boolean>>;
   children: React.ReactNode;
   size?: "sm" | "md" | "lg" | "xl" | "full";
   overflow?: "inside" | "outside";
@@ -30,7 +30,7 @@ const sizeClasses = {
 };
 
 const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
-  ({ isOpen, onClose, children, size = "md", overflow = "inside", setIsOpen }, ref) => {
+  ({ isOpen, onClose, children, size = "md", overflow = "inside", toggleModalOpen }, ref) => {
     const [isBrowser, setIsBrowser] = useState(false);
 
     useEffect(() => {
@@ -39,20 +39,19 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
 
     const handleEscape = useCallback(
       (event: KeyboardEvent) => {
-        if (event.key === "Escape") {
+        if (event.key === "Escape" && isOpen) {
           onClose();
         }
       },
-      [onClose]
+      [onClose, isOpen]
     );
 
     useEffect(() => {
-      if(isOpen === false) {
-        onClose();
-      }
       if (isOpen) {
         document.addEventListener("keydown", handleEscape);
         document.body.style.overflow = "hidden"; // Impede rolagem no body
+      } else {
+        document.removeEventListener("keydown", handleEscape);
       }
       return () => {
         document.removeEventListener("keydown", handleEscape);
@@ -92,7 +91,7 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
                   size === "full" && "h-screen"
                 }`}
               >
-                <ModalContext.Provider value={{ overflow, setIsOpen }}>
+                <ModalContext.Provider value={{ overflow, toggleModalOpen }}>
                   {children}
                 </ModalContext.Provider>
               </div>
@@ -136,7 +135,7 @@ const ModalHeader = React.forwardRef<
     throw new Error("ModalHeader must be used within a Modal component");
   }
   
-  const { setIsOpen } = context;
+  const { toggleModalOpen } = context;
 
   return (
     <div
@@ -147,7 +146,7 @@ const ModalHeader = React.forwardRef<
       {children}
       <button
         className="p-1 ml-auto bg-transparent border-0 text-black float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-        onClick={() => setIsOpen(false)}
+        onClick={() => toggleModalOpen(false)}
       >
         <IoMdClose className="w-6 h-6" />
       </button>
@@ -177,14 +176,14 @@ const ModalContent = React.forwardRef<
 ModalContent.displayName = "ModalContent";
 
 const ModalFooter = React.forwardRef<
-HTMLDivElement,
-React.HTMLAttributes<HTMLDivElement>
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
 >(({ className, children, ...props }, ref) => {
   return(
     <div ref={ref} {...props} className="p-5 border-t border-solid border-gray-300">
       {children}
     </div>
-  )
+  );
 });
 
-export default { Modal, ModalHeader, ModalTitle, ModalContent, ModalFooter };
+export default { Root: Modal, Header: ModalHeader, Title: ModalTitle, Content: ModalContent, Footer: ModalFooter };
