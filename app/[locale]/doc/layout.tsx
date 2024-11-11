@@ -20,11 +20,6 @@ const components = [
   { ...Button, name: "Button", description: "A button component" },
 ];
 
-// const customItems: NavItem[] = [
-//   { id: "", label: "Componentes", icon: FiCpu },
-//   { id: "apis", label: "APIs", icon: FiDatabase },
-// ];
-
 export default function DocLayout({
   children,
   params,
@@ -33,10 +28,6 @@ export default function DocLayout({
   params: { locale: Locale };
 }>) {
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedComponent, setSelectedComponent] = useState<
-    (typeof components)[number]
-  >(components[0]);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const { dictionary } = getDictionaryUseClient(params.locale);
@@ -95,37 +86,7 @@ export default function DocLayout({
     router.push(newPathname);
   };
 
-  const footer = (
-    <>
-      <Dropdown
-        size="sm"
-        placeholder={params.locale}
-        direction="up"
-        options={[
-          { label: "🇧🇷", value: "pt" },
-          { label: "🇺🇸", value: "en" },
-          { label: "🇪🇸", value: "es" },
-        ]}
-        onSelect={(option) => setLanguage(option.value)}
-      />
-
-      <motion.button
-        className={itemClasses}
-        onClick={toggleDarkMode}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        {isDarkMode ? (
-          <FiSun className="w-6 h-6" />
-        ) : (
-          <FiMoon className="w-6 h-6" />
-        )}
-        <span className="text-sm font-medium">{NavbarDictionary.theme}</span>
-      </motion.button>
-    </>
-  );
-
-  const header = useEffect(() => {
+  useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add("dark");
     } else {
@@ -133,9 +94,6 @@ export default function DocLayout({
     }
   }, [isDarkMode]);
 
-  const filteredComponents = components.filter((component) =>
-    component.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
   return (
     <div className="flex min-h-screen bg-light-background dark:bg-dark-background">
       <Navbar.Root variant="aside" showLabels onItemClick={handleItemClick}>
