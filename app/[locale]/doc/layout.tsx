@@ -88,34 +88,6 @@ export default function DocLayout({
     router.push(newPathname);
   };
 
-  const footer = (
-    <>
-      <Dropdown
-        size="sm"
-        placeholder={params.locale}
-        direction="up"
-        options={[{ label: "🇧🇷", value: "pt" }, { label: "🇺🇸", value: "en" }, { label: "🇪🇸", value: "es" }]}
-        onSelect={(option) => setLanguage(option.value)}
-      />
-
-      <motion.button
-        className={itemClasses}
-        onClick={toggleDarkMode}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        {theme === 'light'? (
-          <FiSun className="w-6 h-6"/>
-        ) : (
-          <FiMoon className="w-6 h-6"/>
-        )}
-        <span className="text-sm font-medium">{NavbarDictionary.theme}</span>
-      </motion.button>
-    </>
-  );
-
-  const header = <Image src={isDarkMode ? "/logo-dark.svg" : "/logo-light.svg"} alt="logo" width={90} height={90}/>
-
   const filteredComponents = components.filter((component) =>
     component.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -128,13 +100,6 @@ export default function DocLayout({
   if (!mounted) {
     return null
   }
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [isDarkMode]);
 
   return (
     <div className="flex min-h-screen bg-light-background dark:bg-dark-background">
