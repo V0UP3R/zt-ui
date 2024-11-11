@@ -5,13 +5,13 @@ import { FiChevronDown, FiCheck } from 'react-icons/fi'
 
 export type DropdownOption = {
   value: string
-  label: string
+  label: string | React.ReactNode
 }
 
 export type DropdownProps = {
   options: DropdownOption[]
   onSelect: (option: DropdownOption) => void
-  placeholder?: string
+  placeholder?: string | React.ReactNode
   direction?: 'up' | 'down'
   className?: string
   buttonClassName?: string

@@ -30,11 +30,37 @@ export default function DocLayout({
 }>) {
   const [searchTerm, setSearchTerm] = useState("");
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   const { dictionary } = getDictionaryUseClient(params.locale);
   const NavbarDictionary = dictionary.NavBar;
+
+  const languages = {
+    pt: {
+      label: "Português",
+      icon: (
+        <Image
+          src={"/portugues.png"}
+          alt={"portugues"}
+          height={16}
+          width={16}
+        />
+      ),
+    },
+    en: {
+      label: "English",
+      icon: (
+        <Image src={"/english.png"} alt={"english"} height={16} width={16} />
+      ),
+    },
+    es: {
+      label: "Español",
+      icon: (
+        <Image src={"/spanish.png"} alt={"spanish"} height={16} width={16} />
+      ),
+    },
+  };
 
   const itemClasses = cn(
     "relative px-3 py-2 flex items-center gap-2 rounded-full text-gray-600 dark:text-gray-300 hover:scale-105 duration-700",
@@ -80,7 +106,7 @@ export default function DocLayout({
   };
 
   const toggleDarkMode = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light')
+    setTheme(theme === "light" ? "dark" : "light");
   };
 
   const setLanguage = (language: string) => {
@@ -92,13 +118,12 @@ export default function DocLayout({
     component.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   if (!mounted) {
-    return null
+    return null;
   }
 
   return (
@@ -125,14 +150,14 @@ export default function DocLayout({
                 icon={item.icon}
                 label={item.label}
               >
-              {item.subItems &&
-                item.subItems.map((subItem) => (
-                  <Navbar.Item
-                    key={subItem.id}
-                    itemKey={subItem.id}
-                    label={subItem.label}
-                  />
-                ))}
+                {item.subItems &&
+                  item.subItems.map((subItem) => (
+                    <Navbar.Item
+                      key={subItem.id}
+                      itemKey={subItem.id}
+                      label={subItem.label}
+                    />
+                  ))}
               </Navbar.Item>
             </>
           ))}
@@ -140,16 +165,41 @@ export default function DocLayout({
         <Navbar.Footer className="flex flex-col pl-4 pb-4 gap-4">
           <Dropdown
             size="sm"
-            placeholder={params.locale}
+            placeholder={
+              <div className="flex gap-2">
+                {languages[params.locale as keyof typeof languages].icon}{" "}
+                {languages[params.locale as keyof typeof languages].label}
+              </div>
+            }
             direction="up"
             options={[
-              { label: "🇧🇷", value: "pt" },
-              { label: "🇺🇸", value: "en" },
-              { label: "🇪🇸", value: "es" },
+              {
+                label: (
+                  <div className="flex gap-2">
+                    {languages.pt.icon} {languages.pt.label}
+                  </div>
+                ),
+                value: "pt",
+              },
+              {
+                label: (
+                  <div className="flex gap-2">
+                    {languages.en.icon} {languages.en.label}
+                  </div>
+                ),
+                value: "en",
+              },
+              {
+                label: (
+                  <div className="flex gap-2">
+                    {languages.es.icon} {languages.es.label}
+                  </div>
+                ),
+                value: "es",
+              },
             ]}
             onSelect={(option) => setLanguage(option.value)}
           />
-
           <motion.button
             className={itemClasses}
             onClick={toggleDarkMode}
