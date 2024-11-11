@@ -192,7 +192,7 @@ const NavBarItem = React.forwardRef<
           <div className="absolute left-6 w-[2px] h-[calc(100%-0.5rem)] bg-light-secondary mb-2" />
           {children &&
             React.Children.map(children, (child) => (
-              <motion.div className={subItemClasses}>{child}</motion.div>
+              <motion.div key={itemKey} className={subItemClasses}>{child}</motion.div>
             ))}
         </div>
       )}
