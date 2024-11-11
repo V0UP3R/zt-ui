@@ -14,6 +14,7 @@ import { FiHome, FiMail, FiMoon, FiSettings, FiSun } from "react-icons/fi";
 import { cn } from "@/app/components/utils/cn";
 import { Locale } from "@/i18n/config";
 import { getDictionaryUseClient } from "@/dictionaries/default-dictionaries-use-client";
+import { useTheme } from "next-themes";
 
 const components = [
   { ...Modal, name: "Modal", description: "A modal dialog component" },
@@ -29,6 +30,8 @@ export default function DocLayout({
 }>) {
   const [searchTerm, setSearchTerm] = useState("");
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
 
   const { dictionary } = getDictionaryUseClient(params.locale);
   const NavbarDictionary = dictionary.NavBar;
@@ -77,8 +80,7 @@ export default function DocLayout({
   };
 
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    // onThemeToggle?.(!isDarkMode)
+    setTheme(theme === 'light' ? 'dark' : 'light')
   };
 
   const setLanguage = (language: string) => {
@@ -86,6 +88,46 @@ export default function DocLayout({
     router.push(newPathname);
   };
 
+  const footer = (
+    <>
+      <Dropdown
+        size="sm"
+        placeholder={params.locale}
+        direction="up"
+        options={[{ label: "🇧🇷", value: "pt" }, { label: "🇺🇸", value: "en" }, { label: "🇪🇸", value: "es" }]}
+        onSelect={(option) => setLanguage(option.value)}
+      />
+
+      <motion.button
+        className={itemClasses}
+        onClick={toggleDarkMode}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        {theme === 'light'? (
+          <FiSun className="w-6 h-6"/>
+        ) : (
+          <FiMoon className="w-6 h-6"/>
+        )}
+        <span className="text-sm font-medium">{NavbarDictionary.theme}</span>
+      </motion.button>
+    </>
+  );
+
+  const header = <Image src={isDarkMode ? "/logo-dark.svg" : "/logo-light.svg"} alt="logo" width={90} height={90}/>
+
+  const filteredComponents = components.filter((component) =>
+    component.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
+  }
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add("dark");

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "../../app/globals.css";
 import { i18n } from "@/i18n/config";
+import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,11 +20,11 @@ export default function RootLayout({
   params: {locale: string};
 }>) {
   return (
-    <html lang={params.locale} data-theme="dark">
+    <html lang={params.locale} suppressHydrationWarning>
       <body
         className={`antialiased bg-primary`}
       >
-        {children}
+        <ThemeProvider attribute='class'>{children}</ThemeProvider>
       </body>
     </html>
   );

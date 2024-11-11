@@ -69,7 +69,7 @@ const Dropdown = ({
   return (
     <div className={`relative ${className}`} ref={dropdownRef}>
       <button
-        className={`${sizeClasses[size]} ${buttonClassName} text-left bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:border-transparent`}
+        className={`${sizeClasses[size]} ${buttonClassName} text-left bg-white border border-gray-300 dark:bg-dark-button dark:text-dark-butttonText_HeadLine rounded-md shadow-sm focus:outline-none focus:ring-2 focus:border-transparent`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <span className="block truncate">
@@ -84,7 +84,7 @@ const Dropdown = ({
 
       {isOpen && (
         <div
-          className={`absolute ${sizeClasses[size]} z-10 bg-white rounded-md shadow-lg max-h-60 overflow-auto ${direction === 'up' ? 'bottom-full mb-1' : 'top-full mt-1'}`}
+          className={`absolute ${sizeClasses[size]} z-10 bg-white dark:bg-dark-button dark:text-dark-butttonText_HeadLine rounded-md shadow-lg max-h-60 overflow-auto ${direction === 'up' ? 'bottom-full mb-1' : 'top-full mt-1'}`}
         >
           <ul className={`py-1`}>
             {options.map((option) => (
