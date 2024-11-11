@@ -1,18 +1,7 @@
 'use client'
-import { motion, useAnimation } from 'framer-motion';
-import { useEffect } from 'react';
-import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 
 export default function ContactPage(): JSX.Element {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.2 });
-
-  useEffect(() => {
-    if (inView) {
-      controls.start('visible');
-    }
-  }, [controls, inView]);
-
   const variants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 1 } },
@@ -20,11 +9,12 @@ export default function ContactPage(): JSX.Element {
 
   return (
     <div className="min-h-screen min-w-full bg-light-background text-light-text dark:bg-dark-background dark:text-dark-text">
+      {/* Header Section */}
       <header className="bg-default-blue text-default-white py-16 px-4 text-center rounded-b-lg shadow-md mb-12">
         <motion.h1
-          initial={{ y: -50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
+          initial="hidden"
+          animate="visible"
+          variants={variants}
           className="text-5xl font-bold"
         >
           Entre em Contato
@@ -33,11 +23,11 @@ export default function ContactPage(): JSX.Element {
       </header>
 
       <main className="max-w-7xl mx-auto px-4">
+        {/* Contact Form Section */}
         <motion.section
-          ref={ref}
-          variants={variants}
           initial="hidden"
-          animate={controls}
+          animate="visible"
+          variants={variants}
           className="p-8 rounded-lg shadow-lg mb-12 bg-light-secondary dark:bg-dark-secondary"
         >
           <h2 className="text-4xl font-semibold mb-6">Formulário de Contato</h2>
@@ -69,11 +59,11 @@ export default function ContactPage(): JSX.Element {
           </form>
         </motion.section>
 
+        {/* Contact Information Section */}
         <motion.section
-          ref={ref}
-          variants={variants}
           initial="hidden"
-          animate={controls}
+          animate="visible"
+          variants={variants}
           className="p-8 rounded-lg shadow-lg mb-12 bg-light-secondary dark:bg-dark-secondary"
         >
           <h2 className="text-4xl font-semibold mb-6">Informações de Contato</h2>
@@ -84,11 +74,11 @@ export default function ContactPage(): JSX.Element {
           </div>
         </motion.section>
 
+        {/* Map Section */}
         <motion.section
-          ref={ref}
-          variants={variants}
           initial="hidden"
-          animate={controls}
+          animate="visible"
+          variants={variants}
           className="p-8 rounded-lg shadow-lg mb-12 bg-light-secondary dark:bg-dark-secondary"
         >
           <h2 className="text-4xl font-semibold mb-6">Localização</h2>

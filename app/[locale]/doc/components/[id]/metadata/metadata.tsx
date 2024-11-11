@@ -75,7 +75,9 @@ export interface ComponentMetadata {
 }
 
 import { ButtonMetadata } from "./Button.metadata";
+import { InputMetadata } from "./Input.metadata";
 
 export const componentMetadata: { [key: string]: ComponentMetadata } = {
   Button: ButtonMetadata,
+  Input: InputMetadata
 };

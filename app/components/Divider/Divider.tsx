@@ -6,6 +6,7 @@ export type DividerProps = {
   borderColor?: string;
   thickness?: string;
   marginY?: string;
+  orientation?: 'horizontal' | 'vertical'; // Nova propriedade para orientação
 }
 
 const Divider = ({
@@ -14,14 +15,29 @@ const Divider = ({
   borderColor = 'border-gray-300',
   thickness = 'border-t',
   marginY = 'my-4',
-}:DividerProps) => {
+  orientation = 'horizontal', // Valor padrão é 'horizontal'
+}: DividerProps) => {
+  const isHorizontal = orientation === 'horizontal';
+
   return (
-    <div className={`flex items-center ${marginY}`}>
-      <div className={`flex-grow ${thickness} ${borderColor}`}></div>
-      {text && (
-        <span className={`mx-2 font-semibold ${textColor}`}>{text}</span>
+    <div className={`flex items-center ${marginY} ${isHorizontal ? 'flex-row' : 'flex-col'}`}>
+      {isHorizontal ? (
+        <>
+          <div className={`flex-grow ${thickness} ${borderColor}`}></div>
+          {text && (
+            <span className={`mx-2 font-semibold ${textColor}`}>{text}</span>
+          )}
+          <div className={`flex-grow ${thickness} ${borderColor}`}></div>
+        </>
+      ) : (
+        <>
+          <div className={`flex-grow ${thickness} ${borderColor}`}></div>
+          {text && (
+            <span className={`font-semibold ${textColor}`}>{text}</span>
+          )}
+          <div className={`flex-grow ${thickness} ${borderColor}`}></div>
+        </>
       )}
-      <div className={`flex-grow ${thickness} ${borderColor}`}></div>
     </div>
   );
 };

@@ -15,7 +15,7 @@ import {
 import { getDictionaryUseClient } from "@/dictionaries/default-dictionaries-use-client";
 import { Locale } from "@/i18n/config";
 import { useTheme } from "next-themes";
-import { FaChevronDown, FaTerminal } from "react-icons/fa";
+import { FaChevronDown, FaGithub, FaTerminal } from "react-icons/fa";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus, materialLight, oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 
@@ -284,7 +284,7 @@ export default function MinhaPage() {
                   {Intro.ReadyToStart.install}
                   <FaTerminal className="ml-2 h-4 w-4" />
                 </Button>
-                <Button variant="flat">{Intro.ReadyToStart.github}</Button>
+                <Button onClick={() => window.open("https://github.com/V0UP3R/zt-ui", "_blank")} className="flex gap-1" variant="flat">{Intro.ReadyToStart.github} <FaGithub /></Button>
               </div>
             </div>
           </div>
