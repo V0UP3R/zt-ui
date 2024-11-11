@@ -55,7 +55,7 @@ export default function Page({ params }: { params: { id: string } }) {
       <div className="mb-8">
         <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary">Visualização</h2>
         <div className="p-4 border rounded bg-light-accent dark:bg-dark-accent">
-          <ComponentToRender color={'primary'}>{metadata?.children || 'Exemplo'}</ComponentToRender>
+          <ComponentToRender />
         </div>
       </div>
 
