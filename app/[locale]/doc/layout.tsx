@@ -14,6 +14,7 @@ import { FiMoon, FiSun } from "react-icons/fi";
 import { cn } from "@/app/components/utils/cn";
 import { Locale } from "@/i18n/config";
 import { getDictionaryUseClient } from "@/dictionaries/default-dictionaries-use-client";
+import { useTheme } from "next-themes";
 
 const components = [
   { ...Modal, name: "Modal", description: "A modal dialog component" },
@@ -38,6 +39,8 @@ export default function DocLayout({
   >(components[0]);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
 
   const { dictionary } = getDictionaryUseClient(params.locale);
   const NavbarDictionary = dictionary.NavBar;
@@ -82,8 +85,7 @@ export default function DocLayout({
   };
 
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    // onThemeToggle?.(!isDarkMode)
+    setTheme(theme === 'light' ? 'dark' : 'light')
   };
 
   const setLanguage = (language: string) => {
@@ -107,10 +109,10 @@ export default function DocLayout({
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        {isDarkMode ? (
-          <FiSun className="w-6 h-6" />
+        {theme === 'light'? (
+          <FiSun className="w-6 h-6"/>
         ) : (
-          <FiMoon className="w-6 h-6" />
+          <FiMoon className="w-6 h-6"/>
         )}
         <span className="text-sm font-medium">{NavbarDictionary.theme}</span>
       </motion.button>
@@ -119,17 +121,19 @@ export default function DocLayout({
 
   const header = <Image src={isDarkMode ? "/logo-dark.svg" : "/logo-light.svg"} alt="logo" width={90} height={90}/>
 
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [isDarkMode]);
-
   const filteredComponents = components.filter((component) =>
     component.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
+  }
+
   return (
     <div className="flex min-h-screen bg-light-background dark:bg-dark-background">
       {/* Sidebar */}

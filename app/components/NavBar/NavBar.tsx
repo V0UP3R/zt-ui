@@ -80,7 +80,7 @@ const Navbar = ({
   }
 
   const navbarClasses = cn(
-    "bg-white dark:bg-gray-800 shadow-lg transition-colors duration-300",
+    "bg-white dark:bg-gray-800 shadow-lg transition-colors duration-300 dark:bg-dark-background",
     variant === "aside"
       ? "relative h-screen w-72 flex flex-col" // Flex para coluna em modo "aside"
       : "fixed px-4 py-2 rounded-full flex",

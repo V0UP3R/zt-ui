@@ -14,12 +14,14 @@ import {
 } from "@/app/components/Tabs/Tabs";
 import { getDictionaryUseClient } from "@/dictionaries/default-dictionaries-use-client";
 import { Locale } from "@/i18n/config";
+import { useTheme } from "next-themes";
 import { FaChevronDown, FaTerminal } from "react-icons/fa";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { vscDarkPlus, materialLight, oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 export default function Intro({ params }: { params: { locale: Locale } }) {
   const { dictionary } = getDictionaryUseClient(params.locale);
+  const { theme, setTheme } = useTheme()
 
   const Intro = dictionary.Intro;
 
@@ -61,35 +63,43 @@ export default function Intro({ params }: { params: { locale: Locale } }) {
 
         <section
           id="install-section"
-          className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-900"
+          className="w-full py-12 md:py-24 lg:py-32 bg-light-background dark:bg-dark-background"
         >
           <div className="container px-4 md:px-6">
-            <h2 className="text-3xl text-light-text dark:text-dark-text font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
+            <h2 className="text-3xl text-light-text dark:text-dark-butttonText_HeadLine font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
               {Intro.Install.title}
             </h2>
             <div className="max-w-[700px] mx-auto">
-              <p className="mb-4 text-light-text dark:text-dark-text">
+              <p className="mb-4 text-light-text dark:text-dark-paragraph">
                 {Intro.Install.description}
               </p>
-              <pre className="bg-gray-200 p-4 rounded-md overflow-x-auto">
-                <code>npm install @v0up3r/zt-ui</code>
-              </pre>
-              <p className="mt-4 text-light-text dark:text-dark-text">
+                <SyntaxHighlighter
+                  customStyle={{ borderRadius: 8 }}
+                  language="javascript"
+                  style={theme==='light' ? oneLight : vscDarkPlus }
+                >
+                    npm install @v0up3r/zt-ui
+                </SyntaxHighlighter>
+              <p className="text-light-text mt-4 dark:text-dark-paragraph">
                 {Intro.Install.commandYarn}
               </p>
-              <pre className="bg-gray-200 p-4 rounded-md overflow-x-auto">
-                <code>yarn add @v0up3r/zt-ui</code>
-              </pre>
+              <SyntaxHighlighter
+                  customStyle={{ borderRadius: 8 }}
+                  language="javascript"
+                  style={theme==='light' ? oneLight : vscDarkPlus}
+                >
+                  yarn add @v0up3r/zt-ui
+              </SyntaxHighlighter>
             </div>
           </div>
         </section>
 
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section className="w-full py-12 md:py-24 lg:py-32 dark:bg-dark-other_section_background">
           <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8 dark:text-dark-butttonText_HeadLine">
               {Intro.Examples.title}
             </h2>
-            <Tabs defaultValue="button" className="max-w-[700px] mx-auto">
+            <Tabs defaultValue="button" className="max-w-[700px] mx-auto dark:text-dark-paragraph">
               <TabsList>
                 <TabsTrigger value="button">
                   {Intro.Examples.tabs.button}
@@ -110,7 +120,7 @@ export default function Intro({ params }: { params: { locale: Locale } }) {
                     <SyntaxHighlighter
                       customStyle={{ borderRadius: 8 }}
                       language="javascript"
-                      style={vscDarkPlus}
+                      style={theme==='light' ? oneLight : vscDarkPlus}
                     >
                       {`import { Button } from '@v0up3r/zt-ui'
 
@@ -135,7 +145,7 @@ export default function MinhaPage() {
                     <SyntaxHighlighter
                       customStyle={{ borderRadius: 8 }}
                       language="javascript"
-                      style={vscDarkPlus}
+                      style={theme==='light' ? oneLight : vscDarkPlus}
                     >
                       {`import { Card, CardHeader, CardTitle, CardContent } from '@v0up3r/zt-ui'
 
@@ -175,7 +185,7 @@ export default function MinhaPage() {
                     <SyntaxHighlighter
                       customStyle={{ borderRadius: 8 }}
                       language="javascript"
-                      style={vscDarkPlus}
+                      style={theme==='light' ? oneLight : vscDarkPlus}
                     >
                       {`import { Input, Button } from '@v0up3r/zt-ui'
 
@@ -199,7 +209,7 @@ export default function MinhaPage() {
           </div>
         </section>
 
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-dark-background">
           <div className="container px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8">
               {Intro.ComponentsAvailable.title}
@@ -258,7 +268,7 @@ export default function MinhaPage() {
           </div>
         </section>
 
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section className="w-full py-12 md:py-24 lg:py-32 dark:bg-dark-other_section_background">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
@@ -270,7 +280,7 @@ export default function MinhaPage() {
                 </p>
               </div>
               <div className="space-x-4 flex">
-                <Button className="bg-light-accent text-light-primary dark:bg-dark-accent dark:text-dark-accent">
+                <Button className="bg-light-accent text-light-primary dark:bg-dark-button dark:text-dark-butttonText_HeadLine">
                   {Intro.ReadyToStart.install}
                   <FaTerminal className="ml-2 h-4 w-4" />
                 </Button>

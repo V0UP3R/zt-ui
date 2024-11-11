@@ -20,11 +20,16 @@ const config: Config = {
         },
         // Tema escuro
         dark: {
-          background: '#111827',   // Preto (Gray 900)
-          text: '#D1D5DB',         // Cinza claro (Gray 300)
-          primary: '#3b82f6',      // Cinza escuro (Gray 700)
-          secondary: '#4B5563',    // Cinza médio (Gray 600)
-          accent: '#F9FAFB',       // Branco para detalhes
+          background: '#16161a', 
+          other_section_background: '#242629', 
+          butttonText_HeadLine: '#fffffe',
+          button: '#7f5af0',
+          paragraph:'#94a1b2',
+          borda:'#010101',
+          primary: '#fffffe',    
+          secondary: '#72757e',  
+          tertiary: '#2cb67d',  
+          accent: '#F9FAFB',     
         },
         default:{
           blue:'#2563eb',
