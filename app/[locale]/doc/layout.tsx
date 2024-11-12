@@ -146,6 +146,7 @@ export default function DocLayout({
                 itemKey={item.id}
                 icon={item.icon}
                 label={item.label}
+                selectedClassName="text-light-primary dark:text-dark-secondary bg-light-accent dark:bg-dark-accent flex flex-col"
               >
                 {item.subItems &&
                   item.subItems.map((subItem) => (
@@ -153,6 +154,7 @@ export default function DocLayout({
                       key={subItem.id}
                       itemKey={subItem.id}
                       label={subItem.label}
+                      selectedClassName="text-light-primary dark:text-dark-secondary bg-light-accent dark:bg-dark-accent flex flex-col"
                     />
                   ))}
               </Navbar.Item>

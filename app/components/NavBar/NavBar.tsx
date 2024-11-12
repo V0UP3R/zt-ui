@@ -125,8 +125,10 @@ const NavBarItem = React.forwardRef<
     icon?: IconType;
     label: string;
     itemKey: string | number;
+    className?: string;
+    selectedClassName?: string;
   }
->(({ children, icon: Icon, label, itemKey }, ref) => {
+>(({ children, icon: Icon, label, itemKey, className, selectedClassName }, ref) => {
   const context = React.useContext(NavBarContext);
   const [showSubItems, setShowSubItems] = useState(false);
 
@@ -160,9 +162,9 @@ const NavBarItem = React.forwardRef<
       <motion.button
         key={itemKey}
         className={cn(
+          className,
           itemClasses,
-          activeItem === itemKey &&
-            "text-light-primary dark:text-dark-secondary bg-light-accent dark:bg-dark-accent flex flex-col"
+          activeItem === itemKey && selectedClassName
         )}
         onClick={() => handleItemClick(itemKey)}
         whileTap={{ scale: 0.95 }}

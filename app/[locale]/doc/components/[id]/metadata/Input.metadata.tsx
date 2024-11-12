@@ -31,20 +31,13 @@ export const InputMetadata: ComponentMetadata = {
 
   variants: {
     component: <Input placeholder="Digite aqui" variant="outline" />,
-    codeSnippets: [
-      `<Input placeholder="Digite aqui" variant="outline" />`,
-      `<Input placeholder="Digite aqui" variant="filled" />`
-    ],
+    codeSnippets:`<Input placeholder="Digite aqui" variant="outline" />`,
     description: "Demonstração das variantes do Input (outline, filled, etc.)."
   },
 
   availableSizes: {
     component: <Input placeholder="Tamanho Padrão"/>,
-    codeSnippets: [
-      `<Input placeholder="Pequeno" size="small" />`,
-      `<Input placeholder="Médio" size="medium" />`,
-      `<Input placeholder="Grande" size="large" />`
-    ],
+    codeSnippets: `<Input placeholder="Grande" size="large" />`,
     description: "Exemplos de diferentes tamanhos de Input."
   },
 

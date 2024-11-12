@@ -30,48 +30,25 @@ export const ButtonMetadata: ComponentMetadata = {
 
   availableSizes: {
     component: <Button color="primary">Button</Button>,
-    codeSnippets: [
-      `<Button size="sm">Pequeno</Button>`,
-      `<Button size="md">Médio</Button>`,
-      `<Button size="lg">Grande</Button>`,
-      `<Button size="xl">Extra Grande</Button>`
-    ],
+    codeSnippets:`<Button size="xl">Extra Grande</Button>`,
     description: "Tamanhos disponíveis para o componente."
   },
 
   borderRadiusOptions: {
     component: <Button color="primary">Button</Button>,
-    codeSnippets: [
-      `<Button rounded="none">Sem arredondamento</Button>`,
-      `<Button rounded="sm">Pequeno</Button>`,
-      `<Button rounded="md">Médio</Button>`,
-      `<Button rounded="lg">Grande</Button>`,
-      `<Button rounded="full">Totalmente arredondado</Button>`
-    ],
+    codeSnippets:`<Button rounded="full">Totalmente arredondado</Button>`,
     description: "Opções de arredondamento de borda para o botão."
   },
 
   colors: {
     component: <Button color="primary">Button</Button>,
-    codeSnippets: [
-      `<Button color="primary">Primária</Button>`,
-      `<Button color="secondary">Secundária</Button>`,
-      `<Button color="warning">Aviso</Button>`,
-      `<Button color="success">Sucesso</Button>`,
-      `<Button color="danger">Perigo</Button>`
-    ],
+    codeSnippets:`<Button color="danger">Perigo</Button>`,
     description: "Cores disponíveis para o botão."
   },
 
   variants: {
     component: <Button color="primary">Button</Button>,
-    codeSnippets: [
-      `<Button variant="fill">Preenchido</Button>`,
-      `<Button variant="outline">Contornado</Button>`,
-      `<Button variant="ghost">Transparente</Button>`,
-      `<Button variant="animated">Animado</Button>`,
-      `<Button variant="carousel">Carrossel</Button>`
-    ],
+    codeSnippets:`<Button variant="carousel">Carrossel</Button>`,
     description: "Variantes de estilo do botão."
   },
 

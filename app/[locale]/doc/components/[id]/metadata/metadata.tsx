@@ -20,22 +20,22 @@ export interface ComponentMetadata {
   };
   availableSizes?: {
     component: React.ReactNode;
-    codeSnippets: string[];
+    codeSnippets: string;
     description: string;
   };
   borderRadiusOptions?: {
     component: React.ReactNode;
-    codeSnippets: string[];
+    codeSnippets: string;
     description: string;
   };
   colors?: {
     component: React.ReactNode;
-    codeSnippets: string[];
+    codeSnippets: string;
     description: string;
   };
   variants?: {
     component: React.ReactNode;
-    codeSnippets: string[];
+    codeSnippets: string;
     description: string;
   };
   loadingStateExample?: {

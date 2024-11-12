@@ -15,7 +15,7 @@ export const DisplayComponent = ({
   component,
 }: DisplayComponent) => {
   return (
-    <Tabs defaultValue="component" className="max-w-[700px] mx-auto">
+    <Tabs defaultValue="component" className="">
       <TabsList className="rounded-t-md flex justify-start items-end">
         <TabsTrigger value="component">Visualizar</TabsTrigger>
         <TabsTrigger value="code">Código</TabsTrigger>
