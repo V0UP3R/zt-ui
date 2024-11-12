@@ -189,7 +189,11 @@ const NavBarItem = React.forwardRef<
 
       {showSubItems && (
         <div className="pl-4 flex flex-col relative">
-          <div className="absolute left-6 w-[2px] h-[calc(100%-0.5rem)] bg-light-secondary mb-2" />
+          <motion.div 
+          initial={{ height: 0 }}
+          animate={{ height: 'calc(100% - 0.5rem)' }}
+          transition={{ duration: 1 }}
+          className="absolute left-6 w-[2px] h-[calc(100%-0.5rem)] bg-light-secondary mb-2" />
           {children &&
             React.Children.map(children, (child) => (
               <motion.div key={itemKey} className={subItemClasses}>{child}</motion.div>
