@@ -129,19 +129,16 @@ export default function DocLayout({
   return (
     <div className="flex min-h-screen bg-light-background dark:bg-dark-background">
       <Navbar.Root variant="aside" showLabels onItemClick={handleItemClick}>
-        <Navbar.Header>
+        <Navbar.Header className="pt-4 mb-6 flex flex-col">
           <Image
             src={theme === "dark" ? "/logo-dark.svg" : "/logo-light.svg"}
             alt="logo"
             width={90}
             height={90}
           />
-          <Divider
-            borderColor={theme ? "bg-black" : "bg-black"}
-            thickness="2"
-          />
         </Navbar.Header>
         <Navbar.Content>
+          <Divider className="bg-light-accent/30 dark:bg-dark-accent mb-4"/>
           {navItems.map((item) => (
             <>
               <Navbar.Item

@@ -5,7 +5,6 @@ import {
   Avatar,
   Checkbox,
   Chip,
-  Divider,
   Dropdown,
   Input,
   Modal,
@@ -13,6 +12,7 @@ import {
   Spinner,
   Switch,
   Table,
+  Divider,
 } from '../../../../components'; // Ajuste o caminho conforme necessário
 import { useEffect, useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';

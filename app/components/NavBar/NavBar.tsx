@@ -86,10 +86,14 @@ Navbar.displayName = "Navbar";
 
 const NavbarHeader = React.forwardRef<
   HTMLDivElement,
-  { children: React.ReactNode }
->(({ children }, ref) => {
+  React.HTMLAttributes<HTMLDivElement> & { children: React.ReactNode }
+>(({ children, ...props }, ref) => {
   return (
-    <div ref={ref} className="p-4 flex items-center justify-center">
+    <div
+      ref={ref}
+      {...props}
+      className={cn(props.className, `p-4 flex items-center justify-center`)}
+    >
       {children}
     </div>
   );
@@ -99,10 +103,14 @@ NavbarHeader.displayName = "NavbarHeader";
 
 const NavBarContent = React.forwardRef<
   HTMLDivElement,
-  { children: React.ReactNode }
->(({ children }, ref) => {
+  React.HTMLAttributes<HTMLDivElement> & { children: React.ReactNode }
+>(({ children, ...props }, ref) => {
   return (
-    <div ref={ref} className="flex-grow overflow-y-auto overflow-x-hidden px-2">
+    <div
+      ref={ref}
+      {...props}
+      className={cn(props.className, `flex-grow overflow-y-auto overflow-x-hidden px-2`)}
+    >
       {children}
     </div>
   );
