@@ -5,15 +5,12 @@ export const InputMetadata: ComponentMetadata = {
   title: "Input",
   componentDescription: "Um campo de entrada flexível com suporte a múltiplas variantes e estilos, perfeito para formulários personalizados.",
   installation: {
-    codeSnippet: `npm install sua-biblioteca`,
+    codeSnippets: `npm install sua-biblioteca`,
     description: "Instale a biblioteca com o comando acima para utilizar o componente Input."
   },
 
   importExample: {
-    codeSnippets: [
-      `import { Input } from 'sua-biblioteca'`,
-      `import Input from 'sua-biblioteca/Input'`
-    ],
+    codeSnippets: `import { Input } from 'sua-biblioteca'`,
     description: "Exemplos de como importar o componente Input."
   },
 

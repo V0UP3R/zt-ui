@@ -2,11 +2,11 @@ export interface ComponentMetadata {
   title: string;
   componentDescription?: string;
   installation?: {
-    codeSnippet: string;
+    codeSnippets: string;
     description: string;
   };
   importExample?: {
-    codeSnippets: string[];
+    codeSnippets: string;
     description: string;
   };
   usageExample?: {

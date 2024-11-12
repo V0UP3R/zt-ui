@@ -5,15 +5,12 @@ export const ButtonMetadata: ComponentMetadata = {
   title: "Button",
   componentDescription: "Um botão altamente personalizável que dispara ações ao ser clicado. Possui múltiplas variantes, cores, tamanhos e opções de arredondamento, além de funcionalidades como estado de carregamento e exibição de ícones.",
   installation: {
-    codeSnippet: `npm install sua-biblioteca`,
+    codeSnippets: `npm install sua-biblioteca`,
     description: "Instale a biblioteca com o comando acima para utilizar o componente Button."
   },
 
   importExample: {
-    codeSnippets: [
-      `import { Button } from 'sua-biblioteca'`,
-      `import Button from 'sua-biblioteca/Button'`
-    ],
+    codeSnippets: `import { Button } from 'sua-biblioteca'`,
     description: "Exemplos de como importar o componente Button."
   },
 

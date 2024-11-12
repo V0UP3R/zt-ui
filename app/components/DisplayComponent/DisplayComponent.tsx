@@ -2,6 +2,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Card, CardHeader, CardTitle, CardContent } from "../Card/Card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "../Tabs/Tabs";
+import CodeSnippet from "../CodeSnippet/CodeSnippet";
 
 interface DisplayComponent {
   codeSnippets: string;
@@ -35,13 +36,7 @@ export const DisplayComponent = ({
               <CardTitle>Exemplo de Botão</CardTitle>
             </CardHeader>
             <CardContent>
-              <SyntaxHighlighter
-                customStyle={{ borderRadius: 8 }}
-                language="javascript"
-                style={vscDarkPlus}
-              >
-                {codeSnippets}
-              </SyntaxHighlighter>
+              <CodeSnippet title="" code={codeSnippets} />
             </CardContent>
           </Card>
         </TabsContent>
