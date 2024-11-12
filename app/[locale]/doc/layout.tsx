@@ -128,7 +128,7 @@ export default function DocLayout({
 
   return (
     <div className="flex min-h-screen bg-light-background dark:bg-dark-background">
-      <Navbar.Root variant="aside" showLabels onItemClick={handleItemClick}>
+      <Navbar.Root variant="aside" showLabels onItemClick={handleItemClick} className="dark:shadow-sm dark:shadow-gray-600/85">
         <Navbar.Header className="pt-4 mb-6 flex flex-col">
           <Image
             src={theme === "dark" ? "/logo-dark.svg" : "/logo-light.svg"}
@@ -146,7 +146,7 @@ export default function DocLayout({
                 itemKey={item.id}
                 icon={item.icon}
                 label={item.label}
-                selectedClassName="text-light-primary dark:text-dark-secondary bg-light-accent dark:bg-dark-accent flex flex-col"
+                selectedClassName="text-white dark:text-dark-butttonText_HeadLine bg-light-accent dark:bg-dark-button flex flex-col"
               >
                 {item.subItems &&
                   item.subItems.map((subItem) => (
@@ -154,7 +154,7 @@ export default function DocLayout({
                       key={subItem.id}
                       itemKey={subItem.id}
                       label={subItem.label}
-                      selectedClassName="text-light-primary dark:text-dark-secondary bg-light-accent dark:bg-dark-accent flex flex-col"
+                      selectedClassName="text-white dark:text-dark-butttonText_HeadLine bg-light-accent dark:bg-dark-button flex flex-col"
                     />
                   ))}
               </Navbar.Item>
