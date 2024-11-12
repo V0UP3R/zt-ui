@@ -131,13 +131,13 @@ export default function DocLayout({
       <Navbar.Root variant="aside" showLabels onItemClick={handleItemClick}>
         <Navbar.Header>
           <Image
-            src={isDarkMode ? "/logo-dark.svg" : "/logo-light.svg"}
+            src={theme === "dark" ? "/logo-dark.svg" : "/logo-light.svg"}
             alt="logo"
             width={90}
             height={90}
           />
           <Divider
-            borderColor={isDarkMode ? "bg-black" : "bg-black"}
+            borderColor={theme ? "bg-black" : "bg-black"}
             thickness="2"
           />
         </Navbar.Header>
@@ -206,7 +206,7 @@ export default function DocLayout({
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            {isDarkMode ? (
+            {theme === "light" ? (
               <FiSun className="w-6 h-6" />
             ) : (
               <FiMoon className="w-6 h-6" />
