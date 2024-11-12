@@ -112,8 +112,7 @@ export default function Page({ params }: { params: { id: string } }) {
     { key: "iconOnlyExample", label: "Apenas com Ícone" },
     { key: "customStylesExample", label: "Estilos Customizados" },
     { key: "accessibilityExample", label: "Acessibilidade" },
-    { key: "properties", label: "Propriedades do Componente" },
-    { key: "events", label: "Eventos do Componente" },
+    { key: "properties", label: "Propriedades e Eventos" },
   ];
 
   useEffect(() => {
@@ -342,7 +341,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
             {/* Propriedades do Componente */}
             {metadata.properties && (
-              <div ref={sectionRefs.properties} className="mb-8">
+              <div ref={sectionRefs.properties} className="h-[40vh]">
                 <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary mb-4">
                   Propriedades do Componente
                 </h2>
@@ -358,7 +357,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
             {/* Eventos do Componente */}
             {metadata.events && (
-              <div ref={sectionRefs.events} className="mb-8">
+              <div ref={sectionRefs.events} className="mb-8 h-[40vh]">
                 <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary">
                   Eventos do Componente
                 </h2>

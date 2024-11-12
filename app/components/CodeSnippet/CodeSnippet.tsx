@@ -34,7 +34,7 @@ const CodeSnippet = ({ code, title }: { code: string; title: string }) => {
       <button
         onClick={handleCopy}
         style={{ height: buttonHeight }}
-        className="absolute top-0 right-0 flex items-center p-4 bg-gray-600 text-white rounded hover:bg-gray-700 transition"
+        className="absolute top-[0.4rem] right-0 flex items-center p-4 bg-gray-600 text-white rounded hover:bg-gray-700 transition"
       >
         {copied ? <FiCheck className="mr-1" /> : <FiCopy className="mr-1" />}
       </button>
