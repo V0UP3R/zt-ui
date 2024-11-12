@@ -126,7 +126,7 @@ const NavBarItem = React.forwardRef<
     label: string;
     itemKey: string | number;
     className?: string;
-    selectedClassName?: string;
+    selectedClassName: string;
   }
 >(({ children, icon: Icon, label, itemKey, className, selectedClassName }, ref) => {
   const context = React.useContext(NavBarContext);
