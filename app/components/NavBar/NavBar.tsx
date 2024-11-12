@@ -186,7 +186,7 @@ const NavBarItem = React.forwardRef<
         )}
         {activeItem === itemKey && (
           <motion.div
-            className="absolute inset-0 bg-gray-200 dark:bg-gray-700 rounded-full -z-10"
+            className="absolute inset-0 rounded-full -z-10"
             layoutId="activeBackground"
             transition={{
               type: "spring",
