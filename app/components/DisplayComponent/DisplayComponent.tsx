@@ -24,7 +24,7 @@ export const DisplayComponent = ({
         <TabsContent className="px-4 py-4 bg-light-accent rounded-md rounded-tl-none" value="component">
           <Card>
             <CardHeader>
-              <CardTitle>Exemplo de Botão</CardTitle>
+              <CardTitle>{description}</CardTitle>
             </CardHeader>
             <CardContent>{component}</CardContent>
           </Card>

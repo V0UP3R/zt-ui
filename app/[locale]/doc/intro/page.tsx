@@ -99,8 +99,8 @@ export default function Intro({ params }: { params: { locale: Locale } }) {
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-8 dark:text-dark-butttonText_HeadLine">
               {Intro.Examples.title}
             </h2>
-            <Tabs defaultValue="button" className="max-w-[700px] mx-auto dark:text-dark-paragraph">
-              <TabsList>
+            <Tabs defaultValue="button" className="max-w-[700px] mx-auto dark:text-dark-paragraph rounded-md">
+              <TabsList className="rounded-t-md flex justify-start items-end">
                 <TabsTrigger value="button">
                   {Intro.Examples.tabs.button}
                 </TabsTrigger>
@@ -111,7 +111,7 @@ export default function Intro({ params }: { params: { locale: Locale } }) {
                   {Intro.Examples.tabs.form}
                 </TabsTrigger>
               </TabsList>
-              <TabsContent value="button">
+              <TabsContent className="bg-light-accent" value="button">
                 <Card>
                   <CardHeader>
                     <CardTitle>{Intro.Examples.button.default}</CardTitle>
@@ -136,7 +136,7 @@ export default function MinhaPage() {
                   </CardContent>
                 </Card>
               </TabsContent>
-              <TabsContent value="card">
+              <TabsContent className="bg-light-accent" value="card">
                 <Card>
                   <CardHeader>
                     <CardTitle>{Intro.Examples.card.title}</CardTitle>
@@ -175,8 +175,7 @@ export default function MinhaPage() {
                   </CardContent>
                 </Card>
               </TabsContent>
-
-              <TabsContent value="form">
+              <TabsContent className="bg-light-accent" value="form">
                 <Card>
                   <CardHeader>
                     <CardTitle>{Intro.Examples.form.title}</CardTitle>

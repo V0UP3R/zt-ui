@@ -1,4 +1,5 @@
 export interface ComponentMetadata {
+  title: string;
   componentDescription?: string;
   installation?: {
     codeSnippet: string;
