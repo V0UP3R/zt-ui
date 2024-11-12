@@ -39,7 +39,7 @@ export interface NavbarProps {
 const Navbar = React.forwardRef<HTMLDivElement, NavbarProps>(
   (
     {
-      initialActiveItem = "home",
+      initialActiveItem = "intro",
       variant = "bottom",
       align = "center",
       onThemeToggle,

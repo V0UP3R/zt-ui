@@ -16,12 +16,12 @@ export const DisplayComponent = ({
 }: DisplayComponent) => {
   return (
     <Tabs defaultValue="component" className="max-w-[700px] mx-auto">
-      <TabsList className="rounded-t-md bg-light-primary">
+      <TabsList className="rounded-t-md flex justify-start items-end">
         <TabsTrigger value="component">Visualizar</TabsTrigger>
         <TabsTrigger value="code">Código</TabsTrigger>
       </TabsList>
       <div className="rounded-b-md">
-        <TabsContent className="px-4 py-4 bg-light-primary rounded-md rounded-tl-none" value="component">
+        <TabsContent className="px-4 py-4 bg-light-accent rounded-md rounded-tl-none" value="component">
           <Card>
             <CardHeader>
               <CardTitle>Exemplo de Botão</CardTitle>
@@ -29,9 +29,9 @@ export const DisplayComponent = ({
             <CardContent>{component}</CardContent>
           </Card>
         </TabsContent>
-        <TabsContent className="px-4 py-4 bg-light-primary rounded-md rounded-tl-none" value="code">
+        <TabsContent className="px-4 py-4 bg-light-accent rounded-md rounded-tl-none" value="code">
           <Card>
-            <CardHeader>
+            <CardHeader className="text-light-background">
               <CardTitle>Exemplo de Botão</CardTitle>
             </CardHeader>
             <CardContent>
