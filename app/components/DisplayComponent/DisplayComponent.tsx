@@ -9,39 +9,43 @@ interface DisplayComponent {
   component: React.ReactNode;
 }
 
-export const DisplayComponent = ({codeSnippets, description, component}: DisplayComponent) => {
+export const DisplayComponent = ({
+  codeSnippets,
+  description,
+  component,
+}: DisplayComponent) => {
   return (
-    <Tabs defaultValue="component" className="max-w-[700px] mx-auto bg-gray-400">
-      <TabsList className="bg-gray-400">
+    <Tabs defaultValue="component" className="max-w-[700px] mx-auto">
+      <TabsList className="rounded-t-md bg-light-primary">
         <TabsTrigger value="component">Visualizar</TabsTrigger>
         <TabsTrigger value="code">Código</TabsTrigger>
       </TabsList>
-      <TabsContent className="bg-gray-400 px-4 py-4" value="component">
-        <Card>
-          <CardHeader>
-            <CardTitle>Exemplo de Botão</CardTitle>
-          </CardHeader>
-          <CardContent>
-              {component}
-          </CardContent>
-        </Card>
-      </TabsContent>
-      <TabsContent className="bg-gray-400 px-4 py-4" value="code">
-        <Card>
-          <CardHeader>
-            <CardTitle>Exemplo de Botão</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <SyntaxHighlighter
-              customStyle={{ borderRadius: 8 }}
-              language="javascript"
-              style={vscDarkPlus}
-            >
-              {codeSnippets}
-            </SyntaxHighlighter>
-          </CardContent>
-        </Card>
-      </TabsContent>
+      <div className="rounded-b-md">
+        <TabsContent className="px-4 py-4 bg-light-primary rounded-md rounded-tl-none" value="component">
+          <Card>
+            <CardHeader>
+              <CardTitle>Exemplo de Botão</CardTitle>
+            </CardHeader>
+            <CardContent>{component}</CardContent>
+          </Card>
+        </TabsContent>
+        <TabsContent className="px-4 py-4 bg-light-primary rounded-md rounded-tl-none" value="code">
+          <Card>
+            <CardHeader>
+              <CardTitle>Exemplo de Botão</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <SyntaxHighlighter
+                customStyle={{ borderRadius: 8 }}
+                language="javascript"
+                style={vscDarkPlus}
+              >
+                {codeSnippets}
+              </SyntaxHighlighter>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </div>
     </Tabs>
   );
 };

@@ -41,23 +41,10 @@ export default function Page({ params }: { params: { id: string } }) {
     setComponentName(name);
   }, [params.id]);
 
-  const ComponentToRender = componentMap[componentName as keyof typeof componentMap];
   const metadata = componentMetadata[componentName as keyof typeof componentMetadata];
-
-  if (!ComponentToRender) {
-    return <div className="text-light-text dark:text-dark-text">Componente não encontrado.</div>;
-  }
 
   return (
     <div className="container mx-auto bg-light-background dark:bg-dark-background text-light-accent dark:text-dark-text p-8">
-      <h1 className="text-3xl font-bold mb-4">Componente: {componentName}</h1>
-
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary">Visualização</h2>
-        <div className="p-4 border rounded bg-light-accent dark:bg-dark-accent">
-          <ComponentToRender />
-        </div>
-      </div>
 
       {metadata && (
         <>
