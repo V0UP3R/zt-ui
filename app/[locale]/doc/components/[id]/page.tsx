@@ -21,6 +21,8 @@ import { componentMetadata } from "./metadata/metadata";
 import { DisplayComponent } from "@/app/components/DisplayComponent/DisplayComponent";
 import { FiCheck, FiCopy } from "react-icons/fi";
 import CodeSnippet from "@/app/components/CodeSnippet/CodeSnippet";
+import { BsTwitterX } from "react-icons/bs";
+import { FaDiscord, FaGithub } from "react-icons/fa";
 
 const componentMap: { [key: string]: React.ComponentType<any> } = {
   Button,
@@ -39,7 +41,9 @@ export default function Page({ params }: { params: { id: string } }) {
   const [componentName, setComponentName] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
-  const sectionRefs:{[key: string]: React.RefObject<HTMLDivElement>;} = {
+  const socialmediaIconClass="w-6 h-6";
+
+  const sectionRefs: { [key: string]: React.RefObject<HTMLDivElement> } = {
     componentDescription: useRef<HTMLDivElement>(null),
     installation: useRef<HTMLDivElement>(null),
     importExample: useRef<HTMLDivElement>(null),
@@ -60,7 +64,10 @@ export default function Page({ params }: { params: { id: string } }) {
 
   const scrollToSection = (sectionKey: string) => {
     setActiveSection(sectionKey);
-    sectionRefs[sectionKey].current?.scrollIntoView({ behavior: "smooth", block:"center"});
+    sectionRefs[sectionKey].current?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
   };
 
   useEffect(() => {
@@ -158,7 +165,10 @@ export default function Page({ params }: { params: { id: string } }) {
             {/* Instalação */}
             {metadata.installation && (
               <div className="mb-8">
-                <h2 ref={sectionRefs.installation} className="text-2xl font-semibold text-light-text dark:text-dark-primary mb-4">
+                <h2
+                  ref={sectionRefs.installation}
+                  className="text-2xl font-semibold text-light-text dark:text-dark-primary mb-4"
+                >
                   Instalação
                 </h2>
                 <CodeSnippet
@@ -171,7 +181,10 @@ export default function Page({ params }: { params: { id: string } }) {
             {/* Importação */}
             {metadata.importExample && (
               <div className="mb-8">
-                <h2 ref={sectionRefs.importExample} className="text-2xl font-semibold text-light-text dark:text-dark-primary mb-4">
+                <h2
+                  ref={sectionRefs.importExample}
+                  className="text-2xl font-semibold text-light-text dark:text-dark-primary mb-4"
+                >
                   Importação
                 </h2>
                 <CodeSnippet
@@ -381,23 +394,31 @@ export default function Page({ params }: { params: { id: string } }) {
           className="w-[1px] bg-light-accent/20 dark:bg-dark-accent/40"
           orientation="vertical"
         />
-        <ul className="w-full h-full flex flex-col ml-20 mt-20 gap-2 text-left text-light-text font-semibold">
-          {navigationItems.map((item) => (
-            (metadata && Object.keys(metadata).includes(item.key) &&
-            <li
-              key={item.key}
-              className={`cursor-pointer transition-colors duration-200 hover:text-blue-400 ${
-                activeSection === item.key
-                  ? "text-blue-500"
-                  : "text-light-text dark:text-dark-text"
-              }`}
-              onClick={() => scrollToSection(item.key)}
-            >
-              {item.label}
-            </li>
-            )
-          ))}
-        </ul>
+        <div className="w-full h-full flex flex-col justify-between pt-14 pb-4 gap-2 text-left text-light-text font-semibold">
+          <div className="w-full pl-20">
+            <h1 className="text-3xl mb-4 font-bold">Tópicos</h1>
+            <ul className="w-full h-full flex flex-col gap-2 text-left text-light-text font-semibold">
+              {navigationItems.map(
+                (item) =>
+                  metadata &&
+                  Object.keys(metadata).includes(item.key) && (
+                    <li
+                      key={item.key}
+                      className={`cursor-pointer transition-colors duration-200 hover:text-blue-400 ${
+                        activeSection === item.key
+                          ? "text-blue-500"
+                          : "text-light-text dark:text-dark-text"
+                      }`}
+                      onClick={() => scrollToSection(item.key)}
+                    >
+                      {item.label}
+                    </li>
+                  )
+              )}
+            </ul>
+          </div>
+          <div className="flex gap-4 h-20 w-full bg-light-accent text-light-primary justify-center items-center"><BsTwitterX className={socialmediaIconClass}/><FaDiscord className={socialmediaIconClass}/><FaGithub className={socialmediaIconClass}/></div>
+        </div>
       </div>
     </div>
   );
