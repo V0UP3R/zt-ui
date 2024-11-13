@@ -394,10 +394,10 @@ export default function Page({ params }: { params: { id: string } }) {
           className="w-[1px] bg-light-accent/20 dark:bg-dark-accent/40"
           orientation="vertical"
         />
-        <div className="w-full h-full flex flex-col justify-between pt-14 pb-4 gap-2 text-left text-light-text font-semibold">
-          <div className="w-full pl-20">
-            <h1 className="text-3xl mb-4 font-bold">Tópicos</h1>
-            <ul className="w-full h-full flex flex-col gap-2 text-left text-light-text font-semibold">
+        <div className="w-full h-full flex flex-col justify-between pt-14 gap-2 text-left text-light-text font-semibold">
+          <div className="w-full flex flex-col items-center">
+            <h1 className="w-1/2 text-3xl mb-4 font-bold">Tópicos</h1>
+            <ul className="w-1/2 h-full flex flex-col gap-2 text-left text-light-text font-semibold">
               {navigationItems.map(
                 (item) =>
                   metadata &&
@@ -417,7 +417,7 @@ export default function Page({ params }: { params: { id: string } }) {
               )}
             </ul>
           </div>
-          <div className="flex gap-4 h-20 w-full bg-light-accent text-light-primary justify-center items-center"><BsTwitterX className={socialmediaIconClass}/><FaDiscord className={socialmediaIconClass}/><FaGithub className={socialmediaIconClass}/></div>
+          <div className="flex gap-6 h-20 w-full bg-light-accent text-light-primary justify-center items-center"><BsTwitterX className={socialmediaIconClass}/><FaDiscord className={socialmediaIconClass}/><FaGithub className={socialmediaIconClass}/></div>
         </div>
       </div>
     </div>
