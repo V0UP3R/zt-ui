@@ -358,7 +358,7 @@ export default function Page({ params }: { params: { id: string } }) {
                 <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary mb-4">
                   Propriedades do Componente
                 </h2>
-                <ul className="list-disc list-inside">
+                <ul className="list-disc list-inside dark:text-dark-primary">
                   {metadata.properties.map((prop) => (
                     <li key={prop.name}>
                       <strong>{prop.name}:</strong> {prop.description}
@@ -374,7 +374,7 @@ export default function Page({ params }: { params: { id: string } }) {
                 <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary">
                   Eventos do Componente
                 </h2>
-                <ul className="list-disc list-inside">
+                <ul className="list-disc list-inside dark:text-dark-primary">
                   {metadata.events.map((event) => (
                     <li key={event.name}>
                       <strong>{event.name}:</strong> {event.description}
@@ -394,9 +394,9 @@ export default function Page({ params }: { params: { id: string } }) {
           className="w-[1px] bg-light-accent/20 dark:bg-dark-accent/40"
           orientation="vertical"
         />
-        <div className="w-full h-full flex flex-col justify-between pt-14 gap-2 text-left text-light-text font-semibold">
+        <div className="w-full h-full flex flex-col justify-between pt-14 gap-2 text-left text-light-text dark: font-semibold">
           <div className="w-full flex flex-col items-center">
-            <h1 className="w-1/2 text-3xl mb-4 font-bold">Tópicos</h1>
+            <h1 className="w-1/2 text-3xl mb-4 font-bold dark:text-dark-butttonText_HeadLine">Tópicos</h1>
             <ul className="w-1/2 h-full flex flex-col gap-2 text-left text-light-text font-semibold">
               {navigationItems.map(
                 (item) =>
@@ -404,9 +404,9 @@ export default function Page({ params }: { params: { id: string } }) {
                   Object.keys(metadata).includes(item.key) && (
                     <li
                       key={item.key}
-                      className={`cursor-pointer transition-colors duration-200 hover:text-blue-400 ${
+                      className={`cursor-pointer transition-colors duration-200 hover:text-blue-400 dark:hover:text-dark-button ${
                         activeSection === item.key
-                          ? "text-blue-500"
+                          ? "text-blue-500 dark:text-dark-button"
                           : "text-light-text dark:text-dark-text"
                       }`}
                       onClick={() => scrollToSection(item.key)}
@@ -417,7 +417,7 @@ export default function Page({ params }: { params: { id: string } }) {
               )}
             </ul>
           </div>
-          <div className="flex gap-6 h-20 w-full bg-light-accent text-light-primary justify-center items-center"><BsTwitterX className={socialmediaIconClass}/><FaDiscord className={socialmediaIconClass}/><FaGithub className={socialmediaIconClass}/></div>
+          <div className="flex gap-6 h-20 w-full bg-light-accent text-light-primary dark:bg-dark-background justify-center items-center"><BsTwitterX className={socialmediaIconClass}/><FaDiscord className={socialmediaIconClass}/><FaGithub className={socialmediaIconClass}/></div>
         </div>
       </div>
     </div>
