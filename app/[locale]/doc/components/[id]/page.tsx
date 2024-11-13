@@ -40,7 +40,7 @@ export default function Page({ params }: { params: { id: string } }) {
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
   const sectionRefs:{[key: string]: React.RefObject<HTMLDivElement>;} = {
-    description: useRef<HTMLDivElement>(null),
+    componentDescription: useRef<HTMLDivElement>(null),
     installation: useRef<HTMLDivElement>(null),
     importExample: useRef<HTMLDivElement>(null),
     usageExample: useRef<HTMLDivElement>(null),
@@ -98,7 +98,7 @@ export default function Page({ params }: { params: { id: string } }) {
   }, [componentName]);
 
   const navigationItems = [
-    { key: "description", label: "Descrição do Componente" },
+    { key: "componentDescription", label: "Descrição do Componente" },
     { key: "installation", label: "Instalação" },
     { key: "importExample", label: "Importação" },
     { key: "usageExample", label: "Uso Básico" },
@@ -127,7 +127,7 @@ export default function Page({ params }: { params: { id: string } }) {
     <div className="flex justify-between w-full">
       <div className="w-9/12 flex items-center justify-center container bg-light-background dark:bg-dark-other_section_background text-light-accent dark:text-dark-text py-8">
         {metadata && (
-          <div className="w-9/12 flex flex-col gap-16">
+          <div className="w-9/12 flex flex-col">
             <div className="w-full mb-20 flex flex-col items-center gap-8">
               <h1 className="text-6xl font-bold uppercase text-light-text dark:text-dark-accent">
                 {metadata.title}
@@ -140,7 +140,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
             {/* Descrição */}
             {metadata.componentDescription && (
-              <div className="mb-8" ref={sectionRefs.description}>
+              <div className="mb-8" ref={sectionRefs.componentDescription}>
                 <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary mb-4">
                   Descrição
                 </h2>
@@ -157,7 +157,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
             {/* Instalação */}
             {metadata.installation && (
-              <>
+              <div className="mb-8">
                 <h2 ref={sectionRefs.installation} className="text-2xl font-semibold text-light-text dark:text-dark-primary mb-4">
                   Instalação
                 </h2>
@@ -165,12 +165,12 @@ export default function Page({ params }: { params: { id: string } }) {
                   title={"Instalação"}
                   code={metadata.installation.codeSnippets}
                 />
-              </>
+              </div>
             )}
 
             {/* Importação */}
             {metadata.importExample && (
-              <>
+              <div className="mb-8">
                 <h2 ref={sectionRefs.importExample} className="text-2xl font-semibold text-light-text dark:text-dark-primary mb-4">
                   Importação
                 </h2>
@@ -178,7 +178,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   title={"Importação"}
                   code={metadata.importExample.codeSnippets}
                 />
-              </>
+              </div>
             )}
 
             {/* Uso do Componente */}
@@ -383,6 +383,7 @@ export default function Page({ params }: { params: { id: string } }) {
         />
         <ul className="w-full h-full flex flex-col ml-20 mt-20 gap-2 text-left text-light-text font-semibold">
           {navigationItems.map((item) => (
+            (metadata && Object.keys(metadata).includes(item.key) &&
             <li
               key={item.key}
               className={`cursor-pointer transition-colors duration-200 hover:text-blue-400 ${
@@ -394,6 +395,7 @@ export default function Page({ params }: { params: { id: string } }) {
             >
               {item.label}
             </li>
+            )
           ))}
         </ul>
       </div>
