@@ -127,7 +127,7 @@ export default function Page({ params }: { params: { id: string } }) {
     <div className="flex justify-between w-full">
       <div className="w-9/12 flex items-center justify-center container bg-light-background dark:bg-dark-other_section_background text-light-accent dark:text-dark-text py-8">
         {metadata && (
-          <div className="w-9/12 flex flex-col">
+          <div className="w-9/12 flex flex-col gap-8">
             <div className="w-full mb-20 flex flex-col items-center gap-8">
               <h1 className="text-6xl font-bold uppercase text-light-text dark:text-dark-accent">
                 {metadata.title}
@@ -341,7 +341,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
             {/* Propriedades do Componente */}
             {metadata.properties && (
-              <div ref={sectionRefs.properties} className="h-[40vh]">
+              <div ref={sectionRefs.properties} className="mb-6">
                 <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary mb-4">
                   Propriedades do Componente
                 </h2>
@@ -357,7 +357,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
             {/* Eventos do Componente */}
             {metadata.events && (
-              <div ref={sectionRefs.events} className="mb-8 h-[40vh]">
+              <div ref={sectionRefs.events} className="h-[35vh]">
                 <h2 className="text-2xl font-semibold text-light-text dark:text-dark-primary">
                   Eventos do Componente
                 </h2>
