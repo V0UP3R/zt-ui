@@ -23,6 +23,7 @@ import { FiCheck, FiCopy } from "react-icons/fi";
 import CodeSnippet from "@/app/components/CodeSnippet/CodeSnippet";
 import { BsTwitterX } from "react-icons/bs";
 import { FaDiscord, FaGithub } from "react-icons/fa";
+import Link from "next/link";
 
 const componentMap: { [key: string]: React.ComponentType<any> } = {
   Button,
@@ -41,7 +42,7 @@ export default function Page({ params }: { params: { id: string } }) {
   const [componentName, setComponentName] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
-  const socialmediaIconClass="w-6 h-6";
+  const socialmediaIconClass = "w-6 h-6 hover:text-default-blue dark:hover:text-dark-button duration-600 transition-colors";
 
   const sectionRefs: { [key: string]: React.RefObject<HTMLDivElement> } = {
     componentDescription: useRef<HTMLDivElement>(null),
@@ -396,7 +397,9 @@ export default function Page({ params }: { params: { id: string } }) {
         />
         <div className="w-full h-full flex flex-col justify-between pt-14 gap-2 text-left text-light-text dark: font-semibold">
           <div className="w-full flex flex-col items-center">
-            <h1 className="w-1/2 text-3xl mb-4 font-bold dark:text-dark-butttonText_HeadLine">Tópicos</h1>
+            <h1 className="w-1/2 text-3xl mb-4 font-bold dark:text-dark-butttonText_HeadLine">
+              Tópicos
+            </h1>
             <ul className="w-1/2 h-full flex flex-col gap-2 text-left text-light-text font-semibold">
               {navigationItems.map(
                 (item) =>
@@ -417,7 +420,17 @@ export default function Page({ params }: { params: { id: string } }) {
               )}
             </ul>
           </div>
-          <div className="flex gap-6 h-20 w-full bg-light-accent text-light-primary dark:bg-dark-background justify-center items-center"><BsTwitterX className={socialmediaIconClass}/><FaDiscord className={socialmediaIconClass}/><FaGithub className={socialmediaIconClass}/></div>
+          <div className="flex gap-6 h-20 w-full bg-light-accent text-light-primary dark:bg-dark-background justify-center items-center">
+            <Link href={"#"}>
+              <BsTwitterX className={socialmediaIconClass} />
+            </Link>
+            <Link href={"#"}>
+            <FaDiscord className={socialmediaIconClass} />
+            </Link>
+            <Link href={"#"}>
+              <FaGithub className={socialmediaIconClass} />
+            </Link>
+          </div>
         </div>
       </div>
     </div>
