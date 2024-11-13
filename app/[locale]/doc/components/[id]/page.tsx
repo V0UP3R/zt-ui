@@ -392,7 +392,7 @@ export default function Page({ params }: { params: { id: string } }) {
         className="w-3/12 h-screen flex dark:bg-dark-other_section_background bg-fixed sticky top-0"
       >
         <Divider
-          className="w-[1px] bg-light-accent/20 dark:bg-dark-accent/40"
+          className="w-[1px] bg-light-accent/20 dark:bg-dark-accent/10"
           orientation="vertical"
         />
         <div className="w-full h-full flex flex-col justify-between pt-14 gap-2 text-left text-light-text dark: font-semibold">
